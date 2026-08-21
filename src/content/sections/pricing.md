@@ -1,89 +1,89 @@
 ---
 enable: true
-title: Flexible Pricing for Every Stage
-badge: Pricing Plans
-offer_yearly: 35% Off
+title: Wählen Sie das passende Preispaket
+subtitle: Je nach Grösse Ihrer Webseite können Sie Ihr individuelles Preispaket wählen. Sind Sie unsicher, welches Paket am besten zu Ihnen passt? Kontaktieren Sie mich gerne für eine persönliche Beratung.
+badge: ""
+offer_yearly: ""
 pricing_plans:
-  - name: Standard
-    content: Create, edit, and refine with AI support
+  - name: Onepager
+    content: Der professionelle Einstieg für Einzelunternehmen und kleine Teams.
     price:
       monthly:
-        number: 19
-        prefix: $
-        suffix: /month
+        number: 700
+        prefix: CHF
+        suffix: .–
       yearly:
-        number: 190
-        prefix: $
-        suffix: /year
+        number: 700
+        prefix: CHF
+        suffix: .–
     features:
-      - value: Maximum 1 User Services
+      - value: Eine individuelle Inhaltsseite
         include: true
-      - value: Basic Dashboard Access
+      - value: Responsives Webdesign
         include: true
-      - value: Limited Integrations
+      - value: Suchmaschinenfreundliche Inhalte
         include: true
-      - value: Multi-language support
-        include: false
-      - value: Community Support
-        include: false
-
+      - value: Kontaktformular inklusive Datenschutz
+        include: true
+      - value: Technische Qualitätssicherung und Liveschaltung
+        include: true
     button:
-      label: Purchase Now
+      label: Jetzt anfragen
       link: /contact
       enable: true
-  - name: Professional
-    content: Your Al companion for flawless writing
+
+  - name: KMU Basic
+    content: Unser meistgewähltes Paket für Unternehmen mit mehreren Leistungen oder Zielgruppen.
     highlighted: true
     price:
       monthly:
-        number: 129
-        prefix: $
-        suffix: /month
+        number: 1500
+        prefix: CHF
+        suffix: .–
       yearly:
-        number: 1290
-        prefix: $
-        suffix: /year
+        number: 1500
+        prefix: CHF
+        suffix: .–
     features:
-      - value: Maximum 1 User Services
+      - value: Bis zu 6 individuelle Inhaltsseiten
         include: true
-      - value: Basic Dashboard Access
+      - value: Responsives Premium-Design
         include: true
-      - value: Limited Integrations
+      - value: Suchmaschinenfreundliche Seitenstruktur
         include: true
-      - value: Multi-language support
+      - value: Inhalte inklusive Keyword-Recherche
         include: true
-      - value: Community Support
-        include: false
-
+      - value: Korrekturen bis zu 4 Stunden
+        include: true
     button:
-      label: Purchase Now
+      label: Jetzt anfragen
       link: /contact
       enable: true
-  - name: Enterprise
-    content: Al-enhanced writing, made effortless.
+
+  - name: KMU Custom
+    content: Für Organisationen mit umfangreicheren Inhalten und individuellen Anforderungen.
     price:
       monthly:
-        number: 339
-        prefix: $
-        suffix: /month
+        number: 5600
+        prefix: ab CHF
+        suffix: .–
       yearly:
-        number: 549
-        prefix: $
-        suffix: /year
+        number: 5600
+        prefix: ab CHF
+        suffix: .–
     features:
-      - value: Maximum 1 User Services
+      - value: Bis zu 12 Inhaltsseiten inklusive Landingpages
         include: true
-      - value: Basic Dashboard Access
+      - value: Individuelles UX- und Designkonzept
         include: true
-      - value: Limited Integrations
+      - value: Erweiterte SEO-Strategie und interne Verlinkung
         include: true
-      - value: Multi-language support
+      - value: Zweisprachigkeit vorbereitet
         include: true
-      - value: Community Support
+      - value: Blog-System und persönliche Projektbegleitung
         include: true
-
     button:
-      label: Purchase Now
+      label: Jetzt anfragen
       link: /contact
       enable: true
 ---
