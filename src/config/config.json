@@ -5,10 +5,10 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/codepixel-logo.png",
-    "logo_width": "220",
-    "logo_height": "90",
-    "logo_text": "Codepixel"
+    "logo": "",
+    "logo_width": "190",
+    "logo_height": "54",
+    "logo_text": "codepixel"
   },
   "settings": {
     "sticky_header": true,
