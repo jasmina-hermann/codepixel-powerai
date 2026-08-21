@@ -1,9 +1,11 @@
 {
   // Cloudflare Workers — Static Assets deployment
-  // Deploy:  npm run deploy:cf-workers
+  // Deploy: npm run deploy:cf-workers
   // Preview: npm run preview:cf-workers
-  "name": "powerai-astro",
+  "name": "codepixel-powerai",
   "compatibility_date": "2026-03-02",
+  "workers_dev": true,
+  "preview_urls": true,
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
