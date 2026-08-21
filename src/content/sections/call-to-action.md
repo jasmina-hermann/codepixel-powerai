@@ -1,9 +1,9 @@
 ---
 enable: true
-title: "Start building smarter solutions for your business"
-description: "Unlock the full potential of automation, insights, and productivity with PowerAI"
+title: "Bereit für eine Website, die Eindruck hinterlässt?"
+description: "Erzählen Sie uns von Ihrem Projekt. Wir verbinden Strategie, Design und Technik zu einem digitalen Auftritt mit Wirkung."
 button:
   enable: true
-  label: "Edit with Sitepins"
-  link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+  label: "Projekt unverbindlich anfragen"
+  link: "/contact"
 ---

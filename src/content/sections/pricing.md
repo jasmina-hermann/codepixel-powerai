@@ -1,89 +1,86 @@
 ---
 enable: true
-title: Flexible Pricing for Every Stage
-badge: Pricing Plans
-offer_yearly: 35% Off
+title: Transparente Preise für Ihren neuen Webauftritt
+badge: "Webdesign-Pakete"
+offer_yearly: Individuelle Offerte
 pricing_plans:
-  - name: Standard
-    content: Create, edit, and refine with AI support
+  - name: Starter
+    content: Für Selbstständige und kleine Unternehmen
     price:
       monthly:
-        number: 19
-        prefix: $
-        suffix: /month
+        number: 999
+        prefix: "CHF "
+        suffix: ""
       yearly:
-        number: 190
-        prefix: $
-        suffix: /year
+        number: 999
+        prefix: "CHF "
+        suffix: ""
     features:
-      - value: Maximum 1 User Services
+      - value: Individuelle Onepage-Website
         include: true
-      - value: Basic Dashboard Access
+      - value: Responsive Design
         include: true
-      - value: Limited Integrations
+      - value: Kontaktformular
         include: true
-      - value: Multi-language support
+      - value: SEO-Grundoptimierung
+        include: true
+      - value: Mehrsprachigkeit
         include: false
-      - value: Community Support
-        include: false
-
     button:
-      label: Purchase Now
+      label: Projekt anfragen
       link: /contact
       enable: true
-  - name: Professional
-    content: Your Al companion for flawless writing
+  - name: Business
+    content: Der professionelle Auftritt für wachsende Unternehmen
     highlighted: true
     price:
       monthly:
-        number: 129
-        prefix: $
-        suffix: /month
+        number: 2490
+        prefix: "CHF "
+        suffix: ""
       yearly:
-        number: 1290
-        prefix: $
-        suffix: /year
+        number: 2490
+        prefix: "CHF "
+        suffix: ""
     features:
-      - value: Maximum 1 User Services
+      - value: Bis zu 7 individuelle Seiten
         include: true
-      - value: Basic Dashboard Access
+      - value: Responsive Premium-Design
         include: true
-      - value: Limited Integrations
+      - value: SEO und Performance
         include: true
-      - value: Multi-language support
+      - value: Animationen und Effekte
         include: true
-      - value: Community Support
-        include: false
-
+      - value: Mehrsprachigkeit
+        include: true
     button:
-      label: Purchase Now
+      label: Beratung starten
       link: /contact
       enable: true
-  - name: Enterprise
-    content: Al-enhanced writing, made effortless.
+  - name: Signature
+    content: Für anspruchsvolle Marken und besondere digitale Erlebnisse
     price:
       monthly:
-        number: 339
-        prefix: $
-        suffix: /month
+        number: 4990
+        prefix: "ab CHF "
+        suffix: ""
       yearly:
-        number: 549
-        prefix: $
-        suffix: /year
+        number: 4990
+        prefix: "ab CHF "
+        suffix: ""
     features:
-      - value: Maximum 1 User Services
+      - value: Individuelles UX- und Designkonzept
         include: true
-      - value: Basic Dashboard Access
+      - value: Premium-Animationen
         include: true
-      - value: Limited Integrations
+      - value: Galaktische 3D-Effekte
         include: true
-      - value: Multi-language support
+      - value: Erweiterte SEO-Struktur
         include: true
-      - value: Community Support
+      - value: Persönliche Projektbegleitung
         include: true
-
     button:
-      label: Purchase Now
+      label: Signature-Projekt anfragen
       link: /contact
       enable: true
 ---

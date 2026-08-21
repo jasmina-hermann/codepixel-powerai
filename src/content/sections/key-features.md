@@ -1,32 +1,32 @@
 ---
 enable: true
-title: More Features That Converts
-badge: "Key Features"
+title: Webseiten mit Konzept, Charakter und messbarer Wirkung
+badge: "Unsere Leistungen"
 track:
-  top_note: "Always on Track"
-  title: Seamless integration
-  bottom_note: Analytics Results
-  link: "#"
+  top_note: "Klar positioniert"
+  title: Für jedes Display
+  bottom_note: Sichtbar & schnell
+  link: "/contact"
 features:
-  - title: It’s makes tracking more manageable.
-    track: "Always on Track"
-    content: Advanced AI tools designed to streamline content editing, adaptation, and scaling
+  - title: Marken-Webseiten, die Vertrauen schaffen
+    track: "Individuelles Webdesign"
+    content: Keine Vorlage von der Stange. Wir entwickeln einen digitalen Auftritt, der zu Ihrer Marke passt und Besucher gezielt zur Anfrage führt.
     image: "/images/features/feature-1.png"
     bullet_points:
-      - "Track Progress of Team"
-      - "Check Project Progress"
-  - title: PowerAI is connected with 20+ tools that helps.
-    track: "Seamless integration"
-    content: PowerAI integrates with 20+ essential tools to help startups move faster and scale smarter
+      - "Individuelles Design"
+      - "Klare Nutzerführung"
+  - title: Mobile First – überzeugend auf jedem Gerät
+    track: "Responsive Entwicklung"
+    content: Smartphone, Tablet oder Desktop – Ihre Website bleibt schnell, hochwertig und intuitiv bedienbar.
     image: "/images/features/feature-2.png"
     bullet_points:
-      - "Track Progress of Team"
-      - "Check Project Progress"
-  - title: Create yearly sales and analytics results
-    track: "Analytics Results"
-    content: Track performance trends, uncover key revenue drivers, and make informed decisions to scale efficiently.
+      - "Optimiert für alle Displays"
+      - "Schnelle Ladezeiten"
+  - title: SEO und Performance von Anfang an
+    track: "Mehr Sichtbarkeit"
+    content: Saubere Technik, verständliche Inhalte und eine starke Struktur bilden die Grundlage für nachhaltige Auffindbarkeit.
     image: "/images/features/feature-3.png"
     bullet_points:
-      - "Transforming Complexity Into Clarity"
-      - "Real Results, Real Growth"
+      - "Technische SEO-Basis"
+      - "Performance-Optimierung"
 ---
