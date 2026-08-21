@@ -5,9 +5,9 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "",
-    "logo_width": "190",
-    "logo_height": "54",
+    "logo": "/images/codepixel-logo.svg",
+    "logo_width": "210",
+    "logo_height": "48",
     "logo_text": "codepixel"
   },
   "settings": {
@@ -29,7 +29,7 @@
   },
   "navigation_button": {
     "enable": true,
-    "label": "Projekt starten",
+    "label": "Kontakt",
     "link": "/contact"
   },
   "google_tag_manager": {

@@ -15,10 +15,10 @@ banner:
   image: "/images/banner.png"
   button_dark:
     enable: true
-    label: "Preise ansehen"
+    label: "Preise"
     link: "/pricing"
   button_primary:
     enable: true
-    label: "Website starten"
+    label: "Kontakt"
     link: "/contact"
 ---
