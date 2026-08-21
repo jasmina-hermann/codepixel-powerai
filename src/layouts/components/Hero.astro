@@ -82,20 +82,23 @@ const { data } = Astro.props;
           </div>
         </div>
 
-        <!-- IMAGE -->
-        <div
-          id="hero-image"
-          class="mt-30 bg-dark/45 backdrop-blur-2xl p-5 relative z-1"
-        >
-          <ImageMod
-            src={data.image}
-            alt="banner"
-            width={1360}
-            height={800}
-            fetchpriority="high"
-            loading="eager"
-            class="object-cover w-full h-auto"
-          />
+        <!-- CODEPIXEL VIDEO -->
+        <div id="hero-image" class="codepixel-video-stage mt-30 relative z-1">
+          <div class="codepixel-video-aura" aria-hidden="true"></div>
+          <div class="codepixel-video-frame">
+            <video
+              class="codepixel-hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster={data.image}
+              aria-label="Codepixel – digitale Welten und moderne Webentwicklung"
+            >
+              <source src="/videos/codepixel-hero.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
       </div>
     </div>
@@ -123,6 +126,56 @@ const { data } = Astro.props;
     background: linear-gradient(110deg, #ffd000 0%, #ff9800 58%, #f36a00 100%);
     background-clip: text;
     -webkit-background-clip: text;
+  }
+
+  .codepixel-video-stage {
+    isolation: isolate;
+    padding: clamp(0.6rem, 1.4vw, 1.15rem);
+  }
+
+  .codepixel-video-aura {
+    position: absolute;
+    inset: -8% -4% -12%;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse at 50% 55%, rgba(255, 152, 0, 0.46) 0%, rgba(243, 106, 0, 0.24) 30%, transparent 68%),
+      radial-gradient(ellipse at 50% 0%, rgba(255, 208, 0, 0.24), transparent 58%);
+    filter: blur(34px);
+    opacity: 0.9;
+    animation: videoAuraPulse 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .codepixel-video-frame {
+    overflow: hidden;
+    border: 1px solid rgba(255, 176, 0, 0.3);
+    border-radius: clamp(1rem, 2vw, 1.8rem);
+    background: rgba(5, 6, 8, 0.78);
+    box-shadow:
+      0 34px 100px rgba(0, 0, 0, 0.62),
+      0 0 48px rgba(255, 138, 0, 0.17),
+      inset 0 1px 0 rgba(255, 208, 0, 0.16);
+  }
+
+  .codepixel-hero-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  @keyframes videoAuraPulse {
+    50% {
+      opacity: 0.66;
+      transform: scale(1.035);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .codepixel-video-aura {
+      animation: none;
+    }
   }
 </style>
 
