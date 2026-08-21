@@ -24,20 +24,22 @@ const { data } = Astro.props;
                 class="bg-gradient-secondary p-px rounded-full mb-2"
               >
                 <div class="px-1.5 py-1.75 bg-gradient-black-grid rounded-full flex items-center gap-2.5">
-                  <ul class="flex">
-                    {data.badge.images.map((src: string) => (
-                      <li class="border border-secondary rounded-full -mr-2 last:mr-0 size-6">
-                        <ImageMod
-                          src={src}
-                          alt="avatar"
-                          width={24}
-                          height={24}
-                          class="rounded-full object-cover size-full"
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  <p class="gradient-text-primary pr-3">{data.badge.label}</p>
+                  {data.badge.images?.length > 0 && (
+                    <ul class="flex">
+                      {data.badge.images.map((src: string) => (
+                        <li class="border border-secondary rounded-full -mr-2 last:mr-0 size-6">
+                          <ImageMod
+                            src={src}
+                            alt=""
+                            width={24}
+                            height={24}
+                            class="rounded-full object-cover size-full"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <p class="codepixel-badge-label">{data.badge.label}</p>
                 </div>
               </div>
             )
@@ -107,6 +109,22 @@ const { data } = Astro.props;
     <HeroShape />
   </div>
 </section>
+
+<style>
+  .codepixel-badge-label {
+    padding: 0.05rem 1rem;
+    color: #ffd000;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+  }
+
+  #hero-title :global(mark) {
+    color: transparent;
+    background: linear-gradient(110deg, #ffd000 0%, #ff9800 58%, #f36a00 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+</style>
 
 <script>
   import { animateMini as animate } from "motion";

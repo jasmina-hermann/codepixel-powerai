@@ -4,14 +4,11 @@ banner:
     Webseiten, die nicht nur
     <br/>
     gut aussehen. <mark>Sondern wirken.</mark>
-  content: "Individuelle Webseiten für Unternehmen in der Schweiz – luxuriös gestaltet, technisch stark und konsequent auf neue Kunden ausgerichtet."
+  content: "Individuelle Webseiten für Unternehmen in der Schweiz, Deutschland, Österreich und darüber hinaus. Luxuriös gestaltet, technisch stark und konsequent darauf ausgerichtet, neue Kunden zu gewinnen. Persönlich betreut mit direktem Kontakt zur Inhaberin."
   badge:
     enable: true
-    label: Webdesign · Schweiz
-    images:
-      - "/images/avatars/avatar-1.jpg"
-      - "/images/avatars/avatar-2.jpg"
-      - "/images/avatars/avatar-3.png"
+    label: Jasmina Hermann
+    images: []
   image: "/images/banner.png"
   button_dark:
     enable: true
