@@ -14,6 +14,8 @@ const MARQUEE_SPEED_PX_PER_SECOND = 90;
 
 const TrustedClients = ({ data }: { data: PageData }) => {
   const section = data.frontmatter;
+  const swissLabel = (section as any).swiss_label || "Webdesign aus der Schweiz";
+  const swissAria = (section as any).swiss_aria || "Swiss Made, Webdesign aus der Schweiz";
   const groupRef = useRef<HTMLDivElement>(null);
   const [groupWidth, setGroupWidth] = useState(0);
 
@@ -90,7 +92,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
 
             <div
               className="mx-auto mt-12 flex w-fit items-center gap-4 rounded-2xl px-6 py-4"
-              aria-label="Swiss Made – Webdesign aus der Schweiz"
+              aria-label={swissAria}
               style={{
                 border: "1px solid rgba(255, 174, 0, 0.42)",
                 background:
@@ -125,7 +127,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
                   className="mt-1 text-sm font-medium"
                   style={{ color: "#FFAA00" }}
                 >
-                  Webdesign aus der Schweiz
+                  {swissLabel}
                 </div>
               </div>
             </div>

@@ -15,6 +15,7 @@ interface PageData {
     title: string;
     subtitle?: string;
     badge: string;
+    project_label?: string;
     pricing_plans: Array<PricingType>;
   };
 }
@@ -44,7 +45,7 @@ const Pricing = ({
   data: PageData;
   isHome?: boolean;
 }) => {
-  const { title, subtitle, enable, badge, pricing_plans } = data.frontmatter;
+  const { title, subtitle, enable, badge, pricing_plans, project_label } = data.frontmatter;
 
   if (!enable) return null;
 
@@ -124,7 +125,7 @@ const Pricing = ({
             variants={fadeInUpVariants}
             className="mx-auto inline-flex w-max rounded-full bg-gradient-button px-7 py-3 font-medium text-text shadow-[0_10px_35px_rgba(255,157,0,0.24)]"
           >
-            Pro Projekt
+            {project_label || "Pro Projekt"}
           </motion.div>
           {cards}
         </div>

@@ -10,16 +10,29 @@ import Pricing from "@/partials/Pricing";
 import TrustedClients from "@/partials/TrustedClients";
 import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import { getListPage } from "@/lib/contentParser";
+import {
+  englishCallToAction,
+  englishEssentialFeatures,
+  englishHome,
+  englishIntegration,
+  englishKeyFeatures,
+  englishPricing,
+  englishStatistics,
+  englishTrustedClients,
+  englishWhyChooseUs,
+} from "@/data/english";
 
-const homepage = await getListPage("homepage/-index.md");
-const trusted_clients = await getListPage("sections/trusted-clients.md");
-const key_features = await getListPage("sections/key-features.md");
-const essential_features = await getListPage("sections/essential-features.md");
-const whyChooseUs = await getListPage("sections/why-choose-us.md");
-const integration = await getListPage("sections/integration.md");
-const pricing = await getListPage("sections/pricing.md");
-const callToAction = await getListPage("sections/call-to-action.md");
-const statistics = await getListPage("sections/statistics.md");
+const isEnglish = Astro.url.pathname === "/en" || Astro.url.pathname.startsWith("/en/");
+const wrap = (frontmatter: any) => ({ frontmatter, content: "" });
+const homepage = isEnglish ? wrap(englishHome) : await getListPage("homepage/-index.md");
+const trusted_clients = isEnglish ? wrap(englishTrustedClients) : await getListPage("sections/trusted-clients.md");
+const key_features = isEnglish ? wrap(englishKeyFeatures) : await getListPage("sections/key-features.md");
+const essential_features = isEnglish ? wrap(englishEssentialFeatures) : await getListPage("sections/essential-features.md");
+const whyChooseUs = isEnglish ? wrap(englishWhyChooseUs) : await getListPage("sections/why-choose-us.md");
+const integration = isEnglish ? wrap(englishIntegration) : await getListPage("sections/integration.md");
+const pricing = isEnglish ? wrap(englishPricing) : await getListPage("sections/pricing.md");
+const callToAction = isEnglish ? wrap(englishCallToAction) : await getListPage("sections/call-to-action.md");
+const statistics = isEnglish ? wrap(englishStatistics) : await getListPage("sections/statistics.md");
 const { banner } = homepage.frontmatter;
 ---
 

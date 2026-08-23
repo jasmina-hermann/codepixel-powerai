@@ -5,8 +5,15 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-const { copyright } = config.params;
-const { footer_company, footer_legal } = menu;
+const isEnglish = Astro.url.pathname === "/en" || Astro.url.pathname.startsWith("/en/");
+const copyright = isEnglish
+  ? "© 2026 Codepixel. All rights reserved."
+  : config.params.copyright;
+const footerCompany = isEnglish ? menu.footer_company_en : menu.footer_company;
+const footerLegal = isEnglish ? menu.footer_legal_en : menu.footer_legal;
+const footerText = isEnglish
+  ? "Individual digital solutions for companies in Switzerland and beyond. Thoughtful, premium and built to create impact."
+  : config.params.footer_text;
 ---
 
 <footer class="pt-25">
@@ -14,24 +21,24 @@ const { footer_company, footer_legal } = menu;
     <div id="footer-main" style="opacity:0" class="grid md:grid-cols-6 gap-y-12 relative z-1">
       <div class="md:col-span-3">
         <Logo />
-        <p class="text-gray mb-10 mt-3 md:w-2/5">{config.params.footer_text}</p>
+        <p class="text-gray mb-10 mt-3 md:w-2/5">{footerText}</p>
         <Social source={social.main} className="social-icons flex flex-wrap gap-y-4" />
       </div>
 
       <div class="md:col-span-3">
         <div class="grid sm:grid-cols-2 gap-y-10 sm:gap-y-6">
           <div>
-            <h3 class="text-xl font-medium mb-10">Unternehmen</h3>
+            <h3 class="text-xl font-medium mb-10">{isEnglish ? "Company" : "Unternehmen"}</h3>
             <ul class="flex flex-col gap-y-3">
-              {footer_company.map((item: any) => (
+              {footerCompany.map((item: any) => (
                 <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 class="text-xl font-medium mb-10">Rechtlich</h3>
+            <h3 class="text-xl font-medium mb-10">{isEnglish ? "Legal" : "Rechtlich"}</h3>
             <ul class="flex flex-col gap-y-3">
-              {footer_legal.map((item: any) => (
+              {footerLegal.map((item: any) => (
                 <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
               ))}
             </ul>

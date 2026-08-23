@@ -1,5 +1,6 @@
 interface PricingTableData {
   title: string;
+  service_label?: string;
   price_label?: string;
   price_value?: string;
   features: {
@@ -16,6 +17,7 @@ interface PricingTableProps {
 export default function PricingTable({ data }: PricingTableProps) {
   const features = data?.features || [];
   const title = data?.title || "Leistungen und Preise";
+  const serviceLabel = data?.service_label || "Leistung";
   const priceLabel = data?.price_label || "Preis";
   const priceValue = data?.price_value || "Auf Anfrage";
 
@@ -35,7 +37,7 @@ export default function PricingTable({ data }: PricingTableProps) {
               <div className="relative overflow-hidden rounded-2xl border border-border/10 bg-background/40">
                 <div className="grid grid-cols-[minmax(0,1fr)_140px] bg-[#ff9d00]/12 md:grid-cols-[minmax(0,1fr)_220px]">
                   <div className="px-4 py-4 text-base font-bold text-text md:px-6 md:text-lg">
-                    Leistung
+                    {serviceLabel}
                   </div>
                   <div className="border-l border-border/10 px-4 py-4 text-center text-base font-bold text-[#ffb000] md:px-6 md:text-lg">
                     {priceLabel}

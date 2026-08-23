@@ -25,7 +25,6 @@ interface INavigationLink {
   mega_menu?: IMegaMenuNavigation;
 }
 
-const { main }: { main: INavigationLink[] } = menu;
 const { navigation_button, settings } = config;
 
 const normalizePath = (path: string) => {
@@ -35,6 +34,15 @@ const normalizePath = (path: string) => {
 
 const pathname = Astro.url.pathname;
 const normalizedPathname = normalizePath(pathname);
+const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+const main: INavigationLink[] = isEnglish
+  ? (menu.main_en as INavigationLink[])
+  : (menu.main as INavigationLink[]);
+const englishPath = pathname === "/" ? "/en" : `/en${pathname}`;
+const germanPath = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "") || "/";
+const languageHref = isEnglish ? germanPath : englishPath;
+const contactHref = isEnglish ? "/en/contact" : navigation_button.link;
+const contactLabel = isEnglish ? "Contact" : navigation_button.label;
 
 const isPathActive = (url?: string) => {
   if (!url) return false;
@@ -322,41 +330,51 @@ const iconPaths: Record<string, string> = {
           <li class="mt-4 inline-block xl:hidden">
             <a
               class="btn btn-primary"
-              href={navigation_button.link}
+              href={contactHref}
               data-close-menu
               target={
-                navigation_button.link.startsWith("http") ? "_blank" : "_self"
+                contactHref.startsWith("http") ? "_blank" : "_self"
               }
               rel={
-                navigation_button.link.startsWith("http")
+                contactHref.startsWith("http")
                   ? "noopener noreferrer"
                   : undefined
               }
             >
-              {navigation_button.label}
+              {contactLabel}
             </a>
           </li>
         )
       }
+      <li class="mt-3 inline-block xl:hidden">
+        <a class="language-switch" href={languageHref} aria-label={isEnglish ? "Deutsche Version öffnen" : "Open English version"}>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <span>{isEnglish ? "DE" : "EN"}</span>
+        </a>
+      </li>
     </ul>
 
     <!-- Desktop CTA button -->
-    <div class="order-1 ml-auto flex items-center md:order-2 xl:ml-0">
+    <div class="order-1 ml-auto flex items-center gap-3 md:order-2 xl:ml-0">
+      <a class="language-switch hidden xl:inline-flex" href={languageHref} aria-label={isEnglish ? "Deutsche Version öffnen" : "Open English version"}>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <span>{isEnglish ? "DE" : "EN"}</span>
+      </a>
       {
         navigation_button.enable && (
           <a
             class="btn btn-primary hidden xl:inline-block"
-            href={navigation_button.link}
+            href={contactHref}
             target={
-              navigation_button.link.startsWith("http") ? "_blank" : "_self"
+              contactHref.startsWith("http") ? "_blank" : "_self"
             }
             rel={
-              navigation_button.link.startsWith("http")
+              contactHref.startsWith("http")
                 ? "noopener noreferrer"
                 : undefined
             }
           >
-            {navigation_button.label}
+            {contactLabel}
           </a>
         )
       }
@@ -365,6 +383,34 @@ const iconPaths: Record<string, string> = {
 </header>
 
 <style>
+  .language-switch {
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 4.2rem;
+    height: 2.75rem;
+    padding: 0 0.85rem;
+    border: 1px solid rgba(255, 176, 0, 0.38);
+    border-radius: 999px;
+    color: #ffb000;
+    background: rgba(255, 157, 0, 0.06);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+  .language-switch:hover {
+    border-color: rgba(255, 196, 0, 0.82);
+    background: rgba(255, 157, 0, 0.13);
+    transform: translateY(-1px);
+  }
+  .language-switch svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
   /* Header entrance animation — replaces motion/react fadeInDownVariants */
   #site-header {
     animation: headerFadeInDown 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) both;

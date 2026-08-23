@@ -1,0 +1,81 @@
+---
+import Base from "@/layouts/Base.astro";
+import CaseStudyCard from "@/components/CaseStudyCard.astro";
+import FeaturedCaseStudy from "@/components/FeaturedCaseStudy";
+import MainContainer from "@/components/MainContainer.astro";
+import { englishCaseStudies } from "@/data/english";
+
+export function getStaticPaths() {
+  return englishCaseStudies.map((study) => ({
+    params: { single: study.slug },
+    props: { caseStudy: study },
+  }));
+}
+
+const { caseStudy } = Astro.props;
+const { title, meta_title, description, image } = caseStudy.frontmatter;
+const relatedCaseStudies = englishCaseStudies
+  .filter((study) => study.slug !== caseStudy.slug)
+  .slice(0, 3);
+---
+
+<Base title={title} meta_title={meta_title} description={description} image={image}>
+  <section>
+    <MainContainer>
+      <div class="container-padding-x container-padding-y pb-14">
+        <FeaturedCaseStudy
+          data={caseStudy}
+          hideButton
+          disableLink
+          basePath="/en/case-studies"
+          noImageLabel="No image available"
+          client:visible
+        />
+      </div>
+    </MainContainer>
+  </section>
+  <section>
+    <MainContainer>
+      <div class="container-padding-x py-12">
+        <div class="project-copy mx-auto lg:w-3/5">
+          <h2>The project idea</h2>
+          <p>{caseStudy.idea}</p>
+          <h2>The solution</h2>
+          <p>{caseStudy.solution}</p>
+          <h2>Key features</h2>
+          <ul>
+            {caseStudy.points.map((point: string) => <li>{point}</li>)}
+          </ul>
+          <h2>The value</h2>
+          <p>{caseStudy.value}</p>
+        </div>
+      </div>
+    </MainContainer>
+  </section>
+  <section>
+    <MainContainer>
+      <div class="container-padding-x py-14">
+        <h2 class="mb-10 text-center font-primary text-3xl font-semibold text-text">Related projects</h2>
+        <div class="grid gap-2.5 md:grid-cols-2 lg:grid-cols-3">
+          {relatedCaseStudies.map((study) => (
+            <CaseStudyCard
+              data={study}
+              basePath="/en/case-studies"
+              buttonLabel="View project"
+              noImageLabel="No image available"
+            />
+          ))}
+        </div>
+      </div>
+    </MainContainer>
+  </section>
+</Base>
+
+<style>
+  .project-copy h2 { margin: 2.6rem 0 1rem; color: #fff; font-size: clamp(1.7rem, 3vw, 2.25rem); font-weight: 650; }
+  .project-copy h2:first-child { margin-top: 0; }
+  .project-copy p, .project-copy li { color: #aaa8ad; font-size: 1.05rem; line-height: 1.85; }
+  .project-copy ul { display: grid; gap: .65rem; margin: 1rem 0 0; }
+  .project-copy li { position: relative; padding-left: 1.5rem; }
+  .project-copy li::before { content: "✓"; position: absolute; left: 0; color: #ffb000; font-weight: 800; }
+</style>

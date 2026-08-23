@@ -1,0 +1,204 @@
+---
+interface Props {
+  language?: "de" | "en";
+}
+
+const { language = "de" } = Astro.props;
+
+const translations = {
+  de: {
+    badge: "Unser Angebot",
+    title: "Digitale Lösungen aus einer Hand",
+    subtitle:
+      "Wir verbinden Technik, Design und unternehmerisches Denken. Jede Lösung wird passend zu Ihren Zielen, Abläufen und Ihrer Marke entwickelt.",
+    services: [
+      {
+        title: "Webseiten",
+        content:
+          "Individuelle Webseiten mit klarer Nutzerführung, starker Technik und einem Design, das Ihr Unternehmen professionell sichtbar macht.",
+        icon: "website",
+      },
+      {
+        title: "Programme und Software",
+        content:
+          "Massgeschneiderte Programme und Softwarelösungen, die Arbeitsabläufe vereinfachen und exakt zu Ihrem Unternehmen passen.",
+        icon: "software",
+      },
+      {
+        title: "Schnittstellen",
+        content:
+          "Wir verbinden bestehende Systeme, automatisieren den Datenaustausch und reduzieren wiederkehrende manuelle Arbeit.",
+        icon: "connection",
+      },
+      {
+        title: "Logo und Branding",
+        content:
+          "Von der Logoentwicklung bis zum vollständigen Markenauftritt schaffen wir eine Identität mit Wiedererkennungswert.",
+        icon: "branding",
+      },
+      {
+        title: "Unternehmens Giveaways",
+        content:
+          "Hochwertige Textilien, Werbemittel und Firmenprodukte, die Ihren Auftritt im Alltag und bei Kunden sichtbar stärken.",
+        icon: "gift",
+      },
+      {
+        title: "Business Support",
+        content:
+          "Persönliche Unterstützung bei Administration, Organisation und operativen Aufgaben, wenn intern Zeit oder Ressourcen fehlen.",
+        icon: "support",
+      },
+      {
+        title: "Strategie und Coaching",
+        content:
+          "Ehrliche Beratung, klare Strukturen und praxisnahe Begleitung für Führung, Prozesse und nachhaltige Unternehmensentwicklung.",
+        icon: "strategy",
+      },
+    ],
+  },
+  en: {
+    badge: "Our Expertise",
+    title: "Digital solutions from one partner",
+    subtitle:
+      "We combine technology, design and business thinking. Every solution is tailored to your goals, processes and brand.",
+    services: [
+      {
+        title: "Websites",
+        content:
+          "Custom websites with clear user journeys, strong technology and a design that presents your company professionally.",
+        icon: "website",
+      },
+      {
+        title: "Programs and Software",
+        content:
+          "Tailored programs and software solutions that simplify processes and fit the way your company works.",
+        icon: "software",
+      },
+      {
+        title: "Interfaces",
+        content:
+          "We connect existing systems, automate data exchange and reduce repetitive manual work.",
+        icon: "connection",
+      },
+      {
+        title: "Logo and Branding",
+        content:
+          "From logo development to a complete brand identity, we create a distinctive and consistent presence.",
+        icon: "branding",
+      },
+      {
+        title: "Corporate Giveaways",
+        content:
+          "Premium textiles, promotional items and company products that make your brand visible in everyday business.",
+        icon: "gift",
+      },
+      {
+        title: "Business Support",
+        content:
+          "Personal support with administration, organisation and operational tasks whenever internal resources are limited.",
+        icon: "support",
+      },
+      {
+        title: "Strategy and Coaching",
+        content:
+          "Honest advice, clear structures and practical guidance for leadership, processes and sustainable business development.",
+        icon: "strategy",
+      },
+    ],
+  },
+};
+
+const content = translations[language];
+const iconPaths: Record<string, string> = {
+  website: '<rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18M8 22h8M12 19v3"/>',
+  software: '<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>',
+  connection: '<path d="M8 8h8v8H8zM4 12H2m20 0h-2M12 4V2m0 20v-2M5.6 5.6 4.2 4.2m15.6 15.6-1.4-1.4M18.4 5.6l1.4-1.4M4.2 19.8l1.4-1.4"/>',
+  branding: '<path d="M12 3a9 9 0 1 0 9 9c0-1.1-.9-2-2-2h-2.2a2 2 0 0 1-2-2V5a2 2 0 0 0-2.8-2z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="7.5" cy="16" r="1"/>',
+  gift: '<path d="M20 12v9H4v-9M2 8h20v4H2zM12 8v13M12 8H7.5A2.5 2.5 0 1 1 10 5.5L12 8Zm0 0h4.5A2.5 2.5 0 1 0 14 5.5L12 8Z"/>',
+  support: '<path d="M4 13v-2a8 8 0 0 1 16 0v2M6 17H5a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h1v5Zm12 0h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-1v5ZM18 17c0 2.2-1.8 4-4 4h-2"/>',
+  strategy: '<path d="M4 19V9m6 10V5m6 14v-7m4 7H2M4 9l6-4 6 7 4-5"/>',
+};
+---
+
+<section class="service-grid-section">
+  <div class="main-container">
+    <div class="container">
+      <div class="container-padding-y container-padding-x">
+        <div class="mx-auto mb-14 max-w-3xl text-center">
+          <span class="service-badge">{content.badge}</span>
+          <h2 class="mt-4 text-h2 font-medium">{content.title}</h2>
+          <p class="mx-auto mt-5 text-lg text-gray">{content.subtitle}</p>
+        </div>
+        <div class="service-grid">
+          {content.services.map((service) => (
+            <article class="service-card">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" set:html={iconPaths[service.icon]} />
+              </div>
+              <h3>{service.title}</h3>
+              <p>{service.content}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-grid-section { position: relative; }
+  .service-badge {
+    display: inline-flex;
+    border: 1px solid rgba(255, 176, 0, .5);
+    border-radius: 999px;
+    padding: .45rem 1rem;
+    color: #ffb000;
+    background: rgba(255, 157, 0, .06);
+    font-size: .88rem;
+    font-weight: 650;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .service-card {
+    min-height: 270px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 176, 0, .2);
+    border-radius: 1.6rem;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(255, 157, 0, .13), transparent 45%),
+      linear-gradient(145deg, rgba(17, 17, 19, .98), rgba(29, 20, 8, .92));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04), 0 24px 60px rgba(0,0,0,.2);
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 176, 0, .52);
+    box-shadow: 0 26px 70px rgba(255, 138, 0, .1);
+  }
+  .service-card:last-child { grid-column: 2; }
+  .service-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1.6rem;
+    border-radius: 1rem;
+    color: #ffb000;
+    background: linear-gradient(145deg, rgba(255, 157, 0, .12), rgba(255, 196, 0, .24));
+    border: 1px solid rgba(255, 176, 0, .24);
+  }
+  .service-icon svg { width: 1.65rem; height: 1.65rem; }
+  .service-card h3 { margin-bottom: .8rem; font-size: 1.3rem; font-weight: 650; color: #fff; }
+  .service-card p { color: #aaa8ad; line-height: 1.7; }
+  @media (max-width: 980px) {
+    .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .service-card:last-child { grid-column: auto; }
+  }
+  @media (max-width: 640px) {
+    .service-grid { grid-template-columns: 1fr; }
+    .service-card { min-height: 0; padding: 1.55rem; }
+  }
+</style>
