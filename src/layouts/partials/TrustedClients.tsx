@@ -1,4 +1,3 @@
-
 import ImageFallback from "@/helpers/ImageFallback";
 import type { LogoMarqueeType } from "@/types/index";
 import { motion } from "motion/react";
@@ -51,7 +50,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
         <div key={`${listKey}-${index}`} className="shrink-0">
           <ImageFallback
             src={logo?.logo}
-            alt={`Partner logo ${index + 1}`}
+            alt={logo?.name || `Partnerlogo ${index + 1}`}
             className="w-45 grayscale opacity-70"
             width="190"
             height="40"
@@ -63,31 +62,76 @@ const TrustedClients = ({ data }: { data: PageData }) => {
 
   return (
     <section>
-      <div className="main-container"><div className="container">
-        <div className="py-20">
-          <h2 className="text-h6 text-center mb-10 text-text-light font-medium">
-            {data.frontmatter.title}
-          </h2>
-          <div className="z-10 flex items-center relative  overflow-hidden">
-            <motion.div
-              className="flex w-max gap-18"
-              animate={loopDistance ? { x: [0, -loopDistance] } : undefined}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: loopDuration,
-                  ease: "linear",
-                },
+      <div className="main-container">
+        <div className="container">
+          <div className="py-20">
+            <h2 className="text-h6 text-center mb-10 text-text-light font-medium">
+              {section.title}
+            </h2>
+
+            <div className="z-10 flex items-center relative overflow-hidden">
+              <motion.div
+                className="flex w-max gap-18"
+                animate={loopDistance ? { x: [0, -loopDistance] } : undefined}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: loopDuration,
+                    ease: "linear",
+                  },
+                }}
+                style={{ willChange: "transform" }}
+              >
+                {renderLogoList("primary")}
+                {renderLogoList("duplicate", true)}
+              </motion.div>
+            </div>
+
+            <div
+              className="mx-auto mt-12 flex w-fit items-center gap-4 rounded-2xl px-6 py-4"
+              aria-label="Swiss Made – Webdesign aus der Schweiz"
+              style={{
+                border: "1px solid rgba(255, 174, 0, 0.42)",
+                background:
+                  "linear-gradient(135deg, rgba(16,16,18,0.96), rgba(26,20,10,0.92))",
+                boxShadow:
+                  "0 0 34px rgba(255, 153, 0, 0.14), inset 0 1px 0 rgba(255,255,255,0.06)",
               }}
-              style={{ willChange: "transform" }}
             >
-              {renderLogoList("primary")}
-              {renderLogoList("duplicate", true)}
-            </motion.div>
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                role="img"
+                aria-label="Schweizerkreuz"
+                className="shrink-0"
+              >
+                <rect width="48" height="48" rx="10" fill="#D52B1E" />
+                <path
+                  d="M19 10h10v9h9v10h-9v9H19v-9h-9V19h9z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+
+              <div className="leading-tight">
+                <div
+                  className="text-lg font-semibold tracking-[0.16em]"
+                  style={{ color: "#FFFFFF" }}
+                >
+                  SWISS MADE
+                </div>
+                <div
+                  className="mt-1 text-sm font-medium"
+                  style={{ color: "#FFAA00" }}
+                >
+                  Webdesign aus der Schweiz
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div></div>
+      </div>
     </section>
   );
 };
