@@ -34,7 +34,7 @@ const containerUid = `ef-container-${Math.random().toString(36).slice(2, 8)}`;
                   alt={feature.title}
                   width={570}
                   height={310}
-                  class={`w-full h-auto object-cover relative z-1 ${index > 1 ? "feature-image-orange" : ""}`}
+                  class="w-full h-auto object-cover relative z-1"
                 />
                 <div class="mt-6 px-6 pb-12 relative z-1">
                   <h3 class="text-h5 font-medium mb-5">{feature.title}</h3>
@@ -48,12 +48,6 @@ const containerUid = `ef-container-${Math.random().toString(36).slice(2, 8)}`;
     </div>
   </div>
 </section>
-
-<style>
-  .feature-image-orange {
-    filter: hue-rotate(115deg) saturate(1.22) brightness(1.02);
-  }
-</style>
 
 <script>
   import { animateMini as animate, inView } from "motion";
