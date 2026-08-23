@@ -11,6 +11,7 @@ interface PageData {
   frontmatter: {
     enable: boolean;
     badge?: string;
+    step_label?: string;
     title?: string;
     subtitle?: string;
     stats_list: {
@@ -22,6 +23,7 @@ interface PageData {
 }
 
 const Statistics = ({ data }: { data: PageData }) => {
+  const stepLabel = data.frontmatter.step_label || "Schritt";
   const primaryColor =
     theme?.colors?.default?.theme_color?.primary || "#FF9D00";
   const secondaryColor =
@@ -87,7 +89,7 @@ const Statistics = ({ data }: { data: PageData }) => {
                           {item.step}
                         </span>
                         <span className="text-xs uppercase tracking-[0.2em] text-light/45">
-                          Schritt
+                          {stepLabel}
                         </span>
                       </div>
                       <h3 className="text-h5 font-medium mb-3">

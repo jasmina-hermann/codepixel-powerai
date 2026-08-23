@@ -14,6 +14,12 @@ const footerLegal = isEnglish ? menu.footer_legal_en : menu.footer_legal;
 const footerText = isEnglish
   ? "Individual digital solutions for companies in Switzerland and beyond. Thoughtful, premium and built to create impact."
   : config.params.footer_text;
+const footerSocial = isEnglish
+  ? social.main.map((item) => ({
+      ...item,
+      name: item.name === "Telefon" ? "Phone" : item.name === "E-Mail" ? "Email" : item.name,
+    }))
+  : social.main;
 ---
 
 <footer class="pt-25">
@@ -22,7 +28,7 @@ const footerText = isEnglish
       <div class="md:col-span-3">
         <Logo />
         <p class="text-gray mb-10 mt-3 md:w-2/5">{footerText}</p>
-        <Social source={social.main} className="social-icons flex flex-wrap gap-y-4" />
+        <Social source={footerSocial} className="social-icons flex flex-wrap gap-y-4" />
       </div>
 
       <div class="md:col-span-3">

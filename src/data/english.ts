@@ -61,6 +61,7 @@ export const englishKeyFeatures = {
 
 export const englishStatistics = {
   enable: true,
+  step_label: "Step",
   badge: "Four clear steps",
   title: "From the first idea to the finished solution",
   subtitle: "Clearly structured, personally supported and consistently focused on a successful result.",
