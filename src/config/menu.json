@@ -1,10 +1,9 @@
 {
   "main": [
     { "name": "Startseite", "url": "/" },
-    { "name": "Leistungen", "url": "/features" },
+    { "name": "Unsere Dienstleistungen", "url": "/features" },
     { "name": "Preise", "url": "/pricing" },
     { "name": "Projekte", "url": "/case-studies" },
-    { "name": "Über uns", "url": "/about" },
     { "name": "Kontakt", "url": "/contact" }
   ],
   "footer_company": [
