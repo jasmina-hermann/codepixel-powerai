@@ -20,27 +20,22 @@ const containerUid = `ef-container-${Math.random().toString(36).slice(2, 8)}`;
             return (
               <div
                 id={itemUid}
-                style="opacity:0"
-                class={`${index <= 1 ? "md:col-span-3" : "md:col-span-3 lg:col-span-2"} border border-border/7 bg-gradient-dark rounded-3xl p-2.5 relative group overflow-hidden`}
+                style="opacity:0;background:linear-gradient(145deg,rgba(14,14,16,.98),rgba(34,20,5,.96));border-color:rgba(255,157,0,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 55px rgba(0,0,0,.22)"
+                class={`${index <= 1 ? "md:col-span-3" : "md:col-span-3 lg:col-span-2"} border rounded-3xl p-2.5 relative group overflow-hidden`}
               >
-                <svg class="absolute top-2/5 left-1/2 -translate-1/2 blur-3xl" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g filter="url(#filter0_f_ef)">
-                    <circle cx="210" cy="210" r="110" fill="url(#paint0_ef)" fill-opacity="0.8"/>
-                  </g>
-                  <defs>
-                    <filter id="filter0_f_ef" x="0" y="0" width="420" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                      <feGaussianBlur std-deviation="50" result="effect1_foregroundBlur_ef"/>
-                    </filter>
-                    <linearGradient id="paint0_ef" x1="100" y1="320" x2="320" y2="320" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#9A4DFE"/>
-                      <stop offset="1" stop-color="#E87CFF"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <div
+                  class="absolute inset-x-10 top-16 h-64 blur-3xl opacity-40"
+                  style="background:radial-gradient(circle,rgba(255,166,0,.62) 0%,rgba(255,112,0,.2) 45%,transparent 72%)"
+                  aria-hidden="true"
+                ></div>
 
-                <ImageMod src={feature.image} alt={feature.title} width={570} height={310} class="w-full h-auto object-cover relative z-1" />
+                <ImageMod
+                  src={feature.image}
+                  alt={feature.title}
+                  width={570}
+                  height={310}
+                  class={`w-full h-auto object-cover relative z-1 ${index > 1 ? "feature-image-orange" : ""}`}
+                />
                 <div class="mt-6 px-6 pb-12 relative z-1">
                   <h3 class="text-h5 font-medium mb-5">{feature.title}</h3>
                   <p class="text-gray">{feature.content}</p>
@@ -53,6 +48,12 @@ const containerUid = `ef-container-${Math.random().toString(36).slice(2, 8)}`;
     </div>
   </div>
 </section>
+
+<style>
+  .feature-image-orange {
+    filter: hue-rotate(115deg) saturate(1.22) brightness(1.02);
+  }
+</style>
 
 <script>
   import { animateMini as animate, inView } from "motion";

@@ -1,21 +1,21 @@
 ---
 enable: true
-title: Shaping The Future With Intelligent Innovation
-badge: "Essential Features"
+title: Mehr Möglichkeiten für Ihren digitalen Auftritt
+badge: "Webseiten-Funktionen"
 features:
-  - title: Natural Language Processing
-    content: Powered by state-of-the-art NLP, our AI software delivers precise understanding and intelligent responses.
-    image: "/images/features/essential-features-1.png"
-  - title: Conversation Intelligence
-    content: This isn’t a basic AI chat—it runs your scheduling, manages bookings, updates calendars, and handles reminders effortlessly.
-    image: "/images/features/essential-features-2.svg"
-  - title: Real-Time Analytics
-    content: Monitor performance and engagement to refine your chatbot strategy.
+  - title: Mehrsprachige Webseiten
+    content: Wir erstellen Ihre Website auf Wunsch in verschiedenen Sprachen, damit Sie Kundinnen und Kunden auch international professionell erreichen.
+    image: "/images/features/multilingual-websites.svg"
+  - title: Blog-Systeme für Webseiten
+    content: Wir integrieren einen modernen Blog, damit Sie Projekte, Neuigkeiten und Fachbeiträge einfach veröffentlichen und aktuell halten können.
+    image: "/images/features/website-blog-system.svg"
+  - title: SEO & Performance
+    content: Technisch saubere Strukturen, schnelle Ladezeiten und eine solide SEO-Basis sorgen für bessere Sichtbarkeit und eine starke Nutzererfahrung.
     image: "/images/features/essential-features-3.svg"
-  - title: Effortless Scheduling
-    content: Our AI assistant handles replies, meetings, and calendar updates.
+  - title: Einfache Inhaltsverwaltung
+    content: Auf Wunsch erhalten Sie eine übersichtliche Verwaltung, mit der Texte, Bilder und Inhalte ohne Programmierkenntnisse gepflegt werden können.
     image: "/images/features/essential-features-4.svg"
-  - title: Meeting Assistant
-    content: Included in the Platform is a full featured Page Builder to capture leads.
+  - title: Persönliche Betreuung
+    content: Von der ersten Idee bis zur Veröffentlichung begleitet Sie Codepixel persönlich, zuverlässig und mit direktem Kontakt.
     image: "/images/features/essential-features-5.png"
 ---
