@@ -4,11 +4,9 @@ import Hero from "@/components/Hero.astro";
 import Statistics from "@/components/Statistics";
 import CallToAction from "@/partials/CallToAction.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
-import FAQ from "@/partials/FAQ";
 import Integration from "@/partials/Integration";
 import KeyFeatures from "@/partials/KeyFeatures.astro";
 import Pricing from "@/partials/Pricing";
-import Testimonials from "@/partials/Testimonials";
 import TrustedClients from "@/partials/TrustedClients";
 import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import { getListPage } from "@/lib/contentParser";
@@ -20,8 +18,6 @@ const essential_features = await getListPage("sections/essential-features.md");
 const whyChooseUs = await getListPage("sections/why-choose-us.md");
 const integration = await getListPage("sections/integration.md");
 const pricing = await getListPage("sections/pricing.md");
-const testimonial = await getListPage("sections/testimonial.md");
-const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 const statistics = await getListPage("sections/statistics.md");
 const { banner } = homepage.frontmatter;
@@ -36,7 +32,5 @@ const { banner } = homepage.frontmatter;
   <WhyChooseUs data={whyChooseUs} />
   <Integration data={integration} client:visible />
   <Pricing data={pricing} client:visible />
-  <Testimonials data={testimonial} client:visible />
-  <FAQ data={faq} client:visible />
   <CallToAction data={callToAction} />
 </Base>

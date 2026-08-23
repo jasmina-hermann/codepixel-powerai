@@ -1,22 +1,14 @@
 ---
-title: "Features"
+title: "Unsere Dienstleistungen"
 meta_title: ""
-description: "this is meta description"
+description: "Digitale Lösungen für Schweizer Unternehmen"
 image: ""
 draft: false
 page_header:
-  badge: "Features"
-  title: |
-    Explore Our Features to
-     <br/>
-    <mark>Keep Your Data Safe</mark>
-  subtitle: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+  title: "Unsere Dienstleistungen"
+  subtitle: "Von individuellen Webseiten über Apps und Software bis zu Schnittstellen, Branding und Unternehmenslösungen. Wir verbinden Strategie, Design und Technik zu einem digitalen Gesamtauftritt, der zu Ihrem Unternehmen passt."
   button_dark:
-    enable: true
-    label: "GitHub Reposiotry"
-    link: "https://github.com/sitepins/powerai-astro"
+    enable: false
   button_primary:
-    enable: true
-    label: "Edit with Sitepins"
-    link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+    enable: false
 ---
