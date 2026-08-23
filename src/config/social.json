@@ -3,7 +3,6 @@
     { "name": "Telefon", "icon": "FaPhone", "link": "tel:+41799566661" },
     { "name": "E-Mail", "icon": "FaEnvelope", "link": "mailto:Jasmina@codepixel.ch" },
     { "name": "WhatsApp", "icon": "FaWhatsapp", "link": "https://wa.me/41799566661" },
-    { "name": "Telegram", "icon": "FaTelegram", "link": "https://t.me/jasminablume" },
-    { "name": "Viber", "icon": "FaViber", "link": "viber://chat?number=%2B41799566661" }
+    { "name": "Telegram", "icon": "FaTelegram", "link": "https://t.me/jasminablume" }
   ]
 }
