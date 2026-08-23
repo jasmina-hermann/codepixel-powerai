@@ -176,7 +176,7 @@ const Integration = ({ data }: { data: PageData }) => {
               className="absolute bottom-10 z-10 flex justify-center w-full"
             >
               {button?.enable && (
-                <a href={button?.link || "/"} className="border border-border/30 rounded-full group inline-block"><span className="btn btn-primary py-3.5 mx-1.5 my-1.25 group-hover:m-0 group-hover:py-4.75 group-hover:px-7.5 transition-all duration-300 rounded-full">{button?.label}</span></a>
+                <a href={button?.link || "/"} className="inline-block rounded-full border border-[#ffd27a]/70 bg-black/25 shadow-[0_0_24px_rgba(255,174,45,0.28)] group"><span className="btn btn-primary py-3.5 mx-1.5 my-1.25 group-hover:m-0 group-hover:py-4.75 group-hover:px-7.5 transition-all duration-300 rounded-full">{button?.label}</span></a>
               )}
             </motion.div>
           </div>
@@ -197,7 +197,7 @@ const Integration = ({ data }: { data: PageData }) => {
               cy="459.5"
               r="289.5"
               fill="url(#paint0_linear_35_7436)"
-              fillOpacity="0.5"
+              fillOpacity="0.42"
             />
           </g>
           <defs>
@@ -230,8 +230,8 @@ const Integration = ({ data }: { data: PageData }) => {
               y2="749"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#9A4DFE" />
-              <stop offset="1" stopColor="#E87CFF" />
+              <stop stopColor="#FF8A00" />
+              <stop offset="1" stopColor="#FFD36A" />
             </linearGradient>
           </defs>
         </svg>
