@@ -11,11 +11,11 @@ pricing_plans:
       monthly:
         number: 700
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
       yearly:
         number: 700
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
     features:
       - value: Eine individuelle Inhaltsseite
         include: true
@@ -38,11 +38,11 @@ pricing_plans:
       monthly:
         number: 1500
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
       yearly:
         number: 1500
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
     features:
       - value: Bis zu 6 individuelle Inhaltsseiten
         include: true
@@ -65,11 +65,11 @@ pricing_plans:
       monthly:
         number: 5600
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
       yearly:
         number: 5600
         prefix: Ab CHF
-        suffix: .–
+        suffix: .-
     features:
       - value: Bis zu 12 Inhaltsseiten inklusive Landingpages
         include: true
