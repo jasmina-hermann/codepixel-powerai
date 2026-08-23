@@ -1,86 +1,89 @@
 ---
 enable: true
-title: Transparente Preise für Ihren neuen Webauftritt
-badge: "Webdesign-Pakete"
-offer_yearly: Individuelle Offerte
+title: Wählen Sie das passende Preispaket
+subtitle: Je nach Grösse Ihrer Webseite können Sie Ihr individuelles Preispaket wählen. Sind Sie unsicher, welches Paket am besten zu Ihnen passt? Kontaktieren Sie mich gerne für eine persönliche Beratung.
+badge: ""
+offer_yearly: ""
 pricing_plans:
-  - name: Starter
-    content: Für Selbstständige und kleine Unternehmen
+  - name: Onepager
+    content: Der professionelle Einstieg für Einzelunternehmen und kleine Teams.
     price:
       monthly:
-        number: 999
-        prefix: "CHF "
-        suffix: ""
+        number: 700
+        prefix: CHF
+        suffix: .–
       yearly:
-        number: 999
-        prefix: "CHF "
-        suffix: ""
+        number: 700
+        prefix: CHF
+        suffix: .–
     features:
-      - value: Individuelle Onepage-Website
+      - value: Eine individuelle Inhaltsseite
         include: true
-      - value: Responsive Design
+      - value: Responsives Webdesign
         include: true
-      - value: Kontaktformular
+      - value: Suchmaschinenfreundliche Inhalte
         include: true
-      - value: SEO-Grundoptimierung
+      - value: Kontaktformular inklusive Datenschutz
         include: true
-      - value: Mehrsprachigkeit
-        include: false
+      - value: Technische Qualitätssicherung und Liveschaltung
+        include: true
     button:
-      label: Projekt anfragen
+      label: Jetzt anfragen
       link: /contact
       enable: true
-  - name: Business
-    content: Der professionelle Auftritt für wachsende Unternehmen
+
+  - name: KMU Basic
+    content: Unser meistgewähltes Paket für Unternehmen mit mehreren Leistungen oder Zielgruppen.
     highlighted: true
     price:
       monthly:
-        number: 2490
-        prefix: "CHF "
-        suffix: ""
+        number: 1500
+        prefix: CHF
+        suffix: .–
       yearly:
-        number: 2490
-        prefix: "CHF "
-        suffix: ""
+        number: 1500
+        prefix: CHF
+        suffix: .–
     features:
-      - value: Bis zu 7 individuelle Seiten
+      - value: Bis zu 6 individuelle Inhaltsseiten
         include: true
-      - value: Responsive Premium-Design
+      - value: Responsives Premium-Design
         include: true
-      - value: SEO und Performance
+      - value: Suchmaschinenfreundliche Seitenstruktur
         include: true
-      - value: Animationen und Effekte
+      - value: Inhalte inklusive Keyword-Recherche
         include: true
-      - value: Mehrsprachigkeit
+      - value: Korrekturen bis zu 4 Stunden
         include: true
     button:
-      label: Beratung starten
+      label: Jetzt anfragen
       link: /contact
       enable: true
-  - name: Signature
-    content: Für anspruchsvolle Marken und besondere digitale Erlebnisse
+
+  - name: KMU Custom
+    content: Für Organisationen mit umfangreicheren Inhalten und individuellen Anforderungen.
     price:
       monthly:
-        number: 4990
-        prefix: "ab CHF "
-        suffix: ""
+        number: 5600
+        prefix: ab CHF
+        suffix: .–
       yearly:
-        number: 4990
-        prefix: "ab CHF "
-        suffix: ""
+        number: 5600
+        prefix: ab CHF
+        suffix: .–
     features:
+      - value: Bis zu 12 Inhaltsseiten inklusive Landingpages
+        include: true
       - value: Individuelles UX- und Designkonzept
         include: true
-      - value: Premium-Animationen
+      - value: Erweiterte SEO-Strategie und interne Verlinkung
         include: true
-      - value: Galaktische 3D-Effekte
+      - value: Zweisprachigkeit vorbereitet
         include: true
-      - value: Erweiterte SEO-Struktur
-        include: true
-      - value: Persönliche Projektbegleitung
+      - value: Blog-System und persönliche Projektbegleitung
         include: true
     button:
-      label: Signature-Projekt anfragen
+      label: Jetzt anfragen
       link: /contact
       enable: true
 ---

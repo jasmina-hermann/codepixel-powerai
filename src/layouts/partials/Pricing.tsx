@@ -31,7 +31,7 @@ const Pricing = ({
   data: PageData;
   isHome?: boolean;
 }) => {
-  const { title, enable, badge, pricing_plans, offer_yearly } =
+  const { title, subtitle, enable, badge, pricing_plans, offer_yearly } =
     data.frontmatter;
   const [isYearly, setIsYearly] = useState(false);
   const toggleRef = useRef<HTMLDivElement | null>(null);
@@ -121,7 +121,11 @@ const Pricing = ({
         {isHome ? (
           <div className="main-container"><div className="container">
             <div className="container-padding-y container-padding-x">
-              <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
+              <div className="text-center mb-14">
+                {badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}
+                <h2 className="text-h2 font-medium lg:w-3/5 mx-auto">{title}</h2>
+                {subtitle && <p className="text-gray max-w-3xl mx-auto mt-5">{subtitle}</p>}
+              </div>
 
               <div className="flex flex-col gap-y-14">
                 <motion.div
@@ -130,7 +134,7 @@ const Pricing = ({
                   viewport={{ once: true, margin: "0px", amount: 0.05 }}
                   variants={fadeInUpVariants}
                   ref={toggleRef}
-                  className="relative bg-lighter border border-border/30 px-1.5 py-1.25 rounded-full inline-flex w-max mx-auto gap-2"
+                  className="hidden"
                   role="tablist"
                   aria-label="Pricing toggle"
                 >

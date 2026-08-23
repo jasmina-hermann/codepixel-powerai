@@ -1,20 +1,14 @@
 ---
 enable: true
-title: Trusted by millions of users
+title: Unsere Partner
 items:
-  - name: Logo Client 1
-    logo: /images/trusted-clients/logo-1.png
+  - name: Swiss Leak Control
+    logo: /images/trusted-clients/swiss-leak-control.png
+    link: "https://sl-control.ch"
+  - name: BM Keramik
+    logo: /images/trusted-clients/bm-keramik.png
     link: "#"
-  - name: Logo Client 2
-    logo: /images/trusted-clients/logo-2.png
-    link: "#"
-  - name: Logo Client 3
-    logo: /images/trusted-clients/logo-3.png
-    link: "#"
-  - name: Logo Client 4
-    logo: /images/trusted-clients/logo-4.png
-    link: "#"
-  - name: Logo Client 5
-    logo: /images/trusted-clients/logo-5.png
+  - name: Kemo's Restaurant
+    logo: /images/trusted-clients/kemos-restaurant.png
     link: "#"
 ---
