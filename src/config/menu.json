@@ -13,15 +13,11 @@
     { "name": "Projekte", "url": "/case-studies" },
     { "name": "Kontakt", "url": "/contact" }
   ],
-  "footer_resource": [
-    { "name": "Webseiten", "url": "/features" },
-    { "name": "Landingpages", "url": "/features" },
-    { "name": "Onlineshops", "url": "/features" },
-    { "name": "Website-Pflege", "url": "/features" }
-  ],
   "footer_legal": [
-    { "name": "Datenschutz", "url": "/privacy-policy" },
-    { "name": "AGB", "url": "/terms-of-service" },
+    { "name": "Datenschutz", "url": "/datenschutz" },
+    { "name": "AGB", "url": "/agb" },
+    { "name": "Impressum", "url": "/impressum" },
+    { "name": "Cookies", "url": "/cookie" },
     { "name": "Kontakt", "url": "/contact" }
   ]
 }

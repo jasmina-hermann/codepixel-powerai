@@ -48,7 +48,7 @@ const FeaturedCaseStudy = ({
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray">
-                  <span className="text-sm">No image available</span>
+                  <span className="text-sm">Kein Bild verfügbar</span>
                 </div>
               )}
 
@@ -84,7 +84,6 @@ const FeaturedCaseStudy = ({
                   <PlayButton />
                 </button>
               )}
-              {!review_video && <PlayButton />}
             </div>
           </div>
         ) : (
@@ -100,7 +99,7 @@ const FeaturedCaseStudy = ({
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray">
-                  <span className="text-sm">No image available</span>
+                  <span className="text-sm">Kein Bild verfügbar</span>
                 </div>
               )}
 
@@ -136,7 +135,6 @@ const FeaturedCaseStudy = ({
                   <PlayButton />
                 </button>
               )}
-              {!review_video && <PlayButton />}
             </div>
           </a>
         )}
@@ -164,7 +162,7 @@ const FeaturedCaseStudy = ({
               href={caseStudyPath}
               className="mt-5 inline-flex items-center justify-center rounded-full border border-border/6 bg-gradient-dark px-5 py-2.5 text-base font-medium text-text"
             >
-              Read Case Study
+              Projekt ansehen
             </a>
           )}
         </div>

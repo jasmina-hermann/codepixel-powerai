@@ -1,7 +1,7 @@
 ---
 enable: true
-title: Supercharge Your Workflow with Top Tools
-badge: "Integration & Tools"
+title: Werden Sie Ihrer Konkurrenz einen Schritt voraus
+badge: "Ihr nächster Schritt"
 list:
   - "/images/integrations/HTML5.svg"
   - "/images/integrations/JS.svg"
@@ -16,6 +16,6 @@ list:
   - "/images/integrations/Mailchimp.svg"
 button:
   enable: true
-  label: Explore Integrations
-  link: "/integrations"
+  label: Kontakt aufnehmen
+  link: "/contact"
 ---

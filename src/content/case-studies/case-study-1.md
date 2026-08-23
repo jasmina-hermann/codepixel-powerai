@@ -1,49 +1,32 @@
 ---
-title: "Transforming Healthcare with AI-Powered Diagnostics"
-meta_title: ""
-description: "How we helped a leading healthcare provider implement AI diagnostics to improve patient outcomes by 40%"
-date: 2024-01-15T05:00:00Z
+title: "Kita Connect: App für Eltern und Betreuungsteams"
+meta_title: "Kita App für Eltern und Betreuung | Codepixel"
+description: "Eine übersichtliche App, die Eltern und Kindertagesstätten sicher und direkt miteinander verbindet."
+date: 2026-08-23T12:00:00Z
 image: "/images/case-studies/case-study-1.png"
-logo: "/images/trusted-clients/logo-1.png"
-review_video: "https://www.youtube.com/watch?v=A4mqzgFbmjI"
-category: "Healthcare"
+logo: ""
+category: "Apps"
 featured: true
 draft: false
 ---
 
-## The Challenge
+## Die Projektidee
 
-A leading healthcare provider was struggling with delayed diagnoses and inconsistent patient care across their network of hospitals. Manual review processes were causing bottlenecks, and patients were waiting weeks for critical test results.
+Eltern möchten wichtige Informationen zum Kita Alltag schnell erhalten. Betreuungsteams benötigen gleichzeitig eine einfache Lösung, mit der Mitteilungen, Termine und Dokumente zentral organisiert werden können.
 
-## Our Solution
+## Die Lösung
 
-We implemented an AI-powered diagnostic platform that could analyze medical imaging and lab results in real-time, providing healthcare professionals with instant insights and recommendations.
+Kita Connect vereint die tägliche Kommunikation in einer übersichtlichen App. Eltern und Mitarbeitende sehen genau die Informationen, die für sie bestimmt sind. Die Bedienung bleibt einfach und funktioniert auf Smartphone, Tablet und Computer.
 
-## Key Features
+## Zentrale Funktionen
 
-- Real-time analysis of medical imaging
-- Automated anomaly detection
-- Integration with existing hospital systems
-- Secure patient data handling
-- Continuous learning algorithms
+- Persönliche Nachrichten zwischen Eltern und Betreuungsteam
+- Tagesinformationen und wichtige Mitteilungen
+- Kalender für Termine, Ferien und Veranstaltungen
+- Sichere Freigabe von Dokumenten und Bildern
+- Abmeldungen sowie Hinweise zu Abholpersonen
+- Mehrsprachige Inhalte für Familien
 
-## Results
+## Der Mehrwert
 
-The implementation resulted in:
-
-- 40% improvement in diagnostic accuracy
-- 60% reduction in turnaround time
-- 35% increase in patient satisfaction
-- $2.5M annual cost savings
-
-## Technology Stack
-
-- Machine Learning algorithms
-- Computer Vision
-- Natural Language Processing
-- Cloud infrastructure
-- HIPAA-compliant security
-
-## Conclusion
-
-This case study demonstrates how AI can revolutionize healthcare delivery while maintaining the highest standards of patient care and data security.
+Die App reduziert Rückfragen, schafft klare Abläufe und erleichtert die tägliche Zusammenarbeit zwischen Eltern und Kita.
