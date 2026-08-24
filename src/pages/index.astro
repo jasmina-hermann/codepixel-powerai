@@ -4,6 +4,7 @@ import Hero from "@/components/Hero.astro";
 import Statistics from "@/components/Statistics";
 import CallToAction from "@/partials/CallToAction.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
+import GoogleReviews from "@/partials/GoogleReviews";
 import Integration from "@/partials/Integration";
 import KeyFeatures from "@/partials/KeyFeatures.astro";
 import Pricing from "@/partials/Pricing";
@@ -32,5 +33,6 @@ const { banner } = homepage.frontmatter;
   <WhyChooseUs data={whyChooseUs} />
   <Integration data={integration} client:visible />
   <Pricing data={pricing} client:visible />
+  <GoogleReviews client:visible />
   <CallToAction data={callToAction} />
 </Base>
