@@ -48,17 +48,41 @@ const TrustedClients = ({ data }: { data: PageData }) => {
       className="flex shrink-0 gap-18"
       aria-hidden={hidden}
     >
-      {section.items.map((logo, index) => (
-        <div key={`${listKey}-${index}`} className="shrink-0">
+      {section.items.map((logo, index) => {
+        const partnerLink = (logo as any)?.link;
+        const displayAsCard = (logo as any)?.display === "card";
+        const partnerImage = (
           <ImageFallback
             src={logo?.logo}
             alt={logo?.name || `Partnerlogo ${index + 1}`}
-            className="w-45 grayscale opacity-70"
-            width="190"
-            height="40"
+            className={
+              displayAsCard
+                ? "h-20 w-52 rounded-xl bg-[#f8f6ef] object-contain p-2 opacity-95"
+                : "w-45 grayscale opacity-70"
+            }
+            width={displayAsCard ? "208" : "190"}
+            height={displayAsCard ? "80" : "40"}
           />
-        </div>
-      ))}
+        );
+
+        return (
+          <div key={`${listKey}-${index}`} className="shrink-0">
+            {partnerLink && partnerLink !== "#" ? (
+              <a
+                href={partnerLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${logo?.name || "Partner"} Webseite öffnen`}
+                className="block rounded-xl transition duration-300 hover:scale-105 hover:opacity-100"
+              >
+                {partnerImage}
+              </a>
+            ) : (
+              partnerImage
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 

@@ -1,3 +1,7 @@
+  - name: Restaurant Wintergarten Weststrasse
+    logo: /images/trusted-clients/restaurant-wintergarten-weststrasse.jpeg
+    link: "https://restaurant-wintergarten-weststrasse.de"
+    display: card
 ---
 enable: true
 title: Unsere Partner
