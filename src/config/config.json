@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "IT-Firma in Thurgau",
+    "title": "Codepixel | IT-Firma in Thurgau",
     "base_url": "https://codepixel.ch/",
     "base_path": "/",
     "trailing_slash": false,
@@ -39,7 +39,7 @@
   "metadata": {
     "meta_author": "Codepixel",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Codepixel entwickelt individuelle, schnelle und hochwertige Webseiten für Unternehmen in der Schweiz."
+    "meta_description": "Codepixel ist Ihre IT-Firma im Thurgau für Webseiten, Software, Apps, Schnittstellen, Branding und digitale Strategien. Persönlich, individuell und zuverlässig."
   },
   "open-remark-comment": {
     "enable": false,
