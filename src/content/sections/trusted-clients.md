@@ -12,7 +12,7 @@ items:
     logo: /images/trusted-clients/kemos-restaurant.png
     link: "https://kemosrestaurant.com"
   - name: Restaurant Wintergarten Weststrasse
-    logo: /images/trusted-clients/restaurant-wintergarten-weststrasse.jpeg
+    logo: /images/trusted-clients/restaurant-wintergarten-original.png
     link: "https://restaurant-wintergarten-weststrasse.de"
     display: card
 ---
