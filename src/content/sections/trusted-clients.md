@@ -15,4 +15,6 @@ items:
     logo: /images/trusted-clients/restaurant-wintergarten-original.png
     link: "https://restaurant-wintergarten-weststrasse.de"
     display: card
+  - name: Hairstyling Viktor & Valbona
+    logo: /images/trusted-clients/hairstyling-viktor-valbona.png
 ---
