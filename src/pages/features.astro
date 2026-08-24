@@ -7,27 +7,18 @@ import PageHeader from "@/partials/PageHeader.astro";
 import TrustedClients from "@/partials/TrustedClients";
 import ServiceGrid from "@/partials/ServiceGrid.astro";
 import { getListPage } from "@/lib/contentParser";
-import {
-  englishCallToAction,
-  englishEssentialFeatures,
-  englishFeaturesPage,
-  englishKeyFeatures,
-  englishTrustedClients,
-} from "@/data/english";
 
-const isEnglish = Astro.url.pathname === "/en/features" || Astro.url.pathname.startsWith("/en/features/");
-const wrap = (frontmatter: any) => ({ frontmatter, content: "" });
-const data = isEnglish ? wrap(englishFeaturesPage) : await getListPage("features/-index.md");
+const data = await getListPage("features/-index.md");
 const { title, description, meta_title, image, page_header } = data.frontmatter;
-const essential_features = isEnglish ? wrap(englishEssentialFeatures) : await getListPage("sections/essential-features.md");
-const trusted_clients = isEnglish ? wrap(englishTrustedClients) : await getListPage("sections/trusted-clients.md");
-const key_features = isEnglish ? wrap(englishKeyFeatures) : await getListPage("sections/key-features.md");
-const callToAction = isEnglish ? wrap(englishCallToAction) : await getListPage("sections/call-to-action.md");
+const essential_features = await getListPage("sections/essential-features.md");
+const trusted_clients = await getListPage("sections/trusted-clients.md");
+const key_features = await getListPage("sections/key-features.md");
+const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
   <PageHeader page_header={page_header} />
-  <ServiceGrid language={isEnglish ? "en" : "de"} />
+  <ServiceGrid />
   <EssentialFeatures data={essential_features} />
   <TrustedClients data={trusted_clients} client:load />
   <KeyFeatures data={key_features} />

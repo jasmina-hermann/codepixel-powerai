@@ -6,13 +6,6 @@
     { "name": "Projekte", "url": "/case-studies" },
     { "name": "Kontakt", "url": "/contact" }
   ],
-  "main_en": [
-    { "name": "Home", "url": "/en" },
-    { "name": "Our Services", "url": "/en/features" },
-    { "name": "Pricing", "url": "/en/pricing" },
-    { "name": "Projects", "url": "/en/case-studies" },
-    { "name": "Contact", "url": "/en/contact" }
-  ],
   "footer_company": [
     { "name": "Startseite", "url": "/" },
     { "name": "Leistungen", "url": "/features" },
@@ -20,25 +13,11 @@
     { "name": "Projekte", "url": "/case-studies" },
     { "name": "Kontakt", "url": "/contact" }
   ],
-  "footer_company_en": [
-    { "name": "Home", "url": "/en" },
-    { "name": "Services", "url": "/en/features" },
-    { "name": "Pricing", "url": "/en/pricing" },
-    { "name": "Projects", "url": "/en/case-studies" },
-    { "name": "Contact", "url": "/en/contact" }
-  ],
   "footer_legal": [
     { "name": "Datenschutz", "url": "/datenschutz" },
     { "name": "AGB", "url": "/agb" },
     { "name": "Impressum", "url": "/impressum" },
     { "name": "Cookies", "url": "/cookie" },
     { "name": "Kontakt", "url": "/contact" }
-  ],
-  "footer_legal_en": [
-    { "name": "Privacy Policy", "url": "/datenschutz" },
-    { "name": "Terms", "url": "/agb" },
-    { "name": "Legal Notice", "url": "/impressum" },
-    { "name": "Cookies", "url": "/cookie" },
-    { "name": "Contact", "url": "/en/contact" }
   ]
 }

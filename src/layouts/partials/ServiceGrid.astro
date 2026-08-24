@@ -1,114 +1,54 @@
 ---
-interface Props {
-  language?: "de" | "en";
-}
-
-const { language = "de" } = Astro.props;
-
-const translations = {
-  de: {
-    badge: "Unser Angebot",
-    title: "Digitale Lösungen aus einer Hand",
-    subtitle:
-      "Wir verbinden Technik, Design und unternehmerisches Denken. Jede Lösung wird passend zu Ihren Zielen, Abläufen und Ihrer Marke entwickelt.",
-    services: [
-      {
-        title: "Webseiten",
-        content:
-          "Individuelle Webseiten mit klarer Nutzerführung, starker Technik und einem Design, das Ihr Unternehmen professionell sichtbar macht.",
-        icon: "website",
-      },
-      {
-        title: "Programme und Software",
-        content:
-          "Massgeschneiderte Programme und Softwarelösungen, die Arbeitsabläufe vereinfachen und exakt zu Ihrem Unternehmen passen.",
-        icon: "software",
-      },
-      {
-        title: "Schnittstellen",
-        content:
-          "Wir verbinden bestehende Systeme, automatisieren den Datenaustausch und reduzieren wiederkehrende manuelle Arbeit.",
-        icon: "connection",
-      },
-      {
-        title: "Logo und Branding",
-        content:
-          "Von der Logoentwicklung bis zum vollständigen Markenauftritt schaffen wir eine Identität mit Wiedererkennungswert.",
-        icon: "branding",
-      },
-      {
-        title: "Unternehmens Giveaways",
-        content:
-          "Hochwertige Textilien, Werbemittel und Firmenprodukte, die Ihren Auftritt im Alltag und bei Kunden sichtbar stärken.",
-        icon: "gift",
-      },
-      {
-        title: "Business Support",
-        content:
-          "Persönliche Unterstützung bei Administration, Organisation und operativen Aufgaben, wenn intern Zeit oder Ressourcen fehlen.",
-        icon: "support",
-      },
-      {
-        title: "Strategie und Coaching",
-        content:
-          "Ehrliche Beratung, klare Strukturen und praxisnahe Begleitung für Führung, Prozesse und nachhaltige Unternehmensentwicklung.",
-        icon: "strategy",
-      },
-    ],
-  },
-  en: {
-    badge: "Our Expertise",
-    title: "Digital solutions from one partner",
-    subtitle:
-      "We combine technology, design and business thinking. Every solution is tailored to your goals, processes and brand.",
-    services: [
-      {
-        title: "Websites",
-        content:
-          "Custom websites with clear user journeys, strong technology and a design that presents your company professionally.",
-        icon: "website",
-      },
-      {
-        title: "Programs and Software",
-        content:
-          "Tailored programs and software solutions that simplify processes and fit the way your company works.",
-        icon: "software",
-      },
-      {
-        title: "Interfaces",
-        content:
-          "We connect existing systems, automate data exchange and reduce repetitive manual work.",
-        icon: "connection",
-      },
-      {
-        title: "Logo and Branding",
-        content:
-          "From logo development to a complete brand identity, we create a distinctive and consistent presence.",
-        icon: "branding",
-      },
-      {
-        title: "Corporate Giveaways",
-        content:
-          "Premium textiles, promotional items and company products that make your brand visible in everyday business.",
-        icon: "gift",
-      },
-      {
-        title: "Business Support",
-        content:
-          "Personal support with administration, organisation and operational tasks whenever internal resources are limited.",
-        icon: "support",
-      },
-      {
-        title: "Strategy and Coaching",
-        content:
-          "Honest advice, clear structures and practical guidance for leadership, processes and sustainable business development.",
-        icon: "strategy",
-      },
-    ],
-  },
+const content = {
+  badge: "Unser Angebot",
+  title: "Digitale Lösungen aus einer Hand",
+  subtitle:
+    "Wir verbinden Technik, Design und unternehmerisches Denken. Jede Lösung wird passend zu Ihren Zielen, Abläufen und Ihrer Marke entwickelt.",
+  services: [
+    {
+      title: "Webseiten",
+      content:
+        "Individuelle Webseiten mit klarer Nutzerführung, starker Technik und einem Design, das Ihr Unternehmen professionell sichtbar macht.",
+      icon: "website",
+    },
+    {
+      title: "Programme und Software",
+      content:
+        "Massgeschneiderte Programme und Softwarelösungen, die Arbeitsabläufe vereinfachen und exakt zu Ihrem Unternehmen passen.",
+      icon: "software",
+    },
+    {
+      title: "Schnittstellen",
+      content:
+        "Wir verbinden bestehende Systeme, automatisieren den Datenaustausch und reduzieren wiederkehrende manuelle Arbeit.",
+      icon: "connection",
+    },
+    {
+      title: "Logo und Branding",
+      content:
+        "Von der Logoentwicklung bis zum vollständigen Markenauftritt schaffen wir eine Identität mit Wiedererkennungswert.",
+      icon: "branding",
+    },
+    {
+      title: "Unternehmens Giveaways",
+      content:
+        "Hochwertige Textilien, Werbemittel und Firmenprodukte, die Ihren Auftritt im Alltag und bei Kunden sichtbar stärken.",
+      icon: "gift",
+    },
+    {
+      title: "Business Support",
+      content:
+        "Persönliche Unterstützung bei Administration, Organisation und operativen Aufgaben, wenn intern Zeit oder Ressourcen fehlen.",
+      icon: "support",
+    },
+    {
+      title: "Strategie und Coaching",
+      content:
+        "Ehrliche Beratung, klare Strukturen und praxisnahe Begleitung für Führung, Prozesse und nachhaltige Unternehmensentwicklung.",
+      icon: "strategy",
+    },
+  ],
 };
-
-const content = translations[language];
 const iconPaths: Record<string, string> = {
   website: '<rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8h18M8 22h8M12 19v3"/>',
   software: '<path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"/>',

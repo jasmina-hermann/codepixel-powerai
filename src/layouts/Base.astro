@@ -28,11 +28,10 @@ export interface Props {
 
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
-const language = Astro.url.pathname.startsWith("/en") ? "en" : "de";
 ---
 
 <!doctype html>
-<html lang={language}>
+<html lang="de">
   <head>
     <!-- Google Tag Manager -->
     {gtmEnabled && (

@@ -6,20 +6,12 @@ import TrustedClients from "@/partials/TrustedClients";
 import PricingSection from "@/partials/Pricing";
 import PricingTable from "@/components/PricingTable";
 import { getListPage } from "@/lib/contentParser";
-import {
-  englishCallToAction,
-  englishPricing,
-  englishPricingPage,
-  englishTrustedClients,
-} from "@/data/english";
 
-const isEnglish = Astro.url.pathname === "/en/pricing" || Astro.url.pathname.startsWith("/en/pricing/");
-const wrap = (frontmatter: any) => ({ frontmatter, content: "" });
-const data = isEnglish ? wrap(englishPricingPage) : await getListPage("pricing/-index.md");
+const data = await getListPage("pricing/-index.md");
 const { title, description, meta_title, image, page_header, pricing_table } = data.frontmatter;
-const trusted_clients = isEnglish ? wrap(englishTrustedClients) : await getListPage("sections/trusted-clients.md");
-const pricing = isEnglish ? wrap(englishPricing) : await getListPage("sections/pricing.md");
-const callToAction = isEnglish ? wrap(englishCallToAction) : await getListPage("sections/call-to-action.md");
+const trusted_clients = await getListPage("sections/trusted-clients.md");
+const pricing = await getListPage("sections/pricing.md");
+const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
