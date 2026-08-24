@@ -5,31 +5,31 @@ const googleReviews = [
   {
     name: "Elmin König",
     initials: "EK",
-    date: "vor 1 Stunde",
+    date: "Google Rezension",
     text: "TOP",
   },
   {
     name: "Cedric Rodriguez",
     initials: "CR",
-    date: "vor 2 Monaten",
+    date: "Google Rezension",
     text: "Sehr professionelle und unkomplizierte Zusammenarbeit. Meine Website wurde genau nach meinen Vorstellungen umgesetzt und sieht hervorragend aus. Wünsche und Anpassungen wurden schnell umgesetzt, die Kommunikation war stets freundlich und …",
   },
   {
     name: "Monika Smajovic",
     initials: "MS",
-    date: "vor 3 Monaten",
+    date: "Google Rezension",
     text: "Bisher die beste Qualität und der beste Logo-Druck🥰 Danke🌺",
   },
   {
     name: "Mahir M",
     initials: "MM",
-    date: "vor 5 Monaten",
+    date: "Google Rezension",
     text: "Ich empfehle die Firma Codepixel aufgrund ihrer kompetenten Beratung und der entsprechenden massgeschneiderten Umsetzung!",
   },
   {
     name: "E. Z.",
     initials: "EZ",
-    date: "vor 3 Monaten",
+    date: "Google Rezension",
     text: "Das Unternehmen ist sehr empfehlenswert! Nettes Team und die Qualität hat mich überzeugt!",
   },
 ];
