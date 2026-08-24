@@ -57,7 +57,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
             alt={logo?.name || `Partnerlogo ${index + 1}`}
             className={
               displayAsCard
-                ? "h-20 w-52 rounded-xl bg-[#f8f6ef] object-contain p-2 opacity-95"
+                ? "h-20 w-52 object-cover grayscale invert opacity-70"
                 : "w-45 grayscale opacity-70"
             }
             width={displayAsCard ? "208" : "190"}
