@@ -5,7 +5,11 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-const isEnglish = Astro.url.pathname === "/en" || Astro.url.pathname.startsWith("/en/");
+const pathname = Astro.url.pathname;
+const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+const englishPath = pathname === "/" ? "/en" : `/en${pathname}`;
+const germanPath = pathname === "/en" ? "/" : pathname.replace(/^\/en/, "") || "/";
+const languageHref = isEnglish ? germanPath : englishPath;
 const copyright = isEnglish
   ? "© 2026 Codepixel. All rights reserved."
   : config.params.copyright;
@@ -29,6 +33,17 @@ const footerSocial = isEnglish
         <Logo />
         <p class="text-gray mb-10 mt-3 md:w-2/5">{footerText}</p>
         <Social source={footerSocial} className="social-icons flex flex-wrap gap-y-4" />
+        <a
+          class="footer-language-switch"
+          href={languageHref}
+          aria-label={isEnglish ? "Deutsche Version öffnen" : "Open English version"}
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
+          </svg>
+          <span>{isEnglish ? "Deutsch" : "English"}</span>
+        </a>
       </div>
 
       <div class="md:col-span-3">
@@ -62,6 +77,39 @@ const footerSocial = isEnglish
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-language-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 2.75rem;
+    margin-top: 1.25rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(255, 176, 0, 0.48);
+    border-radius: 999px;
+    color: #ffb000;
+    background: rgba(255, 157, 0, 0.08);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+
+  .footer-language-switch:hover {
+    border-color: rgba(255, 196, 0, 0.88);
+    background: rgba(255, 157, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .footer-language-switch svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+</style>
 
 <script>
   import { animateMini as animate, inView } from "motion";

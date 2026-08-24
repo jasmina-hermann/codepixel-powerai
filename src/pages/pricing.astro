@@ -1,7 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
-import FAQ from "@/partials/FAQ";
 import PageHeader from "@/partials/PageHeader.astro";
 import TrustedClients from "@/partials/TrustedClients";
 import PricingSection from "@/partials/Pricing";
@@ -20,7 +19,6 @@ const data = isEnglish ? wrap(englishPricingPage) : await getListPage("pricing/-
 const { title, description, meta_title, image, page_header, pricing_table } = data.frontmatter;
 const trusted_clients = isEnglish ? wrap(englishTrustedClients) : await getListPage("sections/trusted-clients.md");
 const pricing = isEnglish ? wrap(englishPricing) : await getListPage("sections/pricing.md");
-const faq = await getListPage("sections/faq.md");
 const callToAction = isEnglish ? wrap(englishCallToAction) : await getListPage("sections/call-to-action.md");
 ---
 
@@ -30,6 +28,5 @@ const callToAction = isEnglish ? wrap(englishCallToAction) : await getListPage("
   </PageHeader>
   <TrustedClients data={trusted_clients} client:load />
   <PricingTable data={pricing_table} client:visible />
-  {!isEnglish && <FAQ data={faq} client:visible />}
   <CallToAction data={callToAction} />
 </Base>
