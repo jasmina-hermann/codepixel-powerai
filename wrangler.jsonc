@@ -6,6 +6,16 @@
   "compatibility_date": "2026-03-02",
   "workers_dev": true,
   "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "codepixel.ch/*",
+      "zone_name": "codepixel.ch"
+    },
+    {
+      "pattern": "www.codepixel.ch/*",
+      "zone_name": "codepixel.ch"
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
