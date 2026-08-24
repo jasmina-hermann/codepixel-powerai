@@ -1,25 +1,21 @@
 ---
-# Banner
 banner:
   title: |
-    Powering The Next
+    Webseiten, die nicht nur
     <br/>
-    <mark>Generation of Intelligence</mark>
-  content: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+    gut aussehen. <mark>Sondern wirken.</mark>
+  content: "Individuelle Webseiten für Unternehmen in der Schweiz, Deutschland, Österreich und darüber hinaus. Luxuriös gestaltet, technisch stark und konsequent darauf ausgerichtet, neue Kunden zu gewinnen. Persönlich betreut mit direktem Kontakt zur Inhaberin."
   badge:
     enable: true
-    label: 2M Users Worldwide
-    images:
-      - "/images/avatars/avatar-1.jpg"
-      - "/images/avatars/avatar-2.jpg"
-      - "/images/avatars/avatar-3.png"
+    label: codepixel.ch
+    images: []
   image: "/images/banner.png"
   button_dark:
     enable: true
-    label: "GitHub Repository"
-    link: "https://github.com/sitepins/powerai-astro"
+    label: "Preise"
+    link: "/pricing"
   button_primary:
     enable: true
-    label: "Edit with Sitepins"
-    link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+    label: "Kontakt"
+    link: "/contact"
 ---

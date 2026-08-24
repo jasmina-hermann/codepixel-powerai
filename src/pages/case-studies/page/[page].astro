@@ -35,7 +35,7 @@ const indexOfLastStudy = currentPage * pagination;
 const indexOfFirstStudy = indexOfLastStudy - pagination;
 const currentCaseStudies = sortedCaseStudies.slice(indexOfFirstStudy, indexOfLastStudy);
 
-const page_header = { title, badge: "Case Studies", description };
+const page_header = { title, badge: "Projekte", description };
 const callToAction = await getListPage("sections/call-to-action.md");
 const featuredCaseStudy = sortedCaseStudies.filter((study: any) => study.frontmatter.featured)[0];
 ---

@@ -5,8 +5,9 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
 import { markdownify } from "@/lib/utils/textConverter";
-const { copyright } = config.params;
-const { footer_company, footer_legal, footer_resource } = menu;
+const copyright = config.params.copyright;
+const footerCompany = menu.footer_company;
+const footerLegal = menu.footer_legal;
 ---
 
 <footer class="pt-25">
@@ -15,42 +16,23 @@ const { footer_company, footer_legal, footer_resource } = menu;
       <div class="md:col-span-3">
         <Logo />
         <p class="text-gray mb-10 mt-3 md:w-2/5">{config.params.footer_text}</p>
-        <ul>
-          <li class="mb-2">
-            <a href={`mailto:${config.params.mail}`} class="text-text hover:text-primary transition text-lg">
-              {config.params.mail}
-            </a>
-          </li>
-          <li class="mb-2">
-            <a href={`tel:${config.params.phone}`} class="text-text hover:text-primary transition text-lg">
-              {config.params.phone}
-            </a>
-          </li>
-        </ul>
+        <Social source={social.main} className="social-icons flex flex-wrap gap-y-4" />
       </div>
 
       <div class="md:col-span-3">
-        <div class="grid sm:grid-cols-3 gap-y-10 sm:gap-y-6">
+        <div class="grid sm:grid-cols-2 gap-y-10 sm:gap-y-6">
           <div>
-            <h3 class="text-xl font-medium mb-10">Company</h3>
+            <h3 class="text-xl font-medium mb-10">Unternehmen</h3>
             <ul class="flex flex-col gap-y-3">
-              {footer_company.map((item: any) => (
+              {footerCompany.map((item: any) => (
                 <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 class="text-xl font-medium mb-10">Resources</h3>
+            <h3 class="text-xl font-medium mb-10">Rechtlich</h3>
             <ul class="flex flex-col gap-y-3">
-              {footer_resource.map((item: any) => (
-                <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-medium mb-10">Legal</h3>
-            <ul class="flex flex-col gap-y-3">
-              {footer_legal.map((item: any) => (
+              {footerLegal.map((item: any) => (
                 <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
               ))}
             </ul>
@@ -61,10 +43,9 @@ const { footer_company, footer_legal, footer_resource } = menu;
 
     <!-- Bottom footer -->
     <div id="footer-bottom" style="opacity:0" class="lg:sticky bottom-0 z-0 relative">
-      <h1 class="footer-title leading-tight mt-12 lg:mt-20">{config.site.title}</h1>
-      <div class="flex justify-between lg:-translate-y-12 items-center flex-col sm:flex-row gap-y-6 py-6">
+      <h1 class="footer-title normal-case leading-tight mt-12 lg:mt-20">codepixel.ch</h1>
+      <div class="flex justify-start lg:-translate-y-12 items-center flex-col sm:flex-row gap-y-6 py-6">
         <p class="text-text text-sm" set:html={markdownify(copyright).__html} />
-        <Social source={social.main} className="social-icons" />
       </div>
     </div>
   </div>

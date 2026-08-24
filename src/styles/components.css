@@ -189,7 +189,7 @@
 }
 /* footer-title */
 .footer-title {
-  @apply uppercase text-[16vw] sm:text-[100px] md:text-[150px] lg:text-[200px] xl:text-[250px] whitespace-nowrap overflow-hidden text-center;
+  @apply text-[16vw] sm:text-[100px] md:text-[150px] lg:text-[200px] xl:text-[250px] whitespace-nowrap overflow-hidden text-center;
   background: linear-gradient(
     0deg,
     #0e0912 23.53%,

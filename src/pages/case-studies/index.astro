@@ -18,7 +18,7 @@ const caseStudies = await getSinglePage(case_studies_folder);
 const sortedCaseStudies = sortByDate(caseStudies);
 const totalPages = Math.ceil(caseStudies.length / pagination);
 const currentCaseStudies = sortedCaseStudies.slice(0, pagination);
-const page_header = { title, badge: "Case Studies", description };
+const page_header = { title, badge: "Projekte", description };
 const callToAction = await getListPage("sections/call-to-action.md");
 const featuredCaseStudy = sortedCaseStudies.filter((study: any) => study.frontmatter.featured)[0];
 ---

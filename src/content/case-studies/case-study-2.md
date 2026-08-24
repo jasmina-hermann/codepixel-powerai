@@ -1,49 +1,32 @@
 ---
-title: "Revolutionizing E-commerce with Personalized AI Recommendations"
-meta_title: ""
-description: "How we helped an e-commerce giant increase conversion rates by 150% using AI-powered product recommendations"
-date: 2024-02-10T05:00:00Z
+title: "Garage Flow: Werkstatt App für Garagisten"
+meta_title: "App für Garagen und Werkstätten | Codepixel"
+description: "Eine digitale Werkstattlösung für Termine, Fahrzeuge, Aufträge und die direkte Kundenkommunikation."
+date: 2026-08-22T12:00:00Z
 image: "/images/case-studies/case-study-2.png"
-logo: "/images/trusted-clients/logo-1.png"
-review_video: "https://www.youtube.com/watch?v=A4mqzgFbmjI"
-category: "E-commerce"
+logo: ""
+category: "Apps"
 featured: false
 draft: false
 ---
 
-## The Challenge
+## Die Projektidee
 
-A major e-commerce platform was experiencing low conversion rates and high cart abandonment. Their one-size-fits-all recommendation engine wasn't resonating with diverse customer segments.
+Garagen koordinieren täglich Fahrzeuge, Ersatzteile, Termine und Kundenanfragen. Garage Flow bringt diese Abläufe in einer zentralen Anwendung zusammen.
 
-## Our Solution
+## Die Lösung
 
-We developed a sophisticated AI-powered recommendation system that analyzes user behavior, preferences, and purchase history to deliver personalized product suggestions in real-time.
+Die App unterstützt Mitarbeitende vom ersten Kundenkontakt bis zur Fahrzeugübergabe. Alle wichtigen Angaben sind an einem Ort verfügbar und können direkt aktualisiert werden.
 
-## Key Features
+## Zentrale Funktionen
 
-- Deep learning-based recommendation engine
-- Real-time personalization
-- Cross-channel integration
-- A/B testing capabilities
-- Performance analytics dashboard
+- Digitale Terminplanung für Werkstatt und Reifenservice
+- Fahrzeughistorie mit ausgeführten Arbeiten
+- Auftragsstatus für Mitarbeitende und Kunden
+- Fotodokumentation von Schäden und Reparaturen
+- Erinnerungen für Service und Fahrzeugprüfung
+- Schnittstellen zu Buchhaltung und Kundenverwaltung
 
-## Results
+## Der Mehrwert
 
-The implementation delivered:
-
-- 150% increase in conversion rates
-- 45% reduction in cart abandonment
-- 80% improvement in customer engagement
-- $12M increase in annual revenue
-
-## Technology Stack
-
-- Deep Learning
-- Collaborative Filtering
-- Content-Based Filtering
-- Real-time analytics
-- Cloud-native architecture
-
-## Conclusion
-
-This case study showcases the power of personalized AI in driving e-commerce success and creating exceptional customer experiences.
+Garage Flow sorgt für mehr Übersicht, schnellere Abläufe und eine professionelle Kommunikation mit den Kundinnen und Kunden.

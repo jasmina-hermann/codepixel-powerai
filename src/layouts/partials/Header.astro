@@ -25,8 +25,8 @@ interface INavigationLink {
   mega_menu?: IMegaMenuNavigation;
 }
 
-const { main }: { main: INavigationLink[] } = menu;
 const { navigation_button, settings } = config;
+const { main }: { main: INavigationLink[] } = menu;
 
 const normalizePath = (path: string) => {
   if (path === "/") return "/";

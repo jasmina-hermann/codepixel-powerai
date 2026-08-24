@@ -1,6 +1,3 @@
-
-import Counter from "./Counter";
-
 import theme from "@/config/theme.json";
 import { motion } from "motion/react";
 import {
@@ -13,110 +10,109 @@ interface PageData {
   content?: string;
   frontmatter: {
     enable: boolean;
+    badge?: string;
+    step_label?: string;
+    title?: string;
+    subtitle?: string;
     stats_list: {
-      label: string;
-      value: {
-        prefix: string;
-        suffix: string;
-        number: number;
-      };
+      step: string;
+      title: string;
+      content: string;
     }[];
   };
 }
 
 const Statistics = ({ data }: { data: PageData }) => {
-  const primaryColor = theme?.colors?.default?.theme_color?.primary;
-  const secondaryColor = theme?.colors?.default?.theme_color?.secondary;
+  const stepLabel = data.frontmatter.step_label || "Schritt";
+  const primaryColor =
+    theme?.colors?.default?.theme_color?.primary || "#FF9D00";
+  const secondaryColor =
+    theme?.colors?.default?.theme_color?.secondary || "#FFC400";
 
   return (
     data.frontmatter.enable && (
       <section>
-        <div className="main-container"><div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px", amount: 0.1 }}
-            variants={staggerContainerVariants}
-            className="py-12.5 grid sm:grid-cols-2 lg:grid-cols-4 gap-2.5 container-padding-x"
-          >
-            {data.frontmatter.stats_list.map((item, index) => (
+        <div className="main-container">
+          <div className="container">
+            <div className="py-16 container-padding-x">
               <motion.div
-                key={index}
-                variants={staggerItemVariants}
-                className="border border-border/6 py-10 px-12 rounded-2xl text-center bg-card relative overflow-hidden"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px", amount: 0.15 }}
+                variants={staggerContainerVariants}
+                className="text-center max-w-3xl mx-auto mb-10"
               >
-                <div className="relative z-1">
-                  <h3 className="text-[60px] font-light">
-                    <Counter
-                      target={item.value.number}
-                      prefix={item.value.prefix}
-                      suffix={item.value.suffix}
-                    />
-                  </h3>
-                  <p className="text-text">{item.label}</p>
-                </div>
-
-                <svg
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2"
-                  width="288"
-                  height="160"
-                  viewBox="0 0 288 160"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g filter="url(#filter0_f_35_7008)">
-                    <circle
-                      cx="144"
-                      cy="210"
-                      r="110"
-                      fill="url(#paint0_linear_35_7008)"
-                      fillOpacity="0.2"
-                    />
-                  </g>
-                  <defs>
-                    <filter
-                      id="filter0_f_35_7008"
-                      x="-66"
-                      y="0"
-                      width="420"
-                      height="420"
-                      filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
-                    >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend
-                        mode="normal"
-                        in="SourceGraphic"
-                        in2="BackgroundImageFix"
-                        result="shape"
-                      />
-                      <feGaussianBlur
-                        stdDeviation="50"
-                        result="effect1_foregroundBlur_35_7008"
-                      />
-                    </filter>
-                    <linearGradient
-                      id="paint0_linear_35_7008"
-                      x1="34"
-                      y1="320"
-                      x2="254"
-                      y2="320"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop
-                        stopColor={primaryColor ? primaryColor : "#9A4DFE"}
-                      />
-                      <stop
-                        offset="1"
-                        stopColor={secondaryColor ? secondaryColor : "#E87CFF"}
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
+                {data.frontmatter.badge && (
+                  <motion.span
+                    variants={staggerItemVariants}
+                    className="inline-flex rounded-full border border-primary/50 px-4 py-1.5 mb-4 text-primary"
+                  >
+                    {data.frontmatter.badge}
+                  </motion.span>
+                )}
+                {data.frontmatter.title && (
+                  <motion.h2
+                    variants={staggerItemVariants}
+                    className="text-h2 font-medium"
+                  >
+                    {data.frontmatter.title}
+                  </motion.h2>
+                )}
+                {data.frontmatter.subtitle && (
+                  <motion.p
+                    variants={staggerItemVariants}
+                    className="text-gray mt-4"
+                  >
+                    {data.frontmatter.subtitle}
+                  </motion.p>
+                )}
               </motion.div>
-            ))}
-          </motion.div>
-        </div></div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px", amount: 0.1 }}
+                variants={staggerContainerVariants}
+                className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3"
+              >
+                {data.frontmatter.stats_list.map((item, index) => (
+                  <motion.article
+                    key={index}
+                    variants={staggerItemVariants}
+                    className="group min-h-72 border border-border/6 p-7 rounded-3xl bg-card relative overflow-hidden"
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <div className="relative z-10 h-full flex flex-col">
+                      <div className="flex items-end justify-between mb-7">
+                        <span className="text-[54px] leading-none font-light gradient-text-primary">
+                          {item.step}
+                        </span>
+                        <span className="text-xs uppercase tracking-[0.2em] text-light/45">
+                          {stepLabel}
+                        </span>
+                      </div>
+                      <h3 className="text-h5 font-medium mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray leading-relaxed">
+                        {item.content}
+                      </p>
+                    </div>
+
+                    <div
+                      className="absolute -bottom-24 left-1/2 -translate-x-1/2 h-44 w-64 rounded-full blur-3xl opacity-20 transition-opacity duration-300 group-hover:opacity-35"
+                      style={{
+                        background: `linear-gradient(90deg, ${primaryColor}, ${secondaryColor})`,
+                      }}
+                      aria-hidden="true"
+                    />
+                  </motion.article>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
     )
   );

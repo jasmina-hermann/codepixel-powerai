@@ -5,6 +5,7 @@ import EssentialFeatures from "@/partials/EssentialFeatures.astro";
 import KeyFeatures from "@/partials/KeyFeatures.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import TrustedClients from "@/partials/TrustedClients";
+import ServiceGrid from "@/partials/ServiceGrid.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("features/-index.md");
@@ -17,6 +18,7 @@ const callToAction = await getListPage("sections/call-to-action.md");
 
 <Base title={title} meta_title={meta_title} description={description} image={image}>
   <PageHeader page_header={page_header} />
+  <ServiceGrid />
   <EssentialFeatures data={essential_features} />
   <TrustedClients data={trusted_clients} client:load />
   <KeyFeatures data={key_features} />

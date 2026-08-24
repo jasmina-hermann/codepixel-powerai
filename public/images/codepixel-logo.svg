@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 108" fill="none">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F9A825"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#F9A825"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pixelated C + Circuit elements, scaled to fit proportionally -->
+  <g transform="translate(0, 2) scale(0.42)">
+    <!-- Row 0 -->
+    <rect x="80" y="20" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="100" y="20" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="120" y="20" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="140" y="20" width="18" height="18" rx="2" fill="#FFB300"/>
+
+    <!-- Row 1 -->
+    <rect x="60" y="40" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="80" y="40" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="100" y="40" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="120" y="40" width="18" height="18" rx="2" fill="#FF8F00"/>
+    <rect x="140" y="40" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="160" y="40" width="18" height="18" rx="2" fill="#FFCA28"/>
+
+    <!-- Row 2 -->
+    <rect x="40" y="60" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="60" y="60" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="80" y="60" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="100" y="60" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="120" y="60" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="140" y="60" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="160" y="60" width="18" height="18" rx="2" fill="#FF8F00"/>
+
+    <!-- Row 3 -->
+    <rect x="20" y="80" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="40" y="80" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="60" y="80" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="80" y="80" width="18" height="18" rx="2" fill="#FF8F00"/>
+
+    <!-- Row 4 -->
+    <rect x="20" y="100" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="40" y="100" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="60" y="100" width="18" height="18" rx="2" fill="#FF8F00"/>
+
+    <!-- Row 5 -->
+    <rect x="20" y="120" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="40" y="120" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="60" y="120" width="18" height="18" rx="2" fill="#FFC107"/>
+
+    <!-- Row 6 -->
+    <rect x="20" y="140" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="40" y="140" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="60" y="140" width="18" height="18" rx="2" fill="#FF8F00"/>
+
+    <!-- Row 7 -->
+    <rect x="20" y="160" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="40" y="160" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="60" y="160" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="80" y="160" width="18" height="18" rx="2" fill="#FFB300"/>
+
+    <!-- Row 8 -->
+    <rect x="40" y="180" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="60" y="180" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="80" y="180" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="100" y="180" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="120" y="180" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="140" y="180" width="18" height="18" rx="2" fill="#FF8F00"/>
+    <rect x="160" y="180" width="18" height="18" rx="2" fill="#FFB300"/>
+
+    <!-- Row 9 -->
+    <rect x="60" y="200" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="80" y="200" width="18" height="18" rx="2" fill="#FFB300"/>
+    <rect x="100" y="200" width="18" height="18" rx="2" fill="#FFA000"/>
+    <rect x="120" y="200" width="18" height="18" rx="2" fill="#FF8F00"/>
+    <rect x="140" y="200" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="160" y="200" width="18" height="18" rx="2" fill="#FFCA28"/>
+
+    <!-- Row 10 -->
+    <rect x="80" y="220" width="18" height="18" rx="2" fill="#FFD54F"/>
+    <rect x="100" y="220" width="18" height="18" rx="2" fill="#FFCA28"/>
+    <rect x="120" y="220" width="18" height="18" rx="2" fill="#FFC107"/>
+    <rect x="140" y="220" width="18" height="18" rx="2" fill="#FFB300"/>
+
+    <!-- Circuit elements -->
+    <g stroke="#F9A825" stroke-width="2" fill="none" stroke-linecap="round">
+      <line x1="165" y1="38" x2="190" y2="18"/>
+      <line x1="190" y1="18" x2="215" y2="8"/>
+      <line x1="190" y1="18" x2="210" y2="32"/>
+      <line x1="210" y1="32" x2="230" y2="26"/>
+    </g>
+    <circle cx="215" cy="8" r="6" fill="url(#circuitGrad)" stroke="#F57F17" stroke-width="1.5"/>
+    <circle cx="190" cy="18" r="4" fill="url(#circuitGrad)" stroke="#F57F17" stroke-width="1.5"/>
+    <circle cx="230" cy="26" r="6" fill="url(#circuitGrad)" stroke="#F57F17" stroke-width="1.5"/>
+    <circle cx="210" cy="32" r="3" fill="#F9A825"/>
+  </g>
+
+  <!-- Text "codepixel" -->
+  <text x="100" y="72" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="700" fill="url(#textGrad)" letter-spacing="-0.5">codepixel</text>
+</svg>
