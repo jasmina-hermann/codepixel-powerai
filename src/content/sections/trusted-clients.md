@@ -17,4 +17,7 @@ items:
     display: card
   - name: Hairstyling Viktor & Valbona
     logo: /images/trusted-clients/hairstyling-viktor-valbona.png
+  - name: KFZ Meisterbetrieb ZEMO
+    logo: /images/trusted-clients/kfz-zemo.png
+    link: "https://www.kfz-zemo.de/"
 ---
