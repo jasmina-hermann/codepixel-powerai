@@ -1,10 +1,10 @@
 {
   "site": {
-    "title": "Codepixel – Webseiten, die wirken",
+    "title": "IT-Firma in Thurgau",
     "base_url": "https://codepixel.ch/",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
+    "favicon": "/images/codepixel-favicon.svg",
     "logo": "/images/codepixel-logo.svg",
     "logo_width": "210",
     "logo_height": "48",
