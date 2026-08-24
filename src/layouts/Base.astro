@@ -78,8 +78,14 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- canonical url -->
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
-    <!-- noindex robots -->
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <!-- robots: prevent outdated Google image thumbnails -->
+    {
+      noindex ? (
+        <meta name="robots" content="noindex,nofollow" />
+      ) : (
+        <meta name="robots" content="max-image-preview:none" />
+      )
+    }
 
     <!-- meta-description -->
     <meta
