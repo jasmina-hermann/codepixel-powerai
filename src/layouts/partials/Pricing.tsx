@@ -146,7 +146,10 @@ const Pricing = ({
                   </div>
                 </div>
               )}
-              <h2 className="mx-auto text-h2 font-medium lg:w-3/5">{title}</h2>
+              <h2
+                className="mx-auto text-h2 font-medium lg:w-3/5"
+                dangerouslySetInnerHTML={{ __html: title }}
+              />
               {subtitle && (
                 <p className="mx-auto mt-5 max-w-3xl text-gray">{subtitle}</p>
               )}

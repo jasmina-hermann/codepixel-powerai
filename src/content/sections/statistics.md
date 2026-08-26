@@ -1,7 +1,7 @@
 ---
 enable: true
 badge: "In vier Schritten"
-title: "Von der Idee zur fertigen Website"
+title: "Von der Idee zur fertigen <span class='heading-script-accent'>Website</span>"
 subtitle: "Klar strukturiert, persönlich begleitet und konsequent auf Ihren erfolgreichen Online-Auftritt ausgerichtet."
 stats_list:
   - step: "01"

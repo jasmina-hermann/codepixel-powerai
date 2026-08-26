@@ -184,8 +184,34 @@
 .hero-text {
   @apply text-4xl md:text-5xl lg:text-6xl font-semibold mb-4;
 }
-.hero-text > mark {
+.hero-text > mark:not(.heading-script-accent) {
   @apply gradient-text-hero;
+}
+
+/* Handwritten highlight used for one key word in every main heading. */
+.heading-script-accent {
+  display: inline-block;
+  background: none;
+  color: #ffad16;
+  -webkit-text-fill-color: #ffad16;
+  font-family: var(--font-accent), "Segoe Script", cursive;
+  font-size: 1.42em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.76;
+  white-space: nowrap;
+  text-shadow:
+    0 0 7px rgba(255, 173, 22, 0.92),
+    0 0 19px rgba(255, 139, 0, 0.6),
+    0 0 38px rgba(255, 111, 0, 0.28);
+  transform: rotate(-2deg) translateY(0.04em);
+}
+
+@media (max-width: 640px) {
+  .heading-script-accent {
+    font-size: 1.3em;
+    line-height: 0.82;
+  }
 }
 /* footer-title */
 .footer-title {

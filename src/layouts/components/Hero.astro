@@ -121,7 +121,7 @@ const { data } = Astro.props;
     letter-spacing: 0.02em;
   }
 
-  #hero-title :global(mark) {
+  #hero-title :global(mark:not(.heading-script-accent)) {
     color: transparent;
     background: linear-gradient(110deg, #ffd000 0%, #ff9800 58%, #f36a00 100%);
     background-clip: text;

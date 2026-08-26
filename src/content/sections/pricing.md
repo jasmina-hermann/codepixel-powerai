@@ -1,6 +1,6 @@
 ---
 enable: true
-title: Wählen Sie das passende Preispaket
+title: "Wählen Sie das passende <span class='heading-script-accent'>Preispaket</span>"
 subtitle: Je nach Grösse und Umfang Ihrer Webseite können Sie die passende Grundlage wählen. Sind Sie unsicher, welches Paket am besten passt? Kontaktieren Sie uns gerne für eine persönliche Beratung.
 badge: ""
 offer_yearly: ""

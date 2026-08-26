@@ -50,7 +50,7 @@ const Integration = ({ data }: { data: PageData }) => {
             viewport={{ once: true, margin: "0px", amount: 0.05 }}
             variants={sectionHeaderVariants}
           >
-            <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
+            <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto" dangerouslySetInnerHTML={{ __html: title }} /></div>
           </motion.div>
 
           <div className="relative h-120 sm:h-[550px] flex justify-center items-end mt-8 overflow-hidden">

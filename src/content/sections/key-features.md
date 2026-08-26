@@ -1,6 +1,6 @@
 ---
 enable: true
-title: Webseiten mit Konzept, Charakter und messbarer Wirkung
+title: "Webseiten mit Konzept, Charakter und messbarer <span class='heading-script-accent'>Wirkung</span>"
 badge: "Unsere Leistungen"
 track:
   top_note: "Klar positioniert"

@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "Mehr Möglichkeiten für Ihren digitalen Auftritt"
+title: "Mehr <span class='heading-script-accent'>Möglichkeiten</span> für Ihren digitalen Auftritt"
 badge: "Webseiten Funktionen"
 features:
   - title: "Mehrsprachige Webseiten"

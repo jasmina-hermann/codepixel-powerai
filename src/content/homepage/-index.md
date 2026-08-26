@@ -1,9 +1,9 @@
 ---
 banner:
   title: |
-    Webseiten, die nicht nur
+    <mark class="heading-script-accent">Webseiten</mark>, die nicht nur
     <br/>
-    gut aussehen. <mark>Sondern wirken.</mark>
+    gut aussehen. Sondern wirken.
   content: "Individuelle Webseiten für Unternehmen in der Schweiz, Deutschland, Österreich und darüber hinaus. Luxuriös gestaltet, technisch stark und konsequent darauf ausgerichtet, neue Kunden zu gewinnen. Persönlich betreut mit direktem Kontakt zur Inhaberin."
   badge:
     enable: true

@@ -54,9 +54,10 @@ const Statistics = ({ data }: { data: PageData }) => {
                   <motion.h2
                     variants={staggerItemVariants}
                     className="text-h2 font-medium"
-                  >
-                    {data.frontmatter.title}
-                  </motion.h2>
+                    dangerouslySetInnerHTML={{
+                      __html: data.frontmatter.title,
+                    }}
+                  />
                 )}
                 {data.frontmatter.subtitle && (
                   <motion.p

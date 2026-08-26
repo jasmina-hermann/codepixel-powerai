@@ -86,7 +86,7 @@ const GoogleReviews = () => {
                 id="google-reviews-title"
                 className="mb-4 text-3xl font-semibold text-text sm:text-4xl lg:text-5xl"
               >
-                Das sagen unsere Kunden
+                Das sagen unsere <span className="heading-script-accent">Kunden</span>
               </h2>
               <p className="mx-auto max-w-2xl text-base text-gray sm:text-lg">
                 Echte Rückmeldungen von Kunden, die mit Codepixel

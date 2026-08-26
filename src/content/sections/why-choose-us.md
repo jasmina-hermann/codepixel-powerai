@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "Technik, Design und Marke aus einer Hand"
+title: "Technik, Design und Marke aus einer <span class='heading-script-accent'>Hand</span>"
 badge: "Wieso uns wählen?"
 feature_list:
   - title: "Alles aus einer Hand"

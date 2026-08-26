@@ -1,6 +1,6 @@
 ---
 enable: true
-title: Werden Sie Ihrer Konkurrenz einen Schritt voraus
+title: "Werden Sie Ihrer Konkurrenz einen Schritt <span class='heading-script-accent'>voraus</span>"
 badge: "Ihr nächster Schritt"
 list:
   - "/images/integrations/HTML5.svg"
