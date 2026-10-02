@@ -5,6 +5,8 @@ items:
   - name: Swiss Leak Control
     logo: /images/trusted-clients/swiss-leak-control.png
     link: "https://sl-control.ch"
+  - name: ESA Pflegedienst
+    logo: /images/trusted-clients/esa-pflegedienst.svg
   - name: BM Keramik
     logo: /images/trusted-clients/bm-keramik.png
     link: "#"
