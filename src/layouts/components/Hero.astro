@@ -92,8 +92,8 @@ const { data } = Astro.props;
               muted
               loop
               playsinline
+              webkit-playsinline="true"
               preload="auto"
-              poster={data.image}
               aria-label="Codepixel – digitale Welten und moderne Webentwicklung"
             >
               <source src="/videos/codepixel-hero.mp4" type="video/mp4" />
@@ -243,11 +243,20 @@ const { data } = Astro.props;
     if (!video) return;
     video.muted = true;
     video.defaultMuted = true;
+    video.volume = 0;
     video.playsInline = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "true");
     const playVideo = () => {
       video.play().catch(() => {});
     };
+    video.load();
     playVideo();
+    requestAnimationFrame(playVideo);
+    setTimeout(playVideo, 250);
+    video.addEventListener("loadedmetadata", playVideo, { once: true });
     video.addEventListener("canplay", playVideo, { once: true });
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden && video.paused) playVideo();
