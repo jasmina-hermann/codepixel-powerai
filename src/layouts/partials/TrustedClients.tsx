@@ -51,6 +51,7 @@ const TrustedClients = ({ data }: { data: PageData }) => {
       {section.items.map((logo, index) => {
         const partnerLink = (logo as any)?.link;
         const displayAsCard = (logo as any)?.display === "card";
+        const displayLarge = (logo as any)?.display === "large";
         const partnerImage = (
           <ImageFallback
             src={logo?.logo}
@@ -58,10 +59,12 @@ const TrustedClients = ({ data }: { data: PageData }) => {
             className={
               displayAsCard
                 ? "h-20 w-52 object-contain grayscale opacity-70"
-                : "w-45 grayscale opacity-70"
+                : displayLarge
+                  ? "h-20 w-64 object-contain grayscale opacity-70"
+                  : "w-45 grayscale opacity-70"
             }
-            width={displayAsCard ? "208" : "190"}
-            height={displayAsCard ? "80" : "40"}
+            width={displayAsCard ? "208" : displayLarge ? "256" : "190"}
+            height={displayAsCard || displayLarge ? "80" : "40"}
           />
         );
 
