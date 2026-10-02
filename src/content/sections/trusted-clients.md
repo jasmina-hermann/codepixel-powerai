@@ -7,6 +7,7 @@ items:
     link: "https://sl-control.ch"
   - name: ESA Pflegedienst
     logo: /images/trusted-clients/esa-pflegedienst.svg
+    display: large
     link: "https://www.esa-pflegedienst.de"
   - name: BM Keramik
     logo: /images/trusted-clients/bm-keramik.png
