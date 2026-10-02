@@ -92,7 +92,7 @@ const { data } = Astro.props;
               muted
               loop
               playsinline
-              preload="metadata"
+              preload="auto"
               poster={data.image}
               aria-label="Codepixel – digitale Welten und moderne Webentwicklung"
             >
@@ -238,5 +238,24 @@ const { data } = Astro.props;
       );
     }
   }
-  document.addEventListener("astro:page-load", initHero);
+  function ensureHeroVideoPlayback() {
+    const video = document.querySelector<HTMLVideoElement>(".codepixel-hero-video");
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    const playVideo = () => {
+      video.play().catch(() => {});
+    };
+    playVideo();
+    video.addEventListener("canplay", playVideo, { once: true });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && video.paused) playVideo();
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    initHero();
+    ensureHeroVideoPlayback();
+  });
 </script>
