@@ -26,4 +26,5 @@ items:
     link: "https://www.kfz-zemo.de/"
   - name: Kasalar Solution
     logo: /images/trusted-clients/kasalar-solution.svg
+    link: "https://kasalarsolution.ch/"
 ---
