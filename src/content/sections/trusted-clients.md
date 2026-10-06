@@ -24,4 +24,6 @@ items:
   - name: KFZ Meisterbetrieb ZEMO
     logo: /images/trusted-clients/kfz-zemo.png
     link: "https://www.kfz-zemo.de/"
+  - name: Kasalar Solution
+    logo: /images/trusted-clients/kasalar-solution.svg
 ---
