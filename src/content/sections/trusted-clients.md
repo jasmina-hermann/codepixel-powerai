@@ -27,4 +27,8 @@ items:
   - name: Kasalar Solution
     logo: /images/trusted-clients/kasalar-solution.svg
     link: "https://kasalarsolution.ch/"
+  - name: KeeperZone
+    logo: /images/trusted-clients/keeperzone.png
+    display: card
+    link: "https://keeperzone.ch/"
 ---
