@@ -28,6 +28,7 @@ export interface Props {
 
 const { title, meta_title, description, image, noindex, canonical } =
   Astro.props;
+const socialImageUrl = new URL(image || config.metadata.meta_image, config.site.base_url).href;
 ---
 
 <!doctype html>
@@ -116,7 +117,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
+      content={new URL(Astro.url.pathname, config.site.base_url).href}
     />
 
     <!-- twitter-title -->
@@ -138,17 +139,24 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- og-image -->
     <meta
       property="og:image"
-      content={`${config.site.base_url}${
-        image ? image : config.metadata.meta_image
-      }`}
+      content={socialImageUrl}
     />
+
+    <meta property="og:site_name" content="Codepixel" />
+    {!image && (
+      <>
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Codepixel – IT-Firma in Thurgau. Webseiten, die wirken." />
+        <meta name="twitter:image:alt" content="Codepixel – IT-Firma in Thurgau. Webseiten, die wirken." />
+      </>
+    )}
 
     <!-- twitter-image -->
     <meta
       name="twitter:image"
-      content={`${config.site.base_url}${
-        image ? image : config.metadata.meta_image
-      }`}
+      content={socialImageUrl}
     />
     <meta name="twitter:card" content="summary_large_image" />
     <ClientRouter />
