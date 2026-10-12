@@ -31,4 +31,7 @@ items:
     logo: /images/trusted-clients/keeperzone.png
     display: card
     link: "https://keeperzone.ch/"
+  - name: H-R-R Facility
+    logo: /images/trusted-clients/hrr-facility.svg
+    link: "https://www.h-r-r.ch/"
 ---
