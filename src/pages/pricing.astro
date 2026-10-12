@@ -18,8 +18,10 @@ const callToAction = await getListPage("sections/call-to-action.md");
 <Base title={title} meta_title={meta_title} description={description} image={image}>
   <PageHeader page_header={page_header}>
     <PricingSection data={pricing} isHome={false} client:visible />
+    <div class="mt-24">
+      <PricingSection data={servicePricing} isHome={false} client:visible />
+    </div>
   </PageHeader>
-  <PricingSection data={servicePricing} isHome={true} client:visible />
   <TrustedClients data={trusted_clients} client:load />
   <PricingTable data={pricing_table} client:visible />
   <CallToAction data={callToAction} />
