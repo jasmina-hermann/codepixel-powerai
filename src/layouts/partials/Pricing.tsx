@@ -7,6 +7,10 @@ import {
   staggerItemVariants,
 } from "@/lib/animations";
 
+type Plan = PricingType & {
+  highlight_label?: string;
+};
+
 interface PageData {
   notFound?: boolean;
   content?: string;
@@ -16,7 +20,8 @@ interface PageData {
     subtitle?: string;
     badge: string;
     project_label?: string;
-    pricing_plans: Array<PricingType>;
+    note?: string;
+    pricing_plans: Array<Plan>;
   };
 }
 
@@ -45,7 +50,8 @@ const Pricing = ({
   data: PageData;
   isHome?: boolean;
 }) => {
-  const { title, subtitle, enable, badge, pricing_plans, project_label } = data.frontmatter;
+  const { title, subtitle, enable, badge, pricing_plans, project_label, note } =
+    data.frontmatter;
 
   if (!enable) return null;
 
@@ -55,21 +61,30 @@ const Pricing = ({
       whileInView="visible"
       viewport={{ once: true, margin: "0px", amount: 0.05 }}
       variants={staggerContainerVariants}
-      className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3"
+      className="grid items-stretch gap-6 pt-4 md:grid-cols-2 lg:grid-cols-3"
     >
       {pricing_plans.map((plan, index) => (
         <motion.div
           key={index}
           variants={staggerItemVariants}
-          className="h-full"
+          className="relative h-full"
         >
+          {plan.highlighted && (
+            <span className="absolute -top-3.5 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-button px-4 py-1.5 text-sm font-medium text-text shadow-[0_8px_25px_rgba(255,157,0,0.35)]">
+              {plan.highlight_label || "Empfohlen"}
+            </span>
+          )}
           <motion.div
             initial="initial"
             whileInView="visible"
             viewport={{ once: true, margin: "0px", amount: 0.05 }}
             whileHover="hover"
             variants={cardVariants}
-            className="flex h-full flex-col rounded-3xl border border-border/6 bg-card/70 p-2.5"
+            className={`flex h-full flex-col rounded-3xl border p-2.5 ${
+              plan.highlighted
+                ? "border-[#ff9d00]/45 bg-card/90 shadow-[0_25px_60px_-25px_rgba(255,157,0,0.45)]"
+                : "border-border/6 bg-card/70"
+            }`}
           >
             <div className="min-h-[270px] rounded-3xl border border-border/6 bg-card p-7.5">
               <PlanIcon />
@@ -114,6 +129,12 @@ const Pricing = ({
     </motion.div>
   );
 
+  const noteText = note && (
+    <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-gray">
+      {note}
+    </p>
+  );
+
   if (!isHome) {
     return (
       <section className="text-left">
@@ -128,6 +149,7 @@ const Pricing = ({
             {project_label || "Pro Projekt"}
           </motion.div>
           {cards}
+          {noteText}
         </div>
       </section>
     );
@@ -155,6 +177,7 @@ const Pricing = ({
               )}
             </div>
             {cards}
+            {noteText}
           </div>
         </div>
       </div>
