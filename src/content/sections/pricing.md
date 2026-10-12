@@ -4,26 +4,30 @@ title: "Wählen Sie das passende <span class='heading-script-accent'>Preispaket<
 subtitle: Je nach Grösse und Umfang Ihrer Webseite können Sie die passende Grundlage wählen. Sind Sie unsicher, welches Paket am besten passt? Kontaktieren Sie uns gerne für eine persönliche Beratung.
 badge: ""
 offer_yearly: ""
+project_label: "Webseiten-Pakete"
 pricing_plans:
   - name: Onepager
     content: Der professionelle Einstieg für Einzelunternehmen und kleine Teams.
+    highlighted: false
     price:
       monthly:
-        number: 700
+        number: "1'000"
         prefix: Ab CHF
         suffix: .-
       yearly:
-        number: 700
+        number: "1'000"
         prefix: Ab CHF
         suffix: .-
     features:
       - value: Eine individuelle Inhaltsseite
         include: true
-      - value: Responsives Webdesign
+      - value: Responsives Webdesign für alle Geräte
         include: true
       - value: Suchmaschinenfreundliche Inhalte
         include: true
       - value: Kontaktformular inklusive Datenschutz
+        include: true
+      - value: Impressum und Datenschutzerklärung
         include: true
       - value: Technische Qualitätssicherung und Liveschaltung
         include: true
@@ -34,13 +38,15 @@ pricing_plans:
 
   - name: KMU Basic
     content: Unser meistgewähltes Paket für Unternehmen mit mehreren Leistungen oder Zielgruppen.
+    highlighted: true
+    highlight_label: Meistgewählt
     price:
       monthly:
-        number: 1500
+        number: "2'300"
         prefix: Ab CHF
         suffix: .-
       yearly:
-        number: 1500
+        number: "2'300"
         prefix: Ab CHF
         suffix: .-
     features:
@@ -52,6 +58,8 @@ pricing_plans:
         include: true
       - value: Inhalte inklusive Keyword Recherche
         include: true
+      - value: Einrichtung Google Unternehmensprofil
+        include: true
       - value: Korrekturen bis zu 4 Stunden
         include: true
     button:
@@ -59,15 +67,16 @@ pricing_plans:
       link: /contact
       enable: true
 
-  - name: KMU Custom
-    content: Für Organisationen mit umfangreicheren Inhalten und individuellen Anforderungen.
+  - name: Business
+    content: Für Unternehmen mit umfangreichen Inhalten und hohen Ansprüchen an Design und Sichtbarkeit.
+    highlighted: false
     price:
       monthly:
-        number: 5600
+        number: "5'000"
         prefix: Ab CHF
         suffix: .-
       yearly:
-        number: 5600
+        number: "5'000"
         prefix: Ab CHF
         suffix: .-
     features:
@@ -77,7 +86,9 @@ pricing_plans:
         include: true
       - value: Erweiterte Suchmaschinenoptimierung und interne Verlinkung
         include: true
-      - value: Zweisprachigkeit vorbereitet
+      - value: Strukturierte Daten für Google und KI-Suchen
+        include: true
+      - value: Zweisprachige Webseite (z. B. Deutsch und Englisch)
         include: true
       - value: Blog System und persönliche Projektbegleitung
         include: true
