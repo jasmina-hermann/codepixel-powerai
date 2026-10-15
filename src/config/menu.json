@@ -1,16 +1,113 @@
 {
   "main": [
     { "name": "Startseite", "url": "/" },
-    { "name": "Unsere Dienstleistungen", "url": "/features" },
+    {
+      "name": "Dienstleistungen",
+      "url": "/features",
+      "hasChildren": true,
+      "mega_menu": {
+        "mega_menu_title": "Was wir für Sie tun",
+        "page_title": "Gleich loslegen",
+        "mega_menu_groups": [
+          [
+            {
+              "name": "Webseiten",
+              "url": "/leistungen/webseiten",
+              "description": "Design, das Anfragen bringt",
+              "icon": "HiOutlineNewspaper"
+            },
+            {
+              "name": "Software & Apps",
+              "url": "/leistungen/software",
+              "description": "Programme und Apps nach Mass",
+              "icon": "HiOutlineCog"
+            }
+          ],
+          [
+            {
+              "name": "Prozesse",
+              "url": "/leistungen/prozesse",
+              "description": "Abläufe verbinden, entlasten",
+              "icon": "HiOutlineChartBar"
+            },
+            {
+              "name": "Coaching",
+              "url": "/leistungen/coaching",
+              "description": "Klare Strukturen, starkes Team",
+              "icon": "HiOutlineUserGroup"
+            }
+          ]
+        ],
+        "page_links": [
+          { "name": "Alle Leistungen", "url": "/features", "icon": "HiOutlineCog" },
+          { "name": "Preise und Pakete", "url": "/pricing", "icon": "HiOutlineTag" },
+          { "name": "Kostenloses Erstgespräch", "url": "/contact", "icon": "HiOutlinePencil" }
+        ]
+      }
+    },
+    {
+      "name": "Projekte",
+      "url": "/case-studies",
+      "hasChildren": true,
+      "mega_menu": {
+        "mega_menu_title": "Aus der Praxis",
+        "page_title": "Mehr entdecken",
+        "mega_menu_groups": [
+          [
+            {
+              "name": "Kita Connect",
+              "url": "/case-studies/case-study-1",
+              "description": "App für Eltern und Kitas",
+              "icon": "HiOutlineUserGroup"
+            },
+            {
+              "name": "Garage Flow",
+              "url": "/case-studies/case-study-2",
+              "description": "Werkstatt-App für Garagen",
+              "icon": "HiOutlineCog"
+            },
+            {
+              "name": "Service Pilot",
+              "url": "/case-studies/case-study-3",
+              "description": "App für Heizung und Klima",
+              "icon": "HiOutlineChartBar"
+            }
+          ],
+          [
+            {
+              "name": "Webseiten nach Mass",
+              "url": "/case-studies/case-study-4",
+              "description": "Auftritte, die Vertrauen schaffen",
+              "icon": "HiOutlineNewspaper"
+            },
+            {
+              "name": "Klar führen",
+              "url": "/case-studies/case-study-5",
+              "description": "Coaching für Unternehmen",
+              "icon": "HiOutlinePencil"
+            }
+          ]
+        ],
+        "page_links": [
+          { "name": "Alle Projekte", "url": "/case-studies", "icon": "HiOutlineChartBar" },
+          { "name": "Über uns", "url": "/ueber-uns", "icon": "HiOutlineUserGroup" },
+          { "name": "Kontakt", "url": "/contact", "icon": "HiOutlinePencil" }
+        ]
+      }
+    },
     { "name": "Preise", "url": "/pricing" },
-    { "name": "Projekte", "url": "/case-studies" },
-    { "name": "Kontakt", "url": "/contact" }
+    { "name": "Über uns", "url": "/ueber-uns" }
   ],
   "footer_company": [
     { "name": "Startseite", "url": "/" },
     { "name": "Leistungen", "url": "/features" },
-    { "name": "Preise", "url": "/pricing" },
+    { "name": "Webseiten", "url": "/leistungen/webseiten" },
+    { "name": "Software & Apps", "url": "/leistungen/software" },
+    { "name": "Prozesse", "url": "/leistungen/prozesse" },
+    { "name": "Coaching", "url": "/leistungen/coaching" },
     { "name": "Projekte", "url": "/case-studies" },
+    { "name": "Preise", "url": "/pricing" },
+    { "name": "Über uns", "url": "/ueber-uns" },
     { "name": "Kontakt", "url": "/contact" }
   ],
   "footer_legal": [
