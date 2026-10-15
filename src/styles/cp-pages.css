@@ -1,0 +1,630 @@
+/* Gemeinsames Design für die Leistungs-Unterseiten und die Über-uns-Seite.
+   Alle Klassen beginnen mit "cpx-", damit sie nichts anderes beeinflussen. */
+
+.cpx-section {
+  position: relative;
+}
+
+.cpx-lead {
+  max-width: 46rem;
+  margin: -2rem auto 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #a6a6aa;
+}
+
+/* ---------- Einblenden beim Scrollen ---------- */
+.cpx-pre {
+  opacity: 0;
+  translate: 0 32px;
+  transition:
+    opacity 0.7s ease calc(var(--i, 0) * 0.1s),
+    translate 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--i, 0) * 0.1s);
+}
+
+.cpx-pre.cpx-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* ---------- Schwierigkeit -> Lösung ---------- */
+.cpx-pairs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cpx-pair {
+  display: flex;
+  flex-direction: column;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 248, 232, 0.08);
+  background: #0d0f13;
+  overflow: hidden;
+}
+
+.cpx-problem,
+.cpx-solution {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1.3rem 1.4rem;
+}
+
+.cpx-problem {
+  background: rgba(255, 110, 80, 0.05);
+}
+
+.cpx-solution {
+  flex: 1;
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(255, 152, 0, 0.14), transparent 60%),
+    #0d0f13;
+}
+
+.cpx-badge-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.cpx-problem .cpx-badge-icon {
+  color: #ff8a70;
+  background: rgba(255, 110, 80, 0.14);
+}
+
+.cpx-solution .cpx-badge-icon {
+  color: #050608;
+  background: linear-gradient(135deg, #ffd000, #ff9800);
+  animation: cpxGlow 3s ease-in-out infinite;
+}
+
+.cpx-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cpx-problem .cpx-label {
+  color: #ff8a70;
+}
+
+.cpx-solution .cpx-label {
+  color: #ffad16;
+}
+
+.cpx-pair h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff8e8;
+}
+
+.cpx-pair p {
+  margin: 0;
+  color: #a6a6aa;
+  font-size: 0.97rem;
+}
+
+.cpx-connector {
+  position: relative;
+  height: 26px;
+  background: linear-gradient(180deg, rgba(255, 110, 80, 0.05), #0d0f13);
+}
+
+.cpx-connector::before {
+  content: "";
+  position: absolute;
+  left: calc(1.4rem + 16px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255, 138, 112, 0.6), #ffad16);
+}
+
+.cpx-connector::after {
+  content: "";
+  position: absolute;
+  left: calc(1.4rem + 12px);
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffd000;
+  box-shadow: 0 0 12px rgba(255, 176, 0, 0.9);
+  animation: cpxDrop 2s ease-in-out infinite;
+}
+
+/* ---------- Ablauf ---------- */
+.cpx-steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cpx-steps::before {
+  content: "";
+  position: absolute;
+  top: 31px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 208, 0, 0.7), rgba(255, 152, 0, 0.15));
+  background-size: 200% 100%;
+  animation: cpxFlow 4s linear infinite;
+}
+
+.cpx-step {
+  position: relative;
+  padding: 1.3rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 248, 232, 0.08);
+  background: #0d0f13;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cpx-step:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 176, 0, 0.4);
+}
+
+.cpx-step-no {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #050608;
+  background: linear-gradient(135deg, #ffd000, #ff9800);
+  animation: cpxGlow 3s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.5s);
+}
+
+.cpx-step h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff8e8;
+}
+
+.cpx-step p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #a6a6aa;
+}
+
+/* ---------- Pakete und Preise ---------- */
+.cpx-packages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.cpx-pack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 248, 232, 0.09);
+  background: #0d0f13;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cpx-pack:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5), 0 0 36px rgba(255, 138, 0, 0.15);
+}
+
+.cpx-pack.cpx-featured {
+  border-color: rgba(255, 176, 0, 0.6);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(255, 152, 0, 0.22), transparent 60%),
+    #0d0f13;
+  box-shadow: 0 0 44px rgba(255, 138, 0, 0.14);
+}
+
+.cpx-tag {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #050608;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #ffd000, #ff9800);
+  box-shadow: 0 0 22px rgba(255, 152, 0, 0.5);
+}
+
+.cpx-pack h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff8e8;
+}
+
+.cpx-price {
+  margin: 0.8rem 0 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 600;
+  background: linear-gradient(110deg, #ffd000, #ff9800 60%, #f36a00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cpx-price-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #a6a6aa;
+}
+
+.cpx-pack > p:not(.cpx-price) {
+  margin: 0.9rem 0 1.1rem;
+  color: #a6a6aa;
+  font-size: 0.97rem;
+}
+
+.cpx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.cpx-list li {
+  position: relative;
+  padding-left: 1.7rem;
+  font-weight: 500;
+  color: #f8f6f1;
+}
+
+.cpx-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #050608;
+  background: linear-gradient(135deg, #ffd000, #ff9800);
+}
+
+.cpx-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff8e8;
+  border: 1px solid rgba(255, 176, 0, 0.4);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.cpx-btn:hover {
+  transform: translateY(-2px);
+  color: #050608;
+  background: linear-gradient(90deg, #ffd000, #ff9800);
+}
+
+.cpx-featured .cpx-btn {
+  color: #050608;
+  background: linear-gradient(90deg, #ffd000, #ff9800);
+  border-color: transparent;
+}
+
+.cpx-note {
+  max-width: 46rem;
+  margin: 1.6rem auto 0;
+  text-align: center;
+  font-size: 0.92rem;
+  color: #a6a6aa;
+}
+
+.cpx-note small {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(166, 166, 170, 0.75);
+}
+
+/* ---------- Verwandte Projekte und Leistungen ---------- */
+.cpx-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.cpx-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.4rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 248, 232, 0.08);
+  background: #0d0f13;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cpx-link:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 176, 0, 0.45);
+}
+
+.cpx-link strong {
+  font-size: 1.1rem;
+  color: #fff8e8;
+}
+
+.cpx-link span {
+  color: #a6a6aa;
+  font-size: 0.95rem;
+}
+
+.cpx-link em {
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffad16;
+}
+
+/* ---------- Häufige Fragen ---------- */
+.cpx-faq {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cpx-faq details {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 248, 232, 0.08);
+  background: #0d0f13;
+  transition: border-color 0.3s ease;
+}
+
+.cpx-faq details[open] {
+  border-color: rgba(255, 176, 0, 0.4);
+}
+
+.cpx-faq summary {
+  position: relative;
+  padding: 1.1rem 3.2rem 1.1rem 1.3rem;
+  font-weight: 600;
+  color: #fff8e8;
+  cursor: pointer;
+  list-style: none;
+}
+
+.cpx-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.cpx-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #ffad16;
+  transition: rotate 0.3s ease;
+}
+
+.cpx-faq details[open] summary::after {
+  rotate: 45deg;
+}
+
+.cpx-faq details p {
+  margin: 0;
+  padding: 0 1.3rem 1.2rem;
+  color: #a6a6aa;
+}
+
+/* ---------- Über uns ---------- */
+.cpx-about {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.cpx-about-text p {
+  margin: 0 0 1.1rem;
+  font-size: 1.05rem;
+}
+
+.cpx-card {
+  padding: 1.6rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 176, 0, 0.3);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(255, 152, 0, 0.18), transparent 60%),
+    #0d0f13;
+  box-shadow: 0 0 40px rgba(255, 138, 0, 0.1);
+}
+
+.cpx-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  color: #fff8e8;
+}
+
+.cpx-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cpx-facts li span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffad16;
+}
+
+.cpx-facts li a,
+.cpx-facts li {
+  color: #f8f6f1;
+}
+
+.cpx-values {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cpx-value {
+  padding: 1.5rem;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 248, 232, 0.08);
+  background: #0d0f13;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cpx-value:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 176, 0, 0.45);
+}
+
+.cpx-value-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  color: #ffd000;
+  background: linear-gradient(160deg, rgba(255, 152, 0, 0.3), rgba(255, 208, 0, 0.06));
+  border: 1px solid rgba(255, 176, 0, 0.25);
+}
+
+.cpx-value h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  color: #fff8e8;
+}
+
+.cpx-value p {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #a6a6aa;
+}
+
+/* ---------- Animationen (laufen immer) ---------- */
+@keyframes cpxGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 176, 0, 0.5); }
+  50% { box-shadow: 0 0 0 9px rgba(255, 176, 0, 0); }
+}
+
+@keyframes cpxDrop {
+  0% { top: 0; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: calc(100% - 10px); opacity: 0; }
+}
+
+@keyframes cpxFlow {
+  to { background-position: -200% 0; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1023px) {
+  .cpx-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cpx-steps::before {
+    display: none;
+  }
+
+  .cpx-packages {
+    grid-template-columns: 1fr;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  .cpx-pack.cpx-featured {
+    margin-top: 0.6rem;
+  }
+
+  .cpx-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cpx-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Handy ---------- */
+@media (max-width: 640px) {
+  .cpx-lead {
+    margin-top: -1.5rem;
+    font-size: 1rem;
+  }
+
+  .cpx-pairs,
+  .cpx-steps,
+  .cpx-values {
+    grid-template-columns: 1fr;
+  }
+
+  .cpx-problem,
+  .cpx-solution {
+    padding: 1.1rem;
+  }
+
+  .cpx-connector::before {
+    left: calc(1.1rem + 16px);
+  }
+
+  .cpx-connector::after {
+    left: calc(1.1rem + 12px);
+  }
+
+  .cpx-price {
+    font-size: 1.75rem;
+  }
+
+  .cpx-faq summary {
+    padding-right: 2.8rem;
+  }
+}
