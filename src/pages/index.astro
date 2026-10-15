@@ -12,14 +12,12 @@ import Pricing from "@/partials/Pricing";
 import ProcessFlow from "@/partials/ProcessFlow.astro";
 import ServicePillars from "@/partials/ServicePillars.astro";
 import TrustedClients from "@/partials/TrustedClients";
-import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const homepage = await getListPage("homepage/-index.md");
 const trusted_clients = await getListPage("sections/trusted-clients.md");
 const key_features = await getListPage("sections/key-features.md");
 const essential_features = await getListPage("sections/essential-features.md");
-const whyChooseUs = await getListPage("sections/why-choose-us.md");
 const integration = await getListPage("sections/integration.md");
 const pricing = await getListPage("sections/pricing.md");
 const callToAction = await getListPage("sections/call-to-action.md");
@@ -36,7 +34,6 @@ const { banner } = homepage.frontmatter;
   <Statistics data={statistics} client:visible />
   <KeyFeatures data={key_features} />
   <EssentialFeatures data={essential_features} />
-  <WhyChooseUs data={whyChooseUs} />
   <Integration data={integration} client:visible />
   <Pricing data={pricing} client:visible />
   <GoogleReviews client:visible />
