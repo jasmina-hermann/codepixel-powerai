@@ -1,0 +1,436 @@
+---
+import SectionHeader from "@/components/SectionHeader.astro";
+
+// Links: das Chaos im Alltag. Rechts: die geordnete Lösung. Texte hier anpassen.
+const chaos = [
+  { label: "Excel-Liste", icon: "▦", x: "4%", y: "6%", r: "-7deg", d: 0 },
+  { label: "WhatsApp-Anfrage", icon: "✆", x: "46%", y: "2%", r: "5deg", d: 1 },
+  { label: "Zettel auf dem Pult", icon: "✎", x: "14%", y: "34%", r: "4deg", d: 2 },
+  { label: "E-Mail-Flut", icon: "✉", x: "52%", y: "38%", r: "-5deg", d: 3 },
+  { label: "Doppelte Eingabe", icon: "⧉", x: "6%", y: "66%", r: "-4deg", d: 4 },
+  { label: "Telefonnotiz", icon: "☎", x: "48%", y: "70%", r: "6deg", d: 5 },
+];
+
+const order = [
+  { label: "Anfrage kommt rein", note: "Webseite, Formular oder App" },
+  { label: "Automatisch erfasst", note: "Kunde, Auftrag und Termin" },
+  { label: "Team sieht alles an einem Ort", note: "Status in Echtzeit" },
+  { label: "Offerte & Rechnung", note: "Schnittstelle zu Ihrer Buchhaltung" },
+];
+---
+
+<section id="prozess" class="cp-flow-section">
+  <div class="main-container">
+    <div class="container">
+      <div class="container-padding-y container-padding-x">
+        <SectionHeader
+          badge="Prozessoptimierung"
+          title="Vom Durcheinander zum <span class='heading-script-accent'>Ablauf</span>"
+        />
+
+        <div class="cp-flow" id="cp-flow">
+          <!-- Vorher -->
+          <div class="cp-flow-col">
+            <p class="cp-flow-tag cp-tag-before">Vorher</p>
+            <div class="cp-chaos">
+              {
+                chaos.map((item) => (
+                  <div
+                    class="cp-note"
+                    style={`--x:${item.x};--y:${item.y};--r:${item.r};--d:${item.d}`}
+                  >
+                    <span class="cp-note-icon" aria-hidden="true">{item.icon}</span>
+                    {item.label}
+                  </div>
+                ))
+              }
+            </div>
+            <p class="cp-flow-caption">
+              Informationen verstreut, Arbeit doppelt, Fehler vorprogrammiert.
+            </p>
+          </div>
+
+          <!-- Übergang -->
+          <div class="cp-flow-arrow" aria-hidden="true">
+            <div class="cp-gear">⚙</div>
+            <div class="cp-arrow-line"><span></span></div>
+            <p>Codepixel</p>
+          </div>
+
+          <!-- Nachher -->
+          <div class="cp-flow-col">
+            <p class="cp-flow-tag cp-tag-after">Nachher</p>
+            <ol class="cp-order">
+              {
+                order.map((step, i) => (
+                  <li class="cp-step" style={`--i:${i}`}>
+                    <span class="cp-step-dot">{i + 1}</span>
+                    <div>
+                      <strong>{step.label}</strong>
+                      <small>{step.note}</small>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
+            <p class="cp-flow-caption">
+              Ein klarer Ablauf, weniger Handarbeit, mehr Zeit für Ihre Kunden.
+            </p>
+          </div>
+        </div>
+
+        <div class="cp-flow-stats">
+          <div><b data-count="5">0</b><span> Std. pro Woche weniger Administration</span></div>
+          <div><b data-count="1">0</b><span> zentrale Übersicht statt vieler Listen</span></div>
+          <div><b data-count="0">0</b><span> doppelte Eingaben</span></div>
+        </div>
+        <p class="cp-flow-hint">Beispielwerte aus typischen Projekten, je nach Betrieb unterschiedlich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .cp-flow {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cp-flow-col {
+    padding: 1.4rem;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 248, 232, 0.08);
+    background: #0d0f13;
+    opacity: 0;
+    translate: 0 36px;
+    transition:
+      opacity 0.8s ease,
+      translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .cp-flow.is-visible .cp-flow-col {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .cp-flow.is-visible .cp-flow-col:last-child {
+    transition-delay: 0.35s;
+  }
+
+  .cp-flow-tag {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.25rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cp-tag-before {
+    color: #ff8a70;
+    background: rgba(255, 110, 80, 0.12);
+  }
+
+  .cp-tag-after {
+    color: #6fd08c;
+    background: rgba(111, 208, 140, 0.12);
+  }
+
+  .cp-flow-caption {
+    margin: 1.1rem 0 0;
+    font-size: 0.95rem;
+    color: #a6a6aa;
+  }
+
+  /* ---------- Chaos ---------- */
+  .cp-chaos {
+    position: relative;
+    height: 290px;
+    border-radius: 18px;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(255, 248, 232, 0.06) 1px, transparent 0) 0 0 / 18px 18px,
+      #090a0d;
+    overflow: hidden;
+  }
+
+  .cp-note {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #fff8e8;
+    background: #1a1612;
+    border: 1px dashed rgba(255, 138, 112, 0.5);
+    transform: rotate(var(--r));
+    animation: cpShake 4.5s ease-in-out infinite;
+    animation-delay: calc(var(--d) * -0.7s);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .cp-note-icon {
+    color: #ff8a70;
+  }
+
+  @keyframes cpShake {
+    0%, 100% { transform: rotate(var(--r)) translate(0, 0); }
+    25% { transform: rotate(calc(var(--r) * -1)) translate(6px, -8px); }
+    50% { transform: rotate(var(--r)) translate(-5px, 6px); }
+    75% { transform: rotate(calc(var(--r) * -0.5)) translate(7px, 4px); }
+  }
+
+  /* ---------- Übergang ---------- */
+  .cp-flow-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffad16;
+  }
+
+  @media (max-width: 860px) {
+    .cp-flow-arrow {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .cp-gear {
+    font-size: 2.2rem;
+    line-height: 1;
+    text-shadow: 0 0 18px rgba(255, 152, 0, 0.8);
+    animation: cpSpin 6s linear infinite;
+  }
+
+  .cp-flow-arrow p {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .cp-arrow-line {
+    position: relative;
+    width: 4px;
+    height: 70px;
+    border-radius: 999px;
+    background: rgba(255, 176, 0, 0.18);
+    overflow: hidden;
+  }
+
+  .cp-arrow-line span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    border-radius: inherit;
+    background: linear-gradient(180deg, transparent, #ffd000, #ff9800);
+    animation: cpDown 1.8s ease-in-out infinite;
+  }
+
+  @media (max-width: 860px) {
+    .cp-arrow-line {
+      width: 70px;
+      height: 4px;
+    }
+    .cp-arrow-line span {
+      width: 40%;
+      height: 100%;
+      animation-name: cpRight;
+    }
+  }
+
+  @keyframes cpSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes cpDown {
+    0% { top: -45%; }
+    100% { top: 105%; }
+  }
+
+  @keyframes cpRight {
+    0% { left: -45%; }
+    100% { left: 105%; }
+  }
+
+  /* ---------- Ordnung ---------- */
+  .cp-order {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cp-order::before {
+    content: "";
+    position: absolute;
+    left: 19px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, #ffd000, #ff9800, rgba(255, 152, 0, 0.1));
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 1.6s ease 0.6s;
+  }
+
+  .cp-flow.is-visible .cp-order::before {
+    transform: scaleY(1);
+  }
+
+  .cp-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 14px;
+    background: #12141a;
+    border: 1px solid rgba(255, 248, 232, 0.07);
+    opacity: 0;
+    translate: 24px 0;
+    transition:
+      opacity 0.6s ease calc(0.6s + var(--i) * 0.35s),
+      translate 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.6s + var(--i) * 0.35s);
+  }
+
+  .cp-flow.is-visible .cp-step {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .cp-step strong {
+    display: block;
+    font-weight: 600;
+    color: #fff8e8;
+  }
+
+  .cp-step small {
+    color: #a6a6aa;
+  }
+
+  .cp-step-dot {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-weight: 700;
+    color: #050608;
+    background: linear-gradient(135deg, #ffd000, #ff9800);
+    animation: cpGlow 3s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.5s);
+  }
+
+  @keyframes cpGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 176, 0, 0.5); }
+    50% { box-shadow: 0 0 0 9px rgba(255, 176, 0, 0); }
+  }
+
+  /* ---------- Zahlen ---------- */
+  .cp-flow-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .cp-flow-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cp-flow-stats > div {
+    padding: 1.2rem 1.4rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 248, 232, 0.07);
+    background: #0d0f13;
+    text-align: center;
+  }
+
+  .cp-flow-stats b {
+    display: block;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    font-weight: 300;
+    background: linear-gradient(110deg, #ffd000, #ff9800 60%, #f36a00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cp-flow-stats span {
+    color: #a6a6aa;
+    font-size: 0.95rem;
+  }
+
+  .cp-flow-hint {
+    margin: 0.9rem 0 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(166, 166, 170, 0.7);
+  }
+</style>
+
+<script>
+  function initFlow() {
+    const flow = document.getElementById("cp-flow");
+    if (!flow) return;
+
+    const counters = document.querySelectorAll<HTMLElement>("[data-count]");
+
+    const countUp = (el: HTMLElement) => {
+      const target = Number(el.dataset.count || 0);
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          flow.classList.add("is-visible");
+          counters.forEach(countUp);
+          observer.disconnect();
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(flow);
+  }
+
+  document.addEventListener("astro:page-load", initFlow);
+</script>
