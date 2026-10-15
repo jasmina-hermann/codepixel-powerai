@@ -1,0 +1,216 @@
+---
+import Base from "@/layouts/Base.astro";
+import Reveal from "@/components/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import GoogleReviews from "@/partials/GoogleReviews";
+import PageHeader from "@/partials/PageHeader.astro";
+import { PRICE_NOTE, services } from "@/lib/services";
+import "@/styles/cp-pages.css";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+const pageHeader = {
+  badge: service.badge,
+  title: service.heroTitle,
+  subtitle: service.heroSubtitle,
+  button_dark: { enable: true, label: "Preise und Pakete", link: "#preise" },
+  button_primary: {
+    enable: true,
+    label: "Kostenloses Erstgespräch",
+    link: "/contact",
+  },
+};
+
+const callToAction = {
+  frontmatter: {
+    enable: true,
+    title: service.ctaTitle,
+    description: service.ctaText,
+    button: { enable: true, label: "Kostenloses Erstgespräch", link: "/contact" },
+  },
+};
+---
+
+<Base
+  title={service.metaTitle}
+  meta_title={service.metaTitle}
+  description={service.metaDescription}
+>
+  <PageHeader page_header={pageHeader} />
+
+  <!-- Schwierigkeiten und Lösungen -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Typische Schwierigkeiten"
+            title="Wo es bei Kunden oft <span class='heading-script-accent'>hakt</span> und wie wir es lösen"
+          />
+          <p class="cpx-lead">{service.intro}</p>
+
+          <div class="cpx-pairs">
+            {
+              service.pairs.map((pair, i) => (
+                <article class="cpx-pair" data-reveal style={`--i:${i % 2}`}>
+                  <div class="cpx-problem">
+                    <span class="cpx-badge-icon" aria-hidden="true">!</span>
+                    <div>
+                      <span class="cpx-label">Schwierigkeit</span>
+                      <h3>{pair.problem}</h3>
+                      <p>{pair.problemText}</p>
+                    </div>
+                  </div>
+                  <div class="cpx-connector" aria-hidden="true" />
+                  <div class="cpx-solution">
+                    <span class="cpx-badge-icon" aria-hidden="true">✓</span>
+                    <div>
+                      <span class="cpx-label">So lösen wir es</span>
+                      <h3>{pair.solution}</h3>
+                      <p>{pair.solutionText}</p>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader badge="Ablauf" title={service.stepsTitle} />
+
+          <div class="cpx-steps">
+            {
+              service.steps.map((step, i) => (
+                <article
+                  class="cpx-step"
+                  data-reveal
+                  style={`--i:${i}`}
+                >
+                  <span class="cpx-step-no" aria-hidden="true">{i + 1}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pakete und Preise -->
+  <section id="preise" class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader badge="Preise" title={service.packagesTitle} />
+          <p class="cpx-lead">{service.packagesIntro}</p>
+
+          <div class="cpx-packages">
+            {
+              service.packages.map((pack, i) => (
+                <article
+                  class:list={["cpx-pack", { "cpx-featured": pack.featured }]}
+                  data-reveal
+                  style={`--i:${i}`}
+                >
+                  {pack.featured && <span class="cpx-tag">Meistgewählt</span>}
+                  <h3>{pack.name}</h3>
+                  <p class="cpx-price">{pack.price}</p>
+                  {pack.priceNote && (
+                    <span class="cpx-price-note">{pack.priceNote}</span>
+                  )}
+                  <p>{pack.description}</p>
+                  <ul class="cpx-list">
+                    {pack.features.map((feature) => (
+                      <li>{feature}</li>
+                    ))}
+                  </ul>
+                  <a href="/contact" class="cpx-btn">
+                    Jetzt anfragen <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              ))
+            }
+          </div>
+
+          <p class="cpx-note">
+            {service.packagesNote}
+            <small>{PRICE_NOTE}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passende Projekte -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Aus der Praxis"
+            title="Passende <span class='heading-script-accent'>Projekte</span>"
+          />
+          <div class="cpx-links">
+            {
+              service.related.map((item, i) => (
+                <a href={item.url} class="cpx-link" data-reveal style={`--i:${i}`}>
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                  <em>Projekt ansehen →</em>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Bewertungen -->
+  <GoogleReviews client:visible />
+
+  <!-- Häufige Fragen -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Häufige Fragen"
+            title="Gut zu <span class='heading-script-accent'>wissen</span>"
+          />
+          <div class="cpx-faq">
+            {
+              service.faq.map((item, i) => (
+                <details data-reveal style={`--i:${i}`}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction data={callToAction} />
+  <Reveal />
+</Base>
