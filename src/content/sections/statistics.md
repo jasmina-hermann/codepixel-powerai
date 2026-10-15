@@ -1,12 +1,12 @@
 ---
 enable: true
 badge: "In vier Schritten"
-title: "Von der Idee zur fertigen <span class='heading-script-accent'>Website</span>"
-subtitle: "Klar strukturiert, persönlich begleitet und konsequent auf Ihren erfolgreichen Online-Auftritt ausgerichtet."
+title: "Von der Idee zur fertigen <span class='heading-script-accent'>Lösung</span>"
+subtitle: "Klar strukturiert, persönlich begleitet und konsequent auf Ihren Erfolg ausgerichtet, egal ob Webseite, Software oder Prozess."
 stats_list:
   - step: "01"
     title: "Unverbindlich kennenlernen"
-    content: "Sie erzählen mir von Ihrem Unternehmen, Ihren Zielen und Ihren Vorstellungen. Gemeinsam definieren wir, was Ihre neue Website erreichen soll."
+    content: "Sie erzählen mir von Ihrem Unternehmen, Ihren Zielen und Ihren Vorstellungen. Gemeinsam definieren wir, was Ihre Lösung erreichen soll."
   - step: "02"
     title: "Konzept sichtbar machen"
     content: "Aus Ihren Anforderungen entsteht ein individuelles Designkonzept, das zu Ihrer Marke passt und die gewünschte Wirkung klar vermittelt."
