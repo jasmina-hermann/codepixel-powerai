@@ -3,7 +3,7 @@
     { "name": "Startseite", "url": "/" },
     {
       "name": "Dienstleistungen",
-      "url": "/features",
+      "url": "/leistungen",
       "hasChildren": true,
       "mega_menu": {
         "mega_menu_title": "Was wir für Sie tun",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Projekte",
-      "url": "/case-studies",
+      "url": "/projekte",
       "hasChildren": true,
       "mega_menu": {
         "mega_menu_title": "Aus der Praxis",
@@ -52,19 +52,19 @@
           [
             {
               "name": "Kita Connect",
-              "url": "/case-studies/case-study-1",
+              "url": "/projekte/case-study-1",
               "description": "App für Eltern und Kitas",
               "icon": "HiOutlineUserGroup"
             },
             {
               "name": "Garage Flow",
-              "url": "/case-studies/case-study-2",
+              "url": "/projekte/case-study-2",
               "description": "Werkstatt-App für Garagen",
               "icon": "HiOutlineCog"
             },
             {
               "name": "Service Pilot",
-              "url": "/case-studies/case-study-3",
+              "url": "/projekte/case-study-3",
               "description": "App für Heizung und Klima",
               "icon": "HiOutlineChartBar"
             }
@@ -72,45 +72,45 @@
           [
             {
               "name": "Webseiten nach Mass",
-              "url": "/case-studies/case-study-4",
+              "url": "/projekte/case-study-4",
               "description": "Auftritte, die Vertrauen schaffen",
               "icon": "HiOutlineNewspaper"
             },
             {
               "name": "Klar führen",
-              "url": "/case-studies/case-study-5",
+              "url": "/projekte/case-study-5",
               "description": "Coaching für Unternehmen",
               "icon": "HiOutlinePencil"
             }
           ]
         ],
         "page_links": [
-          { "name": "Alle Projekte", "url": "/case-studies", "icon": "HiOutlineChartBar" },
+          { "name": "Alle Projekte", "url": "/projekte", "icon": "HiOutlineChartBar" },
           { "name": "Über uns", "url": "/ueber-uns", "icon": "HiOutlineUserGroup" },
-          { "name": "Kontakt", "url": "/contact", "icon": "HiOutlinePencil" }
+          { "name": "Kontakt", "url": "/kontakt", "icon": "HiOutlinePencil" }
         ]
       }
     },
-    { "name": "Preise", "url": "/pricing" },
+    { "name": "Preise", "url": "/preise" },
     { "name": "Über uns", "url": "/ueber-uns" }
   ],
   "footer_company": [
     { "name": "Startseite", "url": "/" },
-    { "name": "Leistungen", "url": "/features" },
+    { "name": "Leistungen", "url": "/leistungen" },
     { "name": "Webseiten", "url": "/leistungen/webseiten" },
     { "name": "Software & Apps", "url": "/leistungen/software" },
     { "name": "Prozesse", "url": "/leistungen/prozesse" },
     { "name": "Coaching", "url": "/leistungen/coaching" },
-    { "name": "Projekte", "url": "/case-studies" },
-    { "name": "Preise", "url": "/pricing" },
+    { "name": "Projekte", "url": "/projekte" },
+    { "name": "Preise", "url": "/preise" },
     { "name": "Über uns", "url": "/ueber-uns" },
-    { "name": "Kontakt", "url": "/contact" }
+    { "name": "Kontakt", "url": "/kontakt" }
   ],
   "footer_legal": [
     { "name": "Datenschutz", "url": "/datenschutz" },
     { "name": "AGB", "url": "/agb" },
     { "name": "Impressum", "url": "/impressum" },
     { "name": "Cookies", "url": "/cookie" },
-    { "name": "Kontakt", "url": "/contact" }
+    { "name": "Kontakt", "url": "/kontakt" }
   ]
 }
