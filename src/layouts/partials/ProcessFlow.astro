@@ -188,6 +188,18 @@ const order = [
     color: #ff8a70;
   }
 
+  @media (max-width: 480px) {
+    .cp-chaos {
+      height: 310px;
+    }
+
+    .cp-note {
+      padding: 0.4rem 0.55rem;
+      font-size: 0.72rem;
+      gap: 0.35rem;
+    }
+  }
+
   @keyframes cpShake {
     0%, 100% { transform: rotate(var(--r)) translate(0, 0); }
     25% { transform: rotate(calc(var(--r) * -1)) translate(6px, -8px); }
