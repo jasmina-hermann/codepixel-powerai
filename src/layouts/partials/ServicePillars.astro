@@ -1,0 +1,535 @@
+---
+import SectionHeader from "@/components/SectionHeader.astro";
+
+// Die vier Kernleistungen von Codepixel. Texte hier direkt anpassen.
+const pillars = [
+  {
+    key: "web",
+    number: "01",
+    title: "Webseiten, die Anfragen bringen",
+    text: "Individuelles Design, schnelle Technik und eine klare Nutzerführung, die Besucher zu Kunden macht.",
+    points: ["Individuelles Webdesign", "SEO & Google-Profil", "Mehrsprachig & mit Blog"],
+  },
+  {
+    key: "software",
+    number: "02",
+    title: "Software & Apps nach Mass",
+    text: "Programme und Apps, die genau zu Ihren Abläufen passen, statt Ihr Team an Standardlösungen anzupassen.",
+    points: ["Web-Apps & Kundenportale", "Mobile Apps", "Interne Tools & Dashboards"],
+  },
+  {
+    key: "process",
+    number: "03",
+    title: "Prozesse & Automatisierung",
+    text: "Wir verbinden Ihre Systeme und nehmen Ihrem Team wiederkehrende Handarbeit ab.",
+    points: ["Prozess-Analyse", "Schnittstellen (z. B. Bexio)", "Automatische Abläufe"],
+  },
+  {
+    key: "coaching",
+    number: "04",
+    title: "Coaching & Begleitung",
+    text: "Ehrliche Beratung und praxisnahe Begleitung, damit neue Werkzeuge im Alltag wirklich ankommen.",
+    points: ["Digitalisierungs-Coaching", "Führung & Struktur", "Schulung Ihres Teams"],
+  },
+];
+---
+
+<section id="leistungen" class="cp-pillars-section">
+  <div class="main-container">
+    <div class="container">
+      <div class="container-padding-y container-padding-x">
+        <SectionHeader
+          badge="Was wir für Sie tun"
+          title="Vier Wege zu mehr <span class='heading-script-accent'>Wirkung</span>"
+        />
+
+        <div class="cp-pillars">
+          {
+            pillars.map((pillar, i) => (
+              <article class="cp-pillar" data-pillar style={`--i:${i}`}>
+                <div class="cp-pillar-glow" aria-hidden="true" />
+                <div class="cp-pillar-inner">
+                  <!-- Mini-Animation je Leistung -->
+                  <div class={`cp-visual cp-visual-${pillar.key}`} aria-hidden="true">
+                    {pillar.key === "web" && (
+                      <div class="v-browser">
+                        <div class="v-bar"><i /><i /><i /></div>
+                        <div class="v-block v-b1" />
+                        <div class="v-row">
+                          <div class="v-block v-b2" />
+                          <div class="v-block v-b3" />
+                          <div class="v-block v-b4" />
+                        </div>
+                        <div class="v-cursor" />
+                      </div>
+                    )}
+                    {pillar.key === "software" && (
+                      <div class="v-code">
+                        <span class="v-l" style="--w:62%;--d:0" />
+                        <span class="v-l v-in" style="--w:48%;--d:1" />
+                        <span class="v-l v-in" style="--w:70%;--d:2" />
+                        <span class="v-l v-in2" style="--w:40%;--d:3" />
+                        <span class="v-l" style="--w:30%;--d:4" />
+                        <span class="v-ok">✓ Build erfolgreich</span>
+                      </div>
+                    )}
+                    {pillar.key === "process" && (
+                      <svg viewBox="0 0 240 120" class="v-flow">
+                        <path class="v-path" d="M40 60 C 80 10, 120 10, 120 60 S 160 110, 200 60" />
+                        <circle class="v-node" cx="40" cy="60" r="14" />
+                        <circle class="v-node" cx="120" cy="60" r="14" style="--d:1" />
+                        <circle class="v-node" cx="200" cy="60" r="14" style="--d:2" />
+                        <circle class="v-packet" r="5">
+                          <animateMotion dur="2.6s" repeatCount="indefinite" path="M40 60 C 80 10, 120 10, 120 60 S 160 110, 200 60" />
+                        </circle>
+                        <text x="40" y="64" text-anchor="middle">A</text>
+                        <text x="120" y="64" text-anchor="middle">⚙</text>
+                        <text x="200" y="64" text-anchor="middle">✓</text>
+                      </svg>
+                    )}
+                    {pillar.key === "coaching" && (
+                      <div class="v-chart">
+                        <span style="--h:28%;--d:0" />
+                        <span style="--h:42%;--d:1" />
+                        <span style="--h:38%;--d:2" />
+                        <span style="--h:60%;--d:3" />
+                        <span style="--h:78%;--d:4" />
+                        <span style="--h:94%;--d:5" />
+                        <svg viewBox="0 0 100 60" preserveAspectRatio="none" class="v-trend">
+                          <path d="M4 50 L 22 40 L 40 43 L 58 28 L 76 16 L 96 4" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="cp-pillar-head">
+                    <span class="cp-pillar-num">{pillar.number}</span>
+                    <h3 class="text-h5 font-medium">{pillar.title}</h3>
+                  </div>
+                  <p class="text-gray mb-5">{pillar.text}</p>
+                  <ul class="cp-pillar-points">
+                    {pillar.points.map((point) => (
+                      <li>{point}</li>
+                    ))}
+                  </ul>
+                  <a href="/contact" class="cp-pillar-link">
+                    Projekt besprechen <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cp-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+    perspective: 1200px;
+  }
+
+  @media (max-width: 1199px) {
+    .cp-pillars {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cp-pillars {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ---------- Karte ---------- */
+  .cp-pillar {
+    --mx: 50%;
+    --my: 50%;
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    padding: 1px;
+    border-radius: 28px;
+    background: linear-gradient(160deg, rgba(255, 176, 0, 0.35), rgba(255, 248, 232, 0.05) 40%, rgba(255, 152, 0, 0.2));
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease-out, box-shadow 0.3s ease;
+    opacity: 0;
+    translate: 0 40px;
+  }
+
+  .cp-pillar.is-visible {
+    opacity: 1;
+    translate: 0 0;
+    transition:
+      opacity 0.8s ease calc(var(--i) * 0.12s),
+      translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) calc(var(--i) * 0.12s),
+      transform 0.25s ease-out,
+      box-shadow 0.3s ease;
+  }
+
+  .cp-pillar:hover {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 40px rgba(255, 138, 0, 0.18);
+  }
+
+  .cp-pillar-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 176, 0, 0.22), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .cp-pillar:hover .cp-pillar-glow {
+    opacity: 1;
+  }
+
+  .cp-pillar-inner {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 27px;
+    background: #0d0f13;
+  }
+
+  .cp-pillar-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 1.4rem 0 0.6rem;
+  }
+
+  .cp-pillar-num {
+    flex: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #ffad16;
+  }
+
+  .cp-pillar-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cp-pillar-points li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-weight: 500;
+  }
+
+  .cp-pillar-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd000, #ff9800);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+  }
+
+  .cp-pillar-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    font-weight: 600;
+    color: #ffad16;
+  }
+
+  .cp-pillar-link span {
+    transition: transform 0.25s ease;
+  }
+
+  .cp-pillar:hover .cp-pillar-link span {
+    transform: translateX(5px);
+  }
+
+  /* ---------- Mini-Animationen ---------- */
+  .cp-visual {
+    position: relative;
+    height: 150px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 248, 232, 0.07);
+    background:
+      radial-gradient(circle at 1px 1px, rgba(255, 248, 232, 0.07) 1px, transparent 0) 0 0 / 16px 16px,
+      radial-gradient(ellipse at 50% 120%, rgba(255, 152, 0, 0.22), transparent 60%),
+      #090a0d;
+    display: grid;
+    place-items: center;
+  }
+
+  /* Webseite baut sich auf */
+  .v-browser {
+    position: relative;
+    width: 78%;
+    padding: 8px;
+    border-radius: 10px;
+    background: #12141a;
+    border: 1px solid rgba(255, 248, 232, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .v-bar {
+    display: flex;
+    gap: 4px;
+  }
+
+  .v-bar i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 248, 232, 0.2);
+  }
+
+  .v-bar i:first-child {
+    background: #ff9800;
+  }
+
+  .v-block {
+    border-radius: 6px;
+    background: rgba(255, 248, 232, 0.12);
+    transform-origin: left center;
+    animation: vGrow 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  }
+
+  .v-b1 {
+    height: 34px;
+    background: linear-gradient(120deg, rgba(255, 208, 0, 0.55), rgba(255, 152, 0, 0.25));
+  }
+
+  .v-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .v-b2, .v-b3, .v-b4 {
+    height: 26px;
+  }
+
+  .v-b2 { animation-delay: 0.3s; }
+  .v-b3 { animation-delay: 0.5s; }
+  .v-b4 { animation-delay: 0.7s; }
+
+  .v-cursor {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #fff8e8;
+    border-top: 2px solid #fff8e8;
+    transform: rotate(-15deg);
+    animation: vCursor 5s ease-in-out infinite;
+  }
+
+  @keyframes vGrow {
+    0% { transform: scaleX(0); opacity: 0; }
+    15%, 80% { transform: scaleX(1); opacity: 1; }
+    95%, 100% { transform: scaleX(1); opacity: 0; }
+  }
+
+  @keyframes vCursor {
+    0% { left: 90%; top: 90%; }
+    35% { left: 30%; top: 30%; }
+    45% { left: 30%; top: 30%; transform: rotate(-15deg) scale(0.8); }
+    55% { transform: rotate(-15deg) scale(1); }
+    100% { left: 90%; top: 90%; }
+  }
+
+  /* Code wird geschrieben */
+  .v-code {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .v-l {
+    display: block;
+    height: 7px;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff9800 0 22%, rgba(255, 248, 232, 0.3) 22%);
+    animation: vType 5s steps(12, end) infinite;
+    animation-delay: calc(var(--d) * 0.35s);
+  }
+
+  .v-in { margin-left: 14px; }
+  .v-in2 { margin-left: 28px; }
+
+  .v-ok {
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6fd08c;
+    opacity: 0;
+    animation: vOk 5s ease infinite;
+  }
+
+  @keyframes vType {
+    0% { width: 0; }
+    20%, 85% { width: var(--w); }
+    100% { width: 0; }
+  }
+
+  @keyframes vOk {
+    0%, 45% { opacity: 0; transform: translateY(6px); }
+    55%, 85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; }
+  }
+
+  /* Prozessfluss */
+  .v-flow {
+    width: 88%;
+    overflow: visible;
+  }
+
+  .v-path {
+    fill: none;
+    stroke: rgba(255, 176, 0, 0.55);
+    stroke-width: 2;
+    stroke-dasharray: 6 6;
+    animation: vDash 1.2s linear infinite;
+  }
+
+  .v-node {
+    fill: #12141a;
+    stroke: #ff9800;
+    stroke-width: 2;
+    animation: vPulse 2.6s ease-in-out infinite;
+    animation-delay: calc(var(--d, 0) * 0.87s);
+  }
+
+  .v-packet {
+    fill: #ffd000;
+    filter: drop-shadow(0 0 6px #ff9800);
+  }
+
+  .v-flow text {
+    fill: #fff8e8;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  @keyframes vDash {
+    to { stroke-dashoffset: -24; }
+  }
+
+  @keyframes vPulse {
+    0%, 100% { stroke-width: 2; }
+    30% { stroke-width: 5; }
+  }
+
+  /* Wachstum */
+  .v-chart {
+    position: relative;
+    width: 78%;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .v-chart > span {
+    flex: 1;
+    height: var(--h);
+    border-radius: 6px 6px 2px 2px;
+    background: linear-gradient(180deg, #ffd000, rgba(255, 152, 0, 0.25));
+    transform-origin: bottom;
+    animation: vBar 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    animation-delay: calc(var(--d) * 0.15s);
+  }
+
+  .v-trend {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .v-trend path {
+    fill: none;
+    stroke: #fff8e8;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 140;
+    stroke-dashoffset: 140;
+    vector-effect: non-scaling-stroke;
+    animation: vLine 5s ease-in-out infinite;
+  }
+
+  @keyframes vBar {
+    0% { transform: scaleY(0); }
+    25%, 85% { transform: scaleY(1); }
+    100% { transform: scaleY(0); }
+  }
+
+  @keyframes vLine {
+    0%, 20% { stroke-dashoffset: 140; }
+    55%, 85% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 140; }
+  }
+</style>
+
+<script>
+  function initPillars() {
+    const cards = document.querySelectorAll<HTMLElement>("[data-pillar]");
+    if (!cards.length) return;
+
+    // Einblenden, sobald sichtbar
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+
+      // 3D-Kippen und Lichtkegel, der der Maus folgt
+      card.addEventListener("pointermove", (event) => {
+        if (event.pointerType !== "mouse") return;
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        card.style.setProperty("--mx", `${x * 100}%`);
+        card.style.setProperty("--my", `${y * 100}%`);
+        card.style.setProperty("--ry", `${(x - 0.5) * 10}deg`);
+        card.style.setProperty("--rx", `${(0.5 - y) * 10}deg`);
+      });
+
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initPillars);
+</script>
