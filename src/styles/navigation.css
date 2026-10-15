@@ -117,3 +117,16 @@
 .nav-mega-legal-icon {
   @apply h-5 w-5 hidden shrink-0 xl:inline-block;
 }
+
+/* cpx-mega-fix: Raster-Menü auf dem Desktop immer mittig unter der Menüleiste.
+   !important ist nötig, weil die Utility-Klassen im Header sonst gewinnen. */
+@media (min-width: 80rem) {
+  .navbar-nav .nav-dropdown {
+    position: static !important;
+  }
+
+  .navbar-nav .desktop-dropdown.w-245 {
+    left: 50% !important;
+    width: min(56rem, calc(100vw - 2rem)) !important;
+  }
+}
