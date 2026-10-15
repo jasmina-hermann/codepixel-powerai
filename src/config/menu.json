@@ -7,7 +7,7 @@
       "hasChildren": true,
       "mega_menu": {
         "mega_menu_title": "Was wir für Sie tun",
-        "page_title": "Gleich loslegen",
+        "page_title": "",
         "mega_menu_groups": [
           [
             {
@@ -38,11 +38,7 @@
             }
           ]
         ],
-        "page_links": [
-          { "name": "Alle Leistungen", "url": "/features", "icon": "HiOutlineCog" },
-          { "name": "Preise und Pakete", "url": "/pricing", "icon": "HiOutlineTag" },
-          { "name": "Kostenloses Erstgespräch", "url": "/contact", "icon": "HiOutlinePencil" }
-        ]
+        "page_links": []
       }
     },
     {
