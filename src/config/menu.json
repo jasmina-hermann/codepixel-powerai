@@ -47,7 +47,7 @@
       "hasChildren": true,
       "mega_menu": {
         "mega_menu_title": "Aus der Praxis",
-        "page_title": "Mehr entdecken",
+        "page_title": "",
         "mega_menu_groups": [
           [
             {
@@ -84,11 +84,7 @@
             }
           ]
         ],
-        "page_links": [
-          { "name": "Alle Projekte", "url": "/projekte", "icon": "HiOutlineChartBar" },
-          { "name": "Über uns", "url": "/ueber-uns", "icon": "HiOutlineUserGroup" },
-          { "name": "Kontakt", "url": "/kontakt", "icon": "HiOutlinePencil" }
-        ]
+        "page_links": []
       }
     },
     { "name": "Preise", "url": "/preise" },
