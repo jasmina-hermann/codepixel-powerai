@@ -7,6 +7,8 @@ interface Props {
   data: any;
 }
 const { data } = Astro.props;
+const rotatingWords: string[] = data.rotating_words ?? [];
+const rotatingPrefix: string = data.rotating_prefix ?? "";
 ---
 
 <section class="overflow-hidden relative">
@@ -14,7 +16,7 @@ const { data } = Astro.props;
   </div>
   <div class="main-container">
     <div class="container px-0">
-      <div class="container-padding-y pb-0 px-0">
+      <div class="container-padding-y pb-16 px-0">
         <div class="flex justify-center items-center flex-col text-center px-4">
           <!-- BADGE -->
           {
@@ -39,17 +41,36 @@ const { data } = Astro.props;
                       ))}
                     </ul>
                   )}
+                  <span class="cp-live-dot" aria-hidden="true"></span>
                   <p class="codepixel-badge-label">{data.badge.label}</p>
                 </div>
               </div>
             )
           }
           <!-- TITLE -->
-          <h1
-            id="hero-title"
-            class="hero-text mb-4"
-            set:html={markdownify(data.title).__html}
-          />
+          <h1 id="hero-title" class="hero-text mb-4">
+            <span set:html={markdownify(data.title).__html} />
+            {
+              rotatingWords.length > 0 && (
+                <span class="cp-rotator-line">
+                  {rotatingPrefix && <span>{rotatingPrefix} </span>}
+                  <span class="cp-rotator" data-rotator>
+                    {rotatingWords.map((word, i) => (
+                      <span
+                        class:list={[
+                          "cp-rotator-word heading-script-accent",
+                          { "is-active": i === 0 },
+                        ]}
+                        aria-hidden={i === 0 ? undefined : "true"}
+                      >
+                        {word}
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              )
+            }
+          </h1>
           <!-- CONTENT -->
           <p id="hero-content" class="text-lg sm:w-3/5">
             {data.content}
@@ -81,25 +102,6 @@ const { data } = Astro.props;
             }
           </div>
         </div>
-
-        <!-- CODEPIXEL VIDEO -->
-        <div id="hero-image" class="codepixel-video-stage mt-30 relative z-1">
-          <div class="codepixel-video-aura" aria-hidden="true"></div>
-          <div class="codepixel-video-frame">
-            <video
-              class="codepixel-hero-video"
-              autoplay
-              muted
-              loop
-              playsinline
-              webkit-playsinline="true"
-              preload="auto"
-              aria-label="Codepixel – digitale Welten und moderne Webentwicklung"
-            >
-              <source src="/videos/codepixel-hero.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -107,7 +109,7 @@ const { data } = Astro.props;
   <!-- Hero Shape -->
   <div
     id="hero-shape"
-    class="absolute bottom-20 -z-1 left-1/2 -translate-x-1/2 pointer-events-none h-100 sm:h-150 lg:h-170 xl:h-210"
+    class="absolute -bottom-40 -z-1 left-1/2 -translate-x-1/2 pointer-events-none h-100 sm:h-150 lg:h-170 xl:h-210"
   >
     <HeroShape />
   </div>
@@ -115,12 +117,22 @@ const { data } = Astro.props;
 
 <style>
   .codepixel-badge-label {
-    padding: 0.05rem 1rem;
+    padding: 0.05rem 1rem 0.05rem 0;
     color: #ffd000;
     font-weight: 650;
     letter-spacing: 0.02em;
   }
 
+  .cp-live-dot {
+    width: 8px;
+    height: 8px;
+    margin-left: 0.85rem;
+    border-radius: 999px;
+    background: #ffd000;
+    animation: cpHeroPing 2s ease-out infinite;
+  }
+
+  /* Farbiger Verlauf für markierte Wörter (z. B. ==Kunden==) */
   #hero-title :global(mark:not(.heading-script-accent)) {
     color: transparent;
     background: linear-gradient(110deg, #ffd000 0%, #ff9800 58%, #f36a00 100%);
@@ -128,143 +140,94 @@ const { data } = Astro.props;
     -webkit-background-clip: text;
   }
 
-  .codepixel-video-stage {
-    isolation: isolate;
-    padding: clamp(0.6rem, 1.4vw, 1.15rem);
-  }
-
-  .codepixel-video-aura {
-    position: absolute;
-    inset: -8% -4% -12%;
-    z-index: -1;
-    background:
-      radial-gradient(ellipse at 50% 55%, rgba(255, 152, 0, 0.46) 0%, rgba(243, 106, 0, 0.24) 30%, transparent 68%),
-      radial-gradient(ellipse at 50% 0%, rgba(255, 208, 0, 0.24), transparent 58%);
-    filter: blur(34px);
-    opacity: 0.9;
-    animation: videoAuraPulse 4.5s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .codepixel-video-frame {
-    overflow: hidden;
-    border: 1px solid rgba(255, 176, 0, 0.3);
-    border-radius: clamp(1rem, 2vw, 1.8rem);
-    background: rgba(5, 6, 8, 0.78);
-    box-shadow:
-      0 34px 100px rgba(0, 0, 0, 0.62),
-      0 0 48px rgba(255, 138, 0, 0.17),
-      inset 0 1px 0 rgba(255, 208, 0, 0.16);
-  }
-
-  .codepixel-hero-video {
+  /* ---------- Wechselnde Wörter in Schnürlischrift ---------- */
+  .cp-rotator-line {
     display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    margin-top: 0.3em;
   }
 
-  @keyframes videoAuraPulse {
-    50% {
-      opacity: 0.66;
-      transform: scale(1.035);
-    }
+  .cp-rotator {
+    display: inline-grid;
+    vertical-align: baseline;
+    text-align: left;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .codepixel-video-aura {
-      animation: none;
-    }
+  .cp-rotator-word {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: rotate(-2deg) translateY(0.45em);
+    filter: blur(6px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+      filter 0.55s ease;
+  }
+
+  .cp-rotator-word.is-active {
+    opacity: 1;
+    transform: rotate(-2deg) translateY(0.04em);
+    filter: blur(0);
+  }
+
+  .cp-rotator-word.is-leaving {
+    opacity: 0;
+    transform: rotate(-2deg) translateY(-0.45em);
+    filter: blur(6px);
+  }
+
+  @keyframes cpHeroPing {
+    0% { box-shadow: 0 0 0 0 rgba(255, 208, 0, 0.6); }
+    100% { box-shadow: 0 0 0 9px rgba(255, 208, 0, 0); }
   }
 </style>
 
 <script>
   import { animateMini as animate } from "motion";
+
   function initHero() {
     const smooth = { ease: "easeInOut" as const };
-    const badge = document.getElementById("hero-badge");
-    const title = document.getElementById("hero-title");
-    const content = document.getElementById("hero-content");
-    const buttons = document.getElementById("hero-buttons");
-    const heroImage = document.getElementById("hero-image");
-    const heroShape = document.getElementById("hero-shape");
-    if (badge) {
-      badge.style.opacity = "0";
-      animate(
-        badge,
-        { opacity: [0, 1], transform: ["translateY(-20px)", "translateY(0)"] },
-        { ...smooth, duration: 0.5, delay: 0.2 },
-      );
-    }
-    if (title) {
-      title.style.opacity = "0";
-      animate(
-        title,
-        { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] },
-        { ...smooth, duration: 0.8, delay: 0.3 },
-      );
-    }
-    if (content) {
-      content.style.opacity = "0";
-      animate(
-        content,
-        { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] },
-        { ...smooth, duration: 0.5, delay: 0.5 },
-      );
-    }
-    if (buttons) {
-      buttons.style.opacity = "0";
-      animate(
-        buttons,
-        { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] },
-        { ...smooth, duration: 0.5, delay: 0.6 },
-      );
-    }
-    if (heroImage) {
-      heroImage.style.opacity = "0";
-      animate(
-        heroImage,
-        { opacity: [0, 1], transform: ["translateY(40px)", "translateY(0)"] },
-        { ...smooth, duration: 1.2, delay: 0.4 },
-      );
-    }
-    if (heroShape) {
-      heroShape.style.opacity = "0";
-      animate(
-        heroShape,
-        { opacity: [0, 1], transform: ["scale(0.8)", "scale(1)"] },
-        { ...smooth, duration: 1.2, delay: 0.2 },
-      );
-    }
-  }
-  function ensureHeroVideoPlayback() {
-    const video = document.querySelector<HTMLVideoElement>(".codepixel-hero-video");
-    if (!video) return;
-    video.muted = true;
-    video.defaultMuted = true;
-    video.volume = 0;
-    video.playsInline = true;
-    video.setAttribute("muted", "");
-    video.setAttribute("autoplay", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "true");
-    const playVideo = () => {
-      video.play().catch(() => {});
-    };
-    video.load();
-    playVideo();
-    requestAnimationFrame(playVideo);
-    setTimeout(playVideo, 250);
-    video.addEventListener("loadedmetadata", playVideo, { once: true });
-    video.addEventListener("canplay", playVideo, { once: true });
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && video.paused) playVideo();
+    const items: [string, Record<string, string[]>, number, number][] = [
+      ["hero-badge", { opacity: ["0", "1"], transform: ["translateY(-20px)", "translateY(0)"] }, 0.5, 0.2],
+      ["hero-title", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.8, 0.3],
+      ["hero-content", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.5, 0.5],
+      ["hero-buttons", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.5, 0.6],
+      ["hero-shape", { opacity: ["0", "1"], transform: ["scale(0.8)", "scale(1)"] }, 1.2, 0.2],
+    ];
+    items.forEach(([id, keyframes, duration, delay]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.opacity = "0";
+      animate(el, keyframes, { ...smooth, duration, delay });
     });
+  }
+
+  let rotatorTimer: number | undefined;
+
+  function initRotator() {
+    window.clearInterval(rotatorTimer);
+    const rotator = document.querySelector<HTMLElement>("[data-rotator]");
+    if (!rotator) return;
+    const words = Array.from(
+      rotator.querySelectorAll<HTMLElement>(".cp-rotator-word"),
+    );
+    if (words.length < 2) return;
+    let index = 0;
+    rotatorTimer = window.setInterval(() => {
+      const current = words[index];
+      index = (index + 1) % words.length;
+      const next = words[index];
+      current.classList.remove("is-active");
+      current.classList.add("is-leaving");
+      current.setAttribute("aria-hidden", "true");
+      next.classList.remove("is-leaving");
+      next.classList.add("is-active");
+      next.removeAttribute("aria-hidden");
+      window.setTimeout(() => current.classList.remove("is-leaving"), 600);
+    }, 2400);
   }
 
   document.addEventListener("astro:page-load", () => {
     initHero();
-    ensureHeroVideoPlayback();
+    initRotator();
   });
 </script>
