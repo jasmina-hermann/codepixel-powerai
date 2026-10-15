@@ -1,6 +1,5 @@
 ---
 import AnimatedButton from "@/components/AnimatedButton.astro";
-import HeroShape from "@/components/shape/HeroShape";
 import { markdownify } from "@/lib/utils/textConverter";
 import ImageMod from "./ImageMod.astro";
 interface Props {
@@ -105,14 +104,6 @@ const rotatingPrefix: string = data.rotating_prefix ?? "";
       </div>
     </div>
   </div>
-
-  <!-- Hero Shape -->
-  <div
-    id="hero-shape"
-    class="absolute -bottom-40 -z-1 left-1/2 -translate-x-1/2 pointer-events-none h-100 sm:h-150 lg:h-170 xl:h-210"
-  >
-    <HeroShape />
-  </div>
 </section>
 
 <style>
@@ -191,7 +182,6 @@ const rotatingPrefix: string = data.rotating_prefix ?? "";
       ["hero-title", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.8, 0.3],
       ["hero-content", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.5, 0.5],
       ["hero-buttons", { opacity: ["0", "1"], transform: ["translateY(20px)", "translateY(0)"] }, 0.5, 0.6],
-      ["hero-shape", { opacity: ["0", "1"], transform: ["scale(0.8)", "scale(1)"] }, 1.2, 0.2],
     ];
     items.forEach(([id, keyframes, duration, delay]) => {
       const el = document.getElementById(id);
