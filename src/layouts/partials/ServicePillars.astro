@@ -5,6 +5,7 @@ import SectionHeader from "@/components/SectionHeader.astro";
 const pillars = [
   {
     key: "web",
+    href: "/leistungen/webseiten",
     number: "01",
     title: "Webseiten, die Anfragen bringen",
     text: "Individuelles Design, schnelle Technik und eine klare Nutzerführung, die Besucher zu Kunden macht.",
@@ -12,6 +13,7 @@ const pillars = [
   },
   {
     key: "software",
+    href: "/leistungen/software",
     number: "02",
     title: "Software & Apps nach Mass",
     text: "Programme und Apps, die genau zu Ihren Abläufen passen, statt Ihr Team an Standardlösungen anzupassen.",
@@ -19,6 +21,7 @@ const pillars = [
   },
   {
     key: "process",
+    href: "/leistungen/prozesse",
     number: "03",
     title: "Prozesse & Automatisierung",
     text: "Wir verbinden Ihre Systeme und nehmen Ihrem Team wiederkehrende Handarbeit ab.",
@@ -26,6 +29,7 @@ const pillars = [
   },
   {
     key: "coaching",
+    href: "/leistungen/coaching",
     number: "04",
     title: "Coaching & Begleitung",
     text: "Ehrliche Beratung und praxisnahe Begleitung, damit neue Werkzeuge im Alltag wirklich ankommen.",
@@ -112,8 +116,8 @@ const pillars = [
                       <li>{point}</li>
                     ))}
                   </ul>
-                  <a href="/contact" class="cp-pillar-link">
-                    Projekt besprechen <span aria-hidden="true">→</span>
+                  <a href={pillar.href} class="cp-pillar-link">
+                    Mehr erfahren <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </article>
