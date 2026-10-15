@@ -1,10 +1,15 @@
 ---
 banner:
   title: |
-    <mark class="heading-script-accent">Webseiten</mark>, die nicht nur
-    <br/>
-    gut aussehen. Sondern wirken.
-  content: "Individuelle Webseiten für Unternehmen in der Schweiz, Deutschland, Österreich und darüber hinaus. Luxuriös gestaltet, technisch stark und konsequent darauf ausgerichtet, neue Kunden zu gewinnen. Persönlich betreut mit direktem Kontakt zur Inhaberin."
+    Mehr <mark>Kunden</mark>. Weniger <mark>Aufwand</mark>.
+  rotating_prefix: "Mit"
+  rotating_words:
+    - "Webseiten"
+    - "Software"
+    - "Apps"
+    - "klaren Prozessen"
+    - "Coaching"
+  content: "Codepixel entwickelt Webseiten, individuelle Software und digitale Abläufe für KMU in der Schweiz und im DACH-Raum. Dazu persönliches Coaching, damit Ihr Team die neuen Werkzeuge auch wirklich nutzt. Alles aus einer Hand, mit direktem Kontakt zur Inhaberin."
   badge:
     enable: true
     label: codepixel.ch
@@ -12,10 +17,10 @@ banner:
   image: "/images/banner.png"
   button_dark:
     enable: true
-    label: "Preise"
-    link: "/pricing"
+    label: "Leistungen ansehen"
+    link: "#leistungen"
   button_primary:
     enable: true
-    label: "Kontakt"
+    label: "Kostenloses Erstgespräch"
     link: "/contact"
 ---
