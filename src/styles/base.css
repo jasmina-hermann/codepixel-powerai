@@ -1,10 +1,14 @@
 html {
   @apply text-base-sm md:text-base;
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   @apply bg-body text-base  font-primary font-normal leading-relaxed text-text-light;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 h1,
