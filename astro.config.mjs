@@ -50,6 +50,18 @@ export default defineConfig({
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
+  // Alte Adressen leiten automatisch auf die neuen deutschen Adressen um
+  redirects: {
+    "/pricing": "/preise",
+    "/features": "/leistungen",
+    "/contact": "/kontakt",
+    "/case-studies": "/projekte",
+    "/case-studies/case-study-1": "/projekte/case-study-1",
+    "/case-studies/case-study-2": "/projekte/case-study-2",
+    "/case-studies/case-study-3": "/projekte/case-study-3",
+    "/case-studies/case-study-4": "/projekte/case-study-4",
+    "/case-studies/case-study-5": "/projekte/case-study-5",
+  },
   vite: {
     plugins: [tailwindcss()],
     server: { watch: { ignored: ["**/.claude/**"] } },
