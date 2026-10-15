@@ -1,0 +1,30 @@
+---
+// Blendet alle Elemente mit data-reveal beim Scrollen weich ein.
+// Ohne JavaScript bleibt alles sichtbar.
+---
+
+<script>
+  function initReveal() {
+    const items = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("cpx-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+
+    items.forEach((item) => {
+      item.classList.add("cpx-pre");
+      observer.observe(item);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initReveal);
+</script>
