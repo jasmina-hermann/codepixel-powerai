@@ -1,0 +1,187 @@
+---
+import Base from "@/layouts/Base.astro";
+import Reveal from "@/components/Reveal.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import GoogleReviews from "@/partials/GoogleReviews";
+import PageHeader from "@/partials/PageHeader.astro";
+import TrustedClients from "@/partials/TrustedClients";
+import config from "@/config/config.json";
+import { getListPage } from "@/lib/contentParser";
+import { services } from "@/lib/services";
+import "@/styles/cp-pages.css";
+
+const trusted_clients = await getListPage("sections/trusted-clients.md");
+
+const title = "Über uns | Codepixel";
+const description =
+  "Codepixel ist Ihre IT-Firma im Thurgau. Persönlich, ehrlich und massgeschneidert: Webseiten, Software, Prozessoptimierung und Coaching für KMU.";
+
+const pageHeader = {
+  badge: "Über uns",
+  title:
+    "Persönlich, ehrlich und <span class='heading-script-accent'>digital</span> stark",
+  subtitle:
+    "Codepixel ist Ihre IT-Firma im Thurgau. Wir entwickeln Webseiten, Software und digitale Abläufe und begleiten Ihr Team, damit alles im Alltag auch wirklich genutzt wird.",
+  button_dark: { enable: true, label: "Unsere Leistungen", link: "/features" },
+  button_primary: {
+    enable: true,
+    label: "Kostenloses Erstgespräch",
+    link: "/contact",
+  },
+};
+
+const values = [
+  {
+    icon: "☺",
+    title: "Persönlich",
+    text: "Sie sprechen direkt mit der Inhaberin. Ohne Callcenter, ohne Ticketsystem und ohne Umwege.",
+  },
+  {
+    icon: "✓",
+    title: "Ehrlich",
+    text: "Wir sagen offen, was sinnvoll ist und was nicht. Auch wenn das bedeutet, dass etwas weniger nötig ist.",
+  },
+  {
+    icon: "✎",
+    title: "Massgeschneidert",
+    text: "Keine Vorlage von der Stange. Jede Lösung passt zu Ihrem Unternehmen, Ihrer Zielgruppe und Ihren Abläufen.",
+  },
+  {
+    icon: "☀",
+    title: "Verständlich",
+    text: "Technik so erklärt, dass Sie Entscheidungen sicher treffen können, ohne Fachchinesisch.",
+  },
+];
+
+const callToAction = {
+  frontmatter: {
+    enable: true,
+    title: "Lernen wir uns <span class='heading-script-accent'>kennen</span>",
+    description:
+      "Erzählen Sie uns, was Sie beschäftigt. Im kostenlosen Erstgespräch finden wir gemeinsam heraus, wie wir Sie unterstützen können.",
+    button: { enable: true, label: "Erstgespräch vereinbaren", link: "/contact" },
+  },
+};
+---
+
+<Base title={title} meta_title={title} description={description}>
+  <PageHeader page_header={pageHeader} />
+
+  <!-- Wer wir sind -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Wer wir sind"
+            title="Ihre IT-Firma im <span class='heading-script-accent'>Thurgau</span>"
+          />
+
+          <div class="cpx-about">
+            <div class="cpx-about-text" data-reveal>
+              <p>
+                Codepixel verbindet Technik, Design und unternehmerisches
+                Denken. Wir bauen Webseiten, die Anfragen bringen, entwickeln
+                Software und Apps, die zu Ihren Abläufen passen, und räumen auf,
+                wo Prozesse Zeit kosten.
+              </p>
+              <p>
+                Dazu gehört für uns mehr als Technik. Neue Werkzeuge helfen nur,
+                wenn das Team sie versteht und gerne nutzt. Deshalb begleiten wir
+                Sie auf Wunsch mit Coaching, bis die neuen Abläufe im Alltag
+                angekommen sind.
+              </p>
+              <p>
+                Wir arbeiten für Unternehmen in der Schweiz, in Deutschland und
+                in Österreich. Unser Anspruch: ehrliche Beratung, klare
+                Kommunikation und Lösungen, die Sie wirklich weiterbringen.
+              </p>
+            </div>
+
+            <aside class="cpx-card" data-reveal style="--i:1">
+              <h3>Codepixel in Kürze</h3>
+              <ul class="cpx-facts">
+                <li><span>Standort</span>Thurgau, Schweiz</li>
+                <li>
+                  <span>Schwerpunkte</span>Webseiten, Software, Prozesse, Coaching
+                </li>
+                <li><span>Ansprechperson</span>Direkt die Inhaberin</li>
+                <li>
+                  <span>E-Mail</span><a href={`mailto:${config.params.mail}`}>{config.params.mail}</a>
+                </li>
+                <li>
+                  <span>Telefon</span><a href="tel:+41799566661">{config.params.phone}</a>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wofür wir stehen -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Unsere Haltung"
+            title="Wofür wir <span class='heading-script-accent'>stehen</span>"
+          />
+          <div class="cpx-values">
+            {
+              values.map((value, i) => (
+                <article class="cpx-value" data-reveal style={`--i:${i}`}>
+                  <div class="cpx-value-icon" aria-hidden="true">{value.icon}</div>
+                  <h3>{value.title}</h3>
+                  <p>{value.text}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was wir tun -->
+  <section class="cpx-section">
+    <div class="main-container">
+      <div class="container">
+        <div class="container-padding-y container-padding-x">
+          <SectionHeader
+            badge="Was wir tun"
+            title="Vier Bereiche, ein <span class='heading-script-accent'>Ansprechpartner</span>"
+          />
+          <div class="cpx-links">
+            {
+              services.map((service, i) => (
+                <a
+                  href={`/leistungen/${service.slug}`}
+                  class="cpx-link"
+                  data-reveal
+                  style={`--i:${i}`}
+                >
+                  <strong>{service.name}</strong>
+                  <span>{service.heroSubtitle}</span>
+                  <em>Mehr erfahren →</em>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unternehmen, die uns vertrauen -->
+  <TrustedClients data={trusted_clients} client:load />
+
+  <!-- Google Bewertungen -->
+  <GoogleReviews client:visible />
+
+  <CallToAction data={callToAction} />
+  <Reveal />
+</Base>
