@@ -1,116 +1,115 @@
-{
-  "main": [
-    { "name": "Startseite", "url": "/" },
-    {
-      "name": "Dienstleistungen",
-      "url": "/leistungen",
-      "hasChildren": true,
-      "mega_menu": {
-        "mega_menu_title": "Was wir für Sie tun",
-        "page_title": "",
-        "mega_menu_groups": [
-          [
-            {
-              "name": "Webseiten",
-              "url": "/leistungen/webseiten",
-              "description": "Design, das Anfragen bringt",
-              "icon": "HiOutlineNewspaper"
-            },
-            {
-              "name": "Software & Apps",
-              "url": "/leistungen/software",
-              "description": "Programme und Apps nach Mass",
-              "icon": "HiOutlineCog"
-            }
-          ],
-          [
-            {
-              "name": "Prozesse",
-              "url": "/leistungen/prozesse",
-              "description": "Abläufe verbinden, entlasten",
-              "icon": "HiOutlineChartBar"
-            },
-            {
-              "name": "Coaching",
-              "url": "/leistungen/coaching",
-              "description": "Klare Strukturen, starkes Team",
-              "icon": "HiOutlineUserGroup"
-            }
-          ]
-        ],
-        "page_links": []
-      }
-    },
-    {
-      "name": "Projekte",
-      "url": "/projekte",
-      "hasChildren": true,
-      "mega_menu": {
-        "mega_menu_title": "Aus der Praxis",
-        "page_title": "Mehr entdecken",
-        "mega_menu_groups": [
-          [
-            {
-              "name": "Kita Connect",
-              "url": "/projekte/case-study-1",
-              "description": "App für Eltern und Kitas",
-              "icon": "HiOutlineUserGroup"
-            },
-            {
-              "name": "Garage Flow",
-              "url": "/projekte/case-study-2",
-              "description": "Werkstatt-App für Garagen",
-              "icon": "HiOutlineCog"
-            },
-            {
-              "name": "Service Pilot",
-              "url": "/projekte/case-study-3",
-              "description": "App für Heizung und Klima",
-              "icon": "HiOutlineChartBar"
-            }
-          ],
-          [
-            {
-              "name": "Webseiten nach Mass",
-              "url": "/projekte/case-study-4",
-              "description": "Auftritte, die Vertrauen schaffen",
-              "icon": "HiOutlineNewspaper"
-            },
-            {
-              "name": "Klar führen",
-              "url": "/projekte/case-study-5",
-              "description": "Coaching für Unternehmen",
-              "icon": "HiOutlinePencil"
-            }
-          ]
-        ],
-        "page_links": [
-          { "name": "Alle Projekte", "url": "/projekte", "icon": "HiOutlineChartBar" },
-          { "name": "Über uns", "url": "/ueber-uns", "icon": "HiOutlineUserGroup" },
-          { "name": "Kontakt", "url": "/kontakt", "icon": "HiOutlinePencil" }
-        ]
-      }
-    },
-    { "name": "Preise", "url": "/preise" },
-    { "name": "Über uns", "url": "/ueber-uns" }
-  ],
-  "footer_company": [
-    { "name": "Startseite", "url": "/" },
-    { "name": "Leistungen", "url": "/leistungen" },
-    { "name": "Webseiten", "url": "/leistungen/webseiten" },
-    { "name": "Software & Apps", "url": "/leistungen/software" },
-    { "name": "Prozesse", "url": "/leistungen/prozesse" },
-    { "name": "Coaching", "url": "/leistungen/coaching" },
-    { "name": "Projekte", "url": "/projekte" },
-    { "name": "Preise", "url": "/preise" },
-    { "name": "Über uns", "url": "/ueber-uns" },
-    { "name": "Kontakt", "url": "/kontakt" }
-  ],
-  "footer_legal": [
-    { "name": "Datenschutz", "url": "/datenschutz" },
-    { "name": "AGB", "url": "/agb" },
-    { "name": "Impressum", "url": "/impressum" },
-    { "name": "Cookies", "url": "/cookie" },
-    { "name": "Kontakt", "url": "/kontakt" }
-  ]
-}
+import { glob } from "astro/loaders";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+
+// Homepage collection
+const homepageCollection = defineCollection({
+  loader: glob({ pattern: "**/-*.{md,mdx}", base: "src/content/homepage" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// About collection
+const aboutCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Blog collection
+const blogCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    date: z.coerce.date().optional(),
+    image: z.string().optional(),
+    category: z.string().optional(),
+    featured: z.boolean().optional(),
+    author: z.object({
+      name: z.string(),
+      avatar: z.string().optional(),
+      designation: z.string().optional(),
+    }).optional(),
+    draft: z.boolean().optional(),
+  }),
+});
+
+// Careers collection
+const careersCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/careers" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Case Studies collection
+const caseStudiesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/case-studies" }),
+  schema: z.object({
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    image: z.string().optional(),
+    logo: z.string().optional(),
+    date: z.coerce.date().optional(),
+    draft: z.boolean().optional(),
+    featured: z.boolean().optional(),
+    review_video: z.string().optional(),
+  }),
+});
+
+// Changelog collection
+const changelogCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/changelog" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Contact collection
+const contactCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/contact" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Features collection
+const featuresCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/features" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Integrations collection
+const integrationsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/integrations" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Pages collection
+const pagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Pricing collection
+const pricingCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pricing" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Sections collection
+const sectionsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/sections" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Export collections
+export const collections = {
+  homepage: homepageCollection,
+  about: aboutCollection,
+  blog: blogCollection,
+  careers: careersCollection,
+  "case-studies": caseStudiesCollection,
+  changelog: changelogCollection,
+  contact: contactCollection,
+  features: featuresCollection,
+  integrations: integrationsCollection,
+  pages: pagesCollection,
+  pricing: pricingCollection,
+  sections: sectionsCollection,
+};
