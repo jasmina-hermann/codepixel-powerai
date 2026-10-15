@@ -130,3 +130,15 @@
     width: min(56rem, calc(100vw - 2rem)) !important;
   }
 }
+/* Mega-Menü ohne rechte Spalte: linke Spalte nutzt die ganze Breite */
+@media (min-width: 80rem) {
+  .desktop-dropdown > div:has(.nav-mega-legal-list:not(:has(a))) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .desktop-dropdown > div:has(.nav-mega-legal-list:not(:has(a))) > .col-span-2 {
+    grid-column: 1 / -1 !important;
+  }
+  .desktop-dropdown > div:has(.nav-mega-legal-list:not(:has(a))) > .col-span-1 {
+    display: none !important;
+  }
+}
