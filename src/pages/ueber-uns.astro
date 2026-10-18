@@ -68,14 +68,6 @@ const findPhoto = (base: string) => {
 
 const team = [
   {
-    name: "E. Kasalar",
-    nickname: "Captain",
-    role: "Verkaufsleiter",
-    text: "Er hört zu, versteht Ihr Anliegen und bringt Ihr Projekt auf Kurs. Als Verkaufsleiter ist er Ihr erster Ansprechpartner für Angebote und Beratung.",
-    initials: "EK",
-    photo: findPhoto("captain"),
-  },
-  {
     name: "J. Hermann",
     nickname: "Organisationstalent",
     role: "Inhaberin",
@@ -253,9 +245,9 @@ const callToAction = {
 <style>
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.4rem;
-    max-width: 62rem;
+    max-width: 30rem;
     margin: 0 auto;
   }
   .team-card {
