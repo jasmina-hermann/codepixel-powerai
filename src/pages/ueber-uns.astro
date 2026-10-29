@@ -247,7 +247,7 @@ const callToAction = {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 1.4rem;
-    max-width: 30rem;
+    max-width: 40rem;
     margin: 0 auto;
   }
   .team-card {
@@ -265,10 +265,11 @@ const callToAction = {
     border-color: rgba(255, 176, 0, 0.52);
   }
   .team-photo {
-    width: 170px;
-    height: 170px;
+    width: min(100%, 360px);
+    aspect-ratio: 4 / 5;
+    height: auto;
     margin: 0 auto 1.3rem;
-    border-radius: 50%;
+    border-radius: 0.8rem;
     padding: 4px;
     background: linear-gradient(135deg, #ffd000, #ff9800 60%, #f36a00);
     box-shadow: 0 0 40px rgba(255, 152, 0, 0.25);
@@ -279,8 +280,9 @@ const callToAction = {
   .team-photo img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 0.55rem;
     object-fit: cover;
+    object-position: center 38%;
     display: block;
   }
   .team-initials {
