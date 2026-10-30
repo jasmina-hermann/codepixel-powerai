@@ -1,0 +1,404 @@
+---
+// LaptopScroll.astro – Laptop klappt beim Scrollen auf.
+// Nutzt die Farben und Schriften aus src/config/theme.json (Codepixel).
+---
+
+<section class="lp-stage" id="lp-stage" aria-label="So entsteht deine Webseite">
+  <div class="lp-sticky">
+    <h2 class="lp-title">
+      Von der Idee zur <span class="heading-script-accent">Webseite</span>
+    </h2>
+
+    <div class="lp-scene">
+      <div class="lp-laptop">
+        <div class="lp-base">
+          <div class="lp-kb" id="lp-kb"></div>
+          <div class="lp-pad"></div>
+        </div>
+        <div class="lp-lid">
+          <div class="lp-screen">
+            <div class="lp-boot">
+              <span class="heading-script-accent">Codepixel</span>
+            </div>
+            <div class="lp-site">
+              <div class="lp-s-nav">
+                <b>Restaurant Wintergarten</b>
+                <span>Menü · Reservation · Kontakt</span>
+              </div>
+              <div class="lp-s-hero">
+                <h4 id="lp-typed"></h4>
+                <span class="lp-s-btn">Tisch reservieren</span>
+              </div>
+              <div class="lp-s-cards"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="lp-glow"></div>
+      </div>
+
+      <div class="lp-chip lp-ch1" data-at=".38"><span class="lp-stars">★★★★★</span><b>5.0</b> Google</div>
+      <div class="lp-chip lp-ch2" data-at=".5"><span class="lp-dot"></span>Ladezeit <b>0.8 s</b></div>
+      <div class="lp-chip lp-ch3" data-at=".62"><span class="lp-dot"></span><b>Mobil</b> optimiert</div>
+      <div class="lp-chip lp-ch4" data-at=".74"><span class="lp-dot"></span><b>Neue Anfrage</b> eingegangen</div>
+    </div>
+
+    <div class="lp-steps">
+      <span data-at="0">Idee</span>
+      <span data-at=".3">Design</span>
+      <span data-at=".55">Umsetzung</span>
+      <span data-at=".78">Live</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lp-stage {
+    /* Codepixel-Farben aus theme.json (mit gleichen Werten als Rückfall) */
+    --lp-bg: var(--color-body, #050608);
+    --lp-card: var(--color-card, #0d0f13);
+    --lp-fg: var(--color-text, #f8f6f1);
+    --lp-muted: var(--color-gray, #a6a6aa);
+    --lp-line: var(--color-border, #3a2a12);
+    --lp-primary: var(--color-primary, #ff9800);
+    --lp-secondary: var(--color-secondary, #ffd000);
+    --lp-script: #ffad16;
+    --lp-grad: linear-gradient(90deg, var(--lp-primary), var(--lp-secondary));
+
+    height: 340vh;
+    position: relative;
+    background: var(--lp-bg);
+    color: var(--lp-fg);
+    font-family: var(--font-primary, Inter, sans-serif);
+  }
+
+  .lp-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .lp-title {
+    position: absolute;
+    top: 10vh;
+    left: 16px;
+    right: 16px;
+    margin: 0;
+    text-align: center;
+    font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--lp-fg);
+    opacity: var(--titleo, 1);
+    transform: translateY(calc((1 - var(--titleo, 1)) * -30px));
+  }
+
+  /* Laptop */
+  .lp-scene {
+    perspective: 1800px;
+    width: min(640px, 84vw, 80vh);
+    position: relative;
+    margin-top: -6vh;
+  }
+  .lp-laptop {
+    position: relative;
+    transform-style: preserve-3d;
+    aspect-ratio: 16 / 10.4;
+    transform: rotateX(var(--tilt, -22deg)) scale(var(--zoom, 0.82));
+  }
+  .lp-lid {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 100%;
+    transform: rotateX(var(--lid, -88deg));
+    transform-style: preserve-3d;
+    border-radius: 18px 18px 4px 4px;
+    background: linear-gradient(160deg, #24201a, #0d0f13);
+    padding: 2.2%;
+    box-shadow: 0 0 0 1px var(--lp-line) inset;
+  }
+  .lp-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--lp-bg);
+    backface-visibility: hidden;
+  }
+  .lp-base {
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    top: 100%;
+    height: 62%;
+    transform-origin: 50% 0;
+    transform: rotateX(90deg);
+    border-radius: 4px 4px 22px 22px;
+    background: linear-gradient(180deg, #2c2720, #171006);
+    box-shadow: 0 0 0 1px var(--lp-line) inset;
+  }
+  .lp-kb {
+    position: absolute;
+    inset: 10% 9% 38%;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 3px;
+  }
+  .lp-kb :global(i) {
+    background: #090a0d;
+    border-radius: 2px;
+  }
+  .lp-pad {
+    position: absolute;
+    left: 36%;
+    right: 36%;
+    bottom: 7%;
+    height: 24%;
+    border-radius: 6px;
+    background: #24201a;
+    box-shadow: 0 0 0 1px var(--lp-line) inset;
+  }
+  .lp-glow {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: -24%;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--lp-primary);
+    filter: blur(34px);
+    opacity: calc(var(--glow, 0.2) * 0.45);
+  }
+
+  /* Bildschirm-Inhalt */
+  .lp-boot {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    opacity: var(--booto, 1);
+    font-size: clamp(22px, 5vw, 46px);
+  }
+  .lp-site {
+    position: absolute;
+    inset: 0;
+    padding: 5% 6%;
+    display: flex;
+    flex-direction: column;
+    gap: 6%;
+    opacity: var(--siteo, 0);
+    background:
+      radial-gradient(90% 80% at 90% 0%, rgba(255, 152, 0, 0.22), transparent 60%),
+      var(--lp-bg);
+  }
+  .lp-s-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: clamp(7px, 1.2vw, 11px);
+    color: var(--lp-muted);
+  }
+  .lp-s-nav b {
+    color: var(--lp-fg);
+  }
+  .lp-s-nav span {
+    white-space: nowrap;
+  }
+  .lp-s-hero h4 {
+    margin: 0;
+    font-size: clamp(14px, 3.2vw, 30px);
+    font-weight: 600;
+    line-height: 1.25;
+    max-width: 14ch;
+    min-height: 2.6em;
+    color: var(--lp-fg);
+  }
+  .lp-s-hero :global(.lp-caret) {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    background: var(--lp-primary);
+    vertical-align: -0.1em;
+    margin-left: 2px;
+    animation: lp-blink 1s steps(2) infinite;
+  }
+  @keyframes lp-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .lp-s-btn {
+    display: inline-block;
+    margin-top: 4%;
+    padding: 0.5em 1.2em;
+    border-radius: 99px;
+    background: var(--lp-grad);
+    color: var(--color-text-dark, #050608);
+    font-size: clamp(7px, 1.1vw, 11px);
+    font-weight: 600;
+  }
+  .lp-s-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4%;
+    margin-top: auto;
+  }
+  .lp-s-cards div {
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+    background: var(--lp-card);
+    border: 1px solid var(--lp-line);
+    opacity: var(--cards, 0);
+    transform: translateY(calc((1 - var(--cards, 0)) * 40px));
+  }
+  .lp-s-cards div:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.45), var(--lp-card));
+  }
+  .lp-s-cards div:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 208, 0, 0.35), var(--lp-card));
+  }
+
+  /* Chips */
+  .lp-chip {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 14px;
+    background: rgba(13, 15, 19, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--lp-line);
+    color: var(--lp-fg);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 20px 40px -20px #000;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition:
+      opacity 0.5s,
+      transform 0.6s cubic-bezier(0.2, 0.9, 0.2, 1.2);
+  }
+  .lp-chip:global(.on) {
+    opacity: 1;
+    transform: none;
+  }
+  .lp-stars {
+    color: var(--lp-secondary);
+  }
+  .lp-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--lp-primary);
+    box-shadow: 0 0 12px var(--lp-primary);
+  }
+  .lp-ch1 { left: -6%; top: 8%; }
+  .lp-ch2 { right: -6%; top: 22%; }
+  .lp-ch3 { left: -2%; bottom: 6%; }
+  .lp-ch4 { right: -2%; bottom: -4%; }
+
+  @media (max-width: 720px) {
+    .lp-chip { font-size: 0.72rem; padding: 0.45rem 0.65rem; }
+    .lp-ch1 { left: 0; top: -16%; }
+    .lp-ch2 { right: 0; top: -6%; }
+    .lp-ch3 { left: 0; bottom: -30%; }
+    .lp-ch4 { right: 0; bottom: -42%; }
+  }
+
+  /* Schritte unten */
+  .lp-steps {
+    position: absolute;
+    z-index: 4;
+    bottom: 6vh;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(12px, 4vw, 40px);
+    font-size: 0.85rem;
+    color: var(--lp-muted);
+  }
+  .lp-steps span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+  .lp-steps span::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lp-line);
+    transition: 0.3s;
+  }
+  .lp-steps span:global(.on) {
+    color: var(--lp-fg);
+  }
+  .lp-steps span:global(.on)::before {
+    background: var(--lp-primary);
+    box-shadow: 0 0 10px var(--lp-primary);
+  }
+</style>
+
+<script>
+  const stage = document.getElementById("lp-stage");
+
+  if (stage) {
+    const kb = document.getElementById("lp-kb");
+    if (kb) kb.innerHTML = "<i></i>".repeat(56);
+
+    const chips = Array.from(stage.querySelectorAll<HTMLElement>(".lp-chip"));
+    const steps = Array.from(stage.querySelectorAll<HTMLElement>(".lp-steps span"));
+    const typed = document.getElementById("lp-typed");
+    const start = "Geniessen im ";
+    const word = "Wintergarten";
+    const total = start.length + word.length;
+
+    const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    const seg = (p: number, a: number, b: number) => clamp((p - a) / (b - a));
+    const ease = (x: number) => 1 - Math.pow(1 - x, 3);
+    let last = -1;
+
+    const frame = () => {
+      const r = stage.getBoundingClientRect();
+      const p = clamp(-r.top / (r.height - window.innerHeight));
+
+      if (p !== last) {
+        last = p;
+        const open = ease(seg(p, 0.02, 0.35));
+        const s = stage.style;
+        s.setProperty("--lid", `${-88 + 88 * open}deg`);
+        s.setProperty("--tilt", `${-22 + 12 * open}deg`);
+        s.setProperty("--zoom", (0.82 + 0.18 * open + 0.12 * ease(seg(p, 0.8, 1))).toFixed(3));
+        s.setProperty("--glow", (0.2 + 0.8 * open).toFixed(2));
+        s.setProperty("--booto", (1 - seg(p, 0.3, 0.4)).toFixed(2));
+        s.setProperty("--siteo", seg(p, 0.34, 0.44).toFixed(2));
+        s.setProperty("--cards", ease(seg(p, 0.55, 0.7)).toFixed(2));
+        s.setProperty("--titleo", (1 - seg(p, 0.2, 0.32)).toFixed(2));
+
+        if (typed) {
+          const n = Math.round(total * seg(p, 0.42, 0.56));
+          const first = start.slice(0, n);
+          const rest = n > start.length ? word.slice(0, n - start.length) : "";
+          typed.innerHTML =
+            first +
+            (rest ? `<span class="heading-script-accent">${rest}</span>` : "") +
+            '<span class="lp-caret"></span>';
+        }
+
+        chips.forEach((c) => c.classList.toggle("on", p >= Number(c.dataset.at || 0)));
+        steps.forEach((c) => c.classList.toggle("on", p >= Number(c.dataset.at || 0)));
+      }
+      requestAnimationFrame(frame);
+    };
+
+    requestAnimationFrame(frame);
+  }
+</script>
